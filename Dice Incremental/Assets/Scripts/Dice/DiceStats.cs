@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DiceStats : MonoBehaviour
 {
@@ -14,7 +15,21 @@ public class DiceStats : MonoBehaviour
 	[SerializeField]
 	private int magic = 0;
 
+	public class MyEvent : UnityEvent<int>
+	{ }
 
+	public MyEvent powerAdded = null;
+
+	public int GetSides()
+	{
+		return sides;
+	}
+
+	void Awake()
+	{
+		if (powerAdded == null)
+			powerAdded = new MyEvent();
+	}
 
 	// Use this for initialization
 	void Start ()
@@ -33,11 +48,13 @@ public class DiceStats : MonoBehaviour
 		sides++;
 		power++;
 
-		if (sides <= goalSides)
-			return;
+		if (sides >= goalSides)
+		{
+			sides = baseSides;
+			goalSides++;
+			magic++;
+		}
 
-		sides = baseSides;
-		goalSides++;
-		magic++;
+		powerAdded.Invoke(sides);
 	}
 }
