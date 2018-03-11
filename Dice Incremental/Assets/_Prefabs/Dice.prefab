@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73d59e90123c484eaa3b7ddb46c6942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stats: {fileID: 114309770216277946}
+  m_stats: {fileID: 0}
   m_renderer: {fileID: 120086802655203036}
   m_text: {fileID: 114073864658691788}
   m_radius: 45
@@ -90,10 +90,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81dbc7be9c5224a498c12e4515ceaf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
-  sides: 3
-  goalSides: 6
-  magic: 0
+  m_power: 1
+  m_sides: 3
+  m_goalSides: 6
+  m_magic: 0
+  m_baseSides: 3
+  m_firstSidesGoal: 6
 --- !u!120 &120086802655203036
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -129,10 +131,9 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: -45, y: 45, z: 1}
-  - {x: 45, y: 45, z: 1}
-  - {x: 45, y: -45, z: 1}
-  - {x: -45, y: -45, z: 1}
+  - {x: 59.95834, y: 0, z: 1}
+  - {x: -29.97917, y: 51.92544, z: 1}
+  - {x: -29.97917, y: -51.92544, z: 1}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 10
