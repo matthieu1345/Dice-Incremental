@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class DiceUI : MonoBehaviour
 {
 	[SerializeField]
-	private int m_collumnCount = 5;
+	int m_collumnCount = 5;
 
 	[SerializeField]
-	private GridLayoutGroup m_layoutScript = null;
+	GridLayoutGroup m_layoutScript;
 
 	[SerializeField]
-	GameObject m_buyNewDiceObject = null;
-	
-	private List<GameObject> m_diceObjects = new List<GameObject>();
+	GameObject m_buyNewDiceObject;
+
+	List<GameObject> m_diceObjects = new List<GameObject>();
 
 	public int GetDiceCount() { return m_diceObjects.Count;}
 
-	private void Awake()
+	void Awake()
 	{
 		if( m_layoutScript != null )
 		{

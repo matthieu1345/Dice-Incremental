@@ -1,21 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour {
 
-	void Awake()
+public class LevelManager : InstancedMonoBehaviour<LevelManager>
+{
+
+	[SerializeField]
+	private List<ComboBase> m_allCombos = new List<ComboBase>();
+
+	[SerializeField]
+	private float m_money = 0;
+
+	[SerializeField]
+	float m_xp = 0;
+
+	public void AddMoney( float rewardValue ) { m_money += rewardValue; }
+	public void AddXp( float rewardValue ) { m_xp += rewardValue; }
+
+	public void CheckCombos()
 	{
-
+		foreach ( ComboBase combo in m_allCombos )
+		{
+			combo.CheckCombo(DiceManager.GetInstance().GetDiceList());
+		}
 	}
 
-	// Use this for initialization
-	void Start () {
+
+	[MenuItem("Tools/Combo tools/Get all combo's")]
+	static void GetAllCombos()
+	{
 		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		var guid = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
+		GetInstance().m_allCombos = guid.ToList();
+
 	}
 }

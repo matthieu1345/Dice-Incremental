@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 224758099045833426}
   - component: {fileID: 114107034306090006}
-  - component: {fileID: 114309770216277946}
   - component: {fileID: 120086802655203036}
   - component: {fileID: 222742738714205574}
   - component: {fileID: 114073864658691788}
@@ -75,27 +74,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73d59e90123c484eaa3b7ddb46c6942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stats: {fileID: 0}
+  m_stats:
+    m_power: 1
+    m_sides: 3
+    m_goalSides: 6
+    m_magic: 0
+    m_usedPower: 0
+    m_baseSides: 3
+    m_firstSidesGoal: 6
   m_renderer: {fileID: 120086802655203036}
   m_text: {fileID: 114073864658691788}
   m_radius: 45
---- !u!114 &114309770216277946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389010448151012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81dbc7be9c5224a498c12e4515ceaf20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_power: 1
-  m_sides: 3
-  m_goalSides: 6
-  m_magic: 0
-  m_baseSides: 3
-  m_firstSidesGoal: 6
 --- !u!120 &120086802655203036
 LineRenderer:
   m_ObjectHideFlags: 1

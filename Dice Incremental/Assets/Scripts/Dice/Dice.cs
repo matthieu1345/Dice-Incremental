@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Dice : MonoBehaviour
 {
 	[SerializeField]
-	private DiceStats m_stats;
+	DiceStats m_stats;
 	[SerializeField]
-	private LineRenderer m_renderer;
+	LineRenderer m_renderer;
 	[SerializeField]
-	private Text m_text;
+	Text m_text;
 
 	int m_rollValue = 1;
 
@@ -18,14 +18,15 @@ public class Dice : MonoBehaviour
 
 	public int m_radius = 45;
 
+	public void AddPower() { m_stats.AddPower(); }
+
+	public int GetSides() { return m_stats.GetSides(); }
+
 	void Awake()
 	{
 		if (m_stats == null)
 		{
-			if (!this.GetComponentChecked<DiceStats>(ref m_stats))
-			{
-				m_stats = gameObject.AddComponent<DiceStats>();
-			}
+			m_stats = new DiceStats();
 		}
 
 		if (m_renderer == null)
@@ -49,11 +50,17 @@ public class Dice : MonoBehaviour
 
 	void Start()
 	{
-		if (m_stats != null)
-			m_stats.m_powerAdded.AddListener(SetLineRenderer);
+		if ( m_stats != null )
+		{
+			m_stats.Start();
+			m_stats.m_powerAdded += SetLineRenderer;
+		}
 
-		if (DiceManager.m_instance != null)
-			DiceManager.m_instance.m_rollEvent.AddListener(Roll);
+		if ( DiceManager.m_instance != null )
+		{
+			DiceManager.m_instance.m_rollEvent += Roll;
+			DiceManager.m_instance.AddDice(this);
+		}
 	}
 
 	public void SetLineRenderer(int sideCount)
@@ -74,7 +81,7 @@ public class Dice : MonoBehaviour
 
 	void Roll()
 	{
-		m_rollValue = Random.Range(1, m_stats.GetSides());
+		m_rollValue = Random.Range(1, m_stats.GetSides() + 1);
 		m_text.text = m_rollValue.ToString();
 	}
 }
