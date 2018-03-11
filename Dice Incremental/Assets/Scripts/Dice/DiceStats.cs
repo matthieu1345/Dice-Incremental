@@ -1,60 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DiceStats : MonoBehaviour
 {
+	[Header("Current Data")]
+	[ReadOnly, SerializeField]
+	private int m_power = 1;
+	[ReadOnly, SerializeField]
+	private int m_sides = 3;
+	[ReadOnly, SerializeField]
+	private int m_goalSides = 6;
+	[ReadOnly, SerializeField]
+	private int m_magic = 0;
+
+	[Header("Starting Data")]
 	[SerializeField]
-	private int power = 1;
+	private int m_baseSides = 3;
 	[SerializeField]
-	private int sides = 3;
-	private int baseSides = 3;
-	[SerializeField]
-	private int goalSides = 6;
-	[SerializeField]
-	private int magic = 0;
+	int m_firstSidesGoal = 6;
 
 	public class MyEvent : UnityEvent<int>
 	{ }
 
-	public MyEvent powerAdded = null;
+	public MyEvent m_powerAdded = null;
 
 	public int GetSides()
 	{
-		return sides;
+		return m_sides;
 	}
 
 	void Awake()
 	{
-		if (powerAdded == null)
-			powerAdded = new MyEvent();
+		if (m_powerAdded == null)
+			m_powerAdded = new MyEvent();
 	}
 
 	// Use this for initialization
 	void Start ()
 	{
-		sides = baseSides;
-		DiceManager.instance.AddDice(this);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		m_sides = m_baseSides;
+		m_goalSides = m_firstSidesGoal;
+		DiceManager.m_instance.AddDice(this);
 	}
 
 	public void AddPower()
 	{
-		sides++;
-		power++;
+		m_sides++;
+		m_power++;
 
-		if (sides >= goalSides)
+		if (m_sides > m_goalSides)
 		{
-			sides = baseSides;
-			goalSides++;
-			magic++;
+			m_sides = m_baseSides;
+			m_goalSides++;
+			m_magic++;
 		}
 
-		powerAdded.Invoke(sides);
+		m_powerAdded.Invoke(m_sides);
 	}
 }

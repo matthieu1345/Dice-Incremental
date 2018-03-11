@@ -12,7 +12,11 @@ public class Dice : MonoBehaviour
 	[SerializeField]
 	private Text m_text;
 
-	public int radius = 45;
+	int m_rollValue = 1;
+
+	public int GetRollValue() { return m_rollValue; }
+
+	public int m_radius = 45;
 
 	void Awake()
 	{
@@ -39,19 +43,23 @@ public class Dice : MonoBehaviour
 				m_text = gameObject.AddComponent<Text>();
 			}
 		}
+
+		transform.position += new Vector3(0, 0, 1);
 	}
 
 	void Start()
 	{
 		if (m_stats != null)
-			m_stats.powerAdded.AddListener(SetLineRenderer);
+			m_stats.m_powerAdded.AddListener(SetLineRenderer);
+
+		if (DiceManager.m_instance != null)
+			DiceManager.m_instance.m_rollEvent.AddListener(Roll);
 	}
 
 	public void SetLineRenderer(int sideCount)
 	{
 		m_renderer.positionCount = sideCount;
-		float radius = (((RectTransform) transform).rect.width) / 2 - 5;
-
+		float radius = (((RectTransform) transform).rect.width) / 2 - m_renderer.startWidth * 2;
 
 		Vector3[] coordinates = new Vector3[sideCount];
 		for (int i = 0; i < sideCount; i++)
@@ -62,5 +70,11 @@ public class Dice : MonoBehaviour
 		}
 
 		m_renderer.SetPositions(coordinates);
+	}
+
+	void Roll()
+	{
+		m_rollValue = Random.Range(1, m_stats.GetSides());
+		m_text.text = m_rollValue.ToString();
 	}
 }

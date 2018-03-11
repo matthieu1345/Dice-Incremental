@@ -1,13 +1,49 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class DiceUI : MonoBehaviour {
+public class DiceUI : MonoBehaviour
+{
+	[SerializeField]
+	private int m_collumnCount = 5;
 
-	private List<GameObject> diceObjects = new List<GameObject>();
+	[SerializeField]
+	private GridLayoutGroup m_layoutScript = null;
+
+	[SerializeField]
+	GameObject m_buyNewDiceObject = null;
+	
+	private List<GameObject> m_diceObjects = new List<GameObject>();
+
+	public int GetDiceCount() { return m_diceObjects.Count;}
+
+	private void Awake()
+	{
+		if( m_layoutScript != null )
+		{
+			Vector2 cellSize = m_layoutScript.cellSize;
+			float fullWidth = ( (RectTransform)gameObject.transform ).rect.width * 2;
+			float totalSpacing = m_collumnCount * m_layoutScript.spacing.x;
+			cellSize.x = ( fullWidth - totalSpacing ) / (m_collumnCount - 1);
+			m_layoutScript.cellSize = cellSize;
+
+			m_layoutScript.constraintCount = m_collumnCount;
+		}
+
+		if (m_buyNewDiceObject != null)
+			m_buyNewDiceObject.transform.SetAsLastSibling();
+	}
 
 	public void AddDiceObject(GameObject dice)
 	{
-		diceObjects.Add(dice);
+		m_diceObjects.Add(dice);
+
+		dice.transform.SetParent(transform);
+
+		if (m_buyNewDiceObject != null)
+			m_buyNewDiceObject.transform.SetAsLastSibling();
+
+		m_layoutScript.cellSize = m_layoutScript.cellSize;
 	}
 }

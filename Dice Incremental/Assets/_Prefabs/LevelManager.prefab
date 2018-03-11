@@ -51,3 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd02d2ad20c23eb4daf8c95a6b24a3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_uiFolder: {fileID: 0}
+  m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
+    type: 2}
