@@ -14,15 +14,26 @@ public class ShowOnlyDrawer : PropertyDrawer
 		case SerializedPropertyType.Integer:
 			valueStr = prop.intValue.ToString();
 			break;
+
 		case SerializedPropertyType.Boolean:
 			valueStr = prop.boolValue.ToString();
 			break;
+
 		case SerializedPropertyType.Float:
 			valueStr = prop.floatValue.ToString("0.00000");
 			break;
+
 		case SerializedPropertyType.String:
 			valueStr = prop.stringValue;
 			break;
+
+		case SerializedPropertyType.ObjectReference:
+			if ( prop.objectReferenceValue != null )
+				valueStr = prop.objectReferenceValue.ToString();
+			else
+				valueStr = "none";
+			break;
+
 		default:
 			valueStr = "(not supported)";
 			break;

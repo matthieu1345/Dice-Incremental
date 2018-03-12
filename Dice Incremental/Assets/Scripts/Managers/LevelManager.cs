@@ -8,9 +8,14 @@ using UnityEngine;
 
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
-
 	[SerializeField]
 	private List<ComboBase> m_allCombos = new List<ComboBase>();
+
+	[SerializeField]
+	private float m_costMultiplierPerPower = 1;
+
+	[SerializeField]
+	private float m_basePowerCost = 1;
 
 	[SerializeField]
 	private float m_money = 0;
@@ -20,6 +25,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public void AddMoney( float rewardValue ) { m_money += rewardValue; }
 	public void AddXp( float rewardValue ) { m_xp += rewardValue; }
+
+	public float GetCostMultiplier() { return m_costMultiplierPerPower; }
+	public float GetBaseCost() { return m_basePowerCost; }
 
 	public void CheckCombos()
 	{
@@ -37,5 +45,17 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		var guid = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
 		GetInstance().m_allCombos = guid.ToList();
 
+	}
+
+	public bool Buy( float cost )
+	{
+		if ( m_money >= cost )
+		{
+			m_money -= cost;
+
+			return true;
+		}
+
+		return false;
 	}
 }

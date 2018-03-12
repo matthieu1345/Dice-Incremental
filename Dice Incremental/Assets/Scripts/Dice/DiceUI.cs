@@ -23,9 +23,10 @@ public class DiceUI : MonoBehaviour
 		if( m_layoutScript != null )
 		{
 			Vector2 cellSize = m_layoutScript.cellSize;
-			float fullWidth = ( (RectTransform)gameObject.transform ).rect.width * 2;
-			float totalSpacing = m_collumnCount * m_layoutScript.spacing.x;
-			cellSize.x = ( fullWidth - totalSpacing ) / (m_collumnCount - 1);
+			CanvasScaler parentCanvasScaler = GetComponentInParent<CanvasScaler>();
+			float fullWidth = (((RectTransform)transform).anchorMax.x - ((RectTransform)transform).anchorMin.x) * parentCanvasScaler.scaleFactor * parentCanvasScaler.referenceResolution.x;
+			float totalSpacing = (m_collumnCount + 1) * m_layoutScript.spacing.x;
+			cellSize.x = ( fullWidth - totalSpacing ) / m_collumnCount;
 			m_layoutScript.cellSize = cellSize;
 
 			m_layoutScript.constraintCount = m_collumnCount;

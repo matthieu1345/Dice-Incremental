@@ -4,18 +4,18 @@ using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
 
-public class DiceTests {
+public class DiceTests
+{
 
 	[Test]
 	public void DiceTestsPower()
 	{
-		// Use the Assert class to test conditions.
 		DiceStats stats = new DiceStats();
 		stats.TestConstructor(3, 6);
 		const int expectedPower = 101;
 
 		for (int i = 0; i < 100; i++)
-			stats.AddPower();
+			stats.AddSide();
 
 		Assert.AreEqual(expectedPower, stats.GetPower(), 0);
 	}
@@ -28,7 +28,7 @@ public class DiceTests {
 		const int expectedPower = 11;
 
 		for (int i = 0; i < 100; i++)
-			stats.AddPower();
+			stats.AddSide();
 
 		Assert.AreEqual(expectedPower, stats.GetMagic(), 0);
 	}
@@ -41,7 +41,7 @@ public class DiceTests {
 		const int expectedGoal = 17;
 
 		for (int i = 0; i < 100; i++)
-			stats.AddPower();
+			stats.AddSide();
 
 		Assert.AreEqual(expectedGoal, stats.GetGoal(), 0);
 	}
@@ -54,7 +54,7 @@ public class DiceTests {
 		const int expectedSides = 4;
 
 		for ( int i = 0; i < 100; i++ )
-			stats.AddPower();
+			stats.AddSide();
 
 		Assert.AreEqual(expectedSides, stats.GetSides(), 0);
 	}

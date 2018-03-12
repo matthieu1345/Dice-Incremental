@@ -10,21 +10,21 @@ public class DiceStats
 {
 	[Header("Current Data")]
 	[ReadOnly, SerializeField]
-	int m_power = 1;
+	private int m_power = 1;
 	[ReadOnly, SerializeField]
-	int m_sides = 3;
+	private int m_sides = 3;
 	[ReadOnly, SerializeField]
-	int m_goalSides = 6;
+	private int m_goalSides = 6;
 	[ReadOnly, SerializeField]
-	int m_magic;
+	private int m_magic;
 	[ReadOnly, SerializeField]
-	int m_usedPower;
+	private int m_usedPower;
 
 	[Header("Starting Data")]
 	[SerializeField]
-	int m_baseSides = 3;
+	private int m_baseSides = 3;
 	[SerializeField]
-	int m_firstSidesGoal = 6;
+	private int m_firstSidesGoal = 6;
 
 	public delegate void PowerAdded( int sides );
 
@@ -49,7 +49,7 @@ public class DiceStats
 		m_goalSides = m_firstSidesGoal;
 	}
 
-	public void AddPower()
+	public void AddSide()
 	{
 		m_sides++;
 		m_power++;

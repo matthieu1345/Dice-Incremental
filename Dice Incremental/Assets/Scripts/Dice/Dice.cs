@@ -6,49 +6,60 @@ using UnityEngine.UI;
 public class Dice : MonoBehaviour
 {
 	[SerializeField]
-	DiceStats m_stats;
+	private DiceStats m_stats;
 	[SerializeField]
-	LineRenderer m_renderer;
+	private LineRenderer m_renderer;
 	[SerializeField]
-	Text m_text;
+	private Text m_text;
 
-	int m_rollValue = 1;
+	private int m_rollValue = 1;
+	private int m_radius = 45;
 
 	public int GetRollValue() { return m_rollValue; }
 
-	public int m_radius = 45;
 
-	public void AddPower() { m_stats.AddPower(); }
+
+	public void AddPower() { m_stats.AddSide(); }
 
 	public int GetSides() { return m_stats.GetSides(); }
+	public int GetPower() { return m_stats.GetPower(); }
+	public int GetGoal() { return m_stats.GetGoal(); }
 
-	void Awake()
+	private void Awake()
 	{
-		if (m_stats == null)
+		if ( m_stats == null )
 		{
 			m_stats = new DiceStats();
 		}
 
-		if (m_renderer == null)
+		if ( m_renderer == null )
 		{
-			if (!this.GetComponentChecked<LineRenderer>(ref m_renderer))
+			if ( !this.GetComponentChecked<LineRenderer>(ref m_renderer) )
 			{
 				m_renderer = gameObject.AddComponent<LineRenderer>();
 			}
 		}
 
-		if (m_text == null)
+		if ( m_text == null )
 		{
-			if (!this.GetComponentChecked<Text>(ref m_text))
+			if ( !this.GetComponentChecked<Text>(ref m_text) )
 			{
 				m_text = gameObject.AddComponent<Text>();
 			}
 		}
 
 		transform.position += new Vector3(0, 0, 1);
+
+		Button m_button = GetComponent<Button>();
+
+		if ( m_button != null )
+			m_button.onClick.AddListener(delegate { MenuSelector.GetInstance().OpenDiceMenu(this); });
+
 	}
 
-	void Start()
+
+
+	private void Start()
 	{
 		if ( m_stats != null )
 		{
@@ -63,7 +74,7 @@ public class Dice : MonoBehaviour
 		}
 	}
 
-	public void SetLineRenderer(int sideCount)
+	private void SetLineRenderer(int sideCount)
 	{
 		m_renderer.positionCount = sideCount;
 		float radius = (((RectTransform) transform).rect.width) / 2 - m_renderer.startWidth * 2;
@@ -79,7 +90,7 @@ public class Dice : MonoBehaviour
 		m_renderer.SetPositions(coordinates);
 	}
 
-	void Roll()
+	private void Roll()
 	{
 		m_rollValue = Random.Range(1, m_stats.GetSides() + 1);
 		m_text.text = m_rollValue.ToString();
