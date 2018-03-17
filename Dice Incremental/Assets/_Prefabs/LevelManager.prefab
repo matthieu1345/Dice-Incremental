@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4715119042904326}
   - component: {fileID: 114174764942973058}
+  - component: {fileID: 114061375465846334}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Managers
@@ -34,12 +35,29 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939431470150900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 468.0118, y: 280.23578, z: 9.125}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114061375465846334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85dc96a4ede96a948a7d5bead6f90e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allCombos:
+  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  m_costMultiplierPerPower: 0.2
+  m_basePowerCost: 10
+  m_money: 0
+  m_xp: 0
 --- !u!114 &114174764942973058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,3 +72,4 @@ MonoBehaviour:
   m_uiFolder: {fileID: 0}
   m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
     type: 2}
+  m_startingDice: 1

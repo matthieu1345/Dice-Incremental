@@ -26,7 +26,7 @@ public class MenuSelector : InstancedMonoBehaviour<MenuSelector>
 	private DiceMenu m_diceMenu;
 
 	[SerializeField]
-	Dictionary<GameObject, GameObject> m_buttonMenuPair = new Dictionary<GameObject, GameObject>();
+	private Dictionary<GameObject, GameObject> m_buttonMenuPair = new Dictionary<GameObject, GameObject>();
 
 	private GameObject m_currentActive;
 

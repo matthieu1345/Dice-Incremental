@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,9 @@ public class DiceMenu : MonoBehaviour
 	[ReadOnly, SerializeField]
 	private float m_sideCost, m_maxSideCost, m_magicCost;
 
+	[SerializeField]
+	private Text m_singleText, m_maxText, m_magicText;
+	
 	public void SelectNewDice( Dice selectedDice )
 	{
 		m_selectedDice = selectedDice;
@@ -71,6 +75,10 @@ public class DiceMenu : MonoBehaviour
 
 		m_magicCost = m_maxSideCost;
 		m_magicCost += LevelManager.GetInstance().GetBaseCost() + LevelManager.GetInstance().GetBaseCost() * LevelManager.GetInstance().GetCostMultiplier() * (m_selectedDice.GetPower() - 1 + m_selectedDice.GetGoal() - m_selectedDice.GetSides());
+
+		m_singleText.text = "cost: " + m_sideCost.ToString("F") + " Gold";
+		m_maxText.text = "cost: " + m_maxSideCost.ToString("F") + " Gold";
+		m_magicText.text = "cost: " + m_magicCost.ToString("F") + " Gold";
 	}
 
 

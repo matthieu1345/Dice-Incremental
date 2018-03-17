@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
@@ -18,13 +18,32 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	private float m_basePowerCost = 1;
 
 	[SerializeField]
-	private float m_money = 0;
+	private float m_money;
 
 	[SerializeField]
-	float m_xp = 0;
+	private float m_xp;
 
-	public void AddMoney( float rewardValue ) { m_money += rewardValue; }
-	public void AddXp( float rewardValue ) { m_xp += rewardValue; }
+	[Serializable]
+	public class ValueChangedEvent : UnityEvent<int>
+	{
+	}
+
+	[SerializeField]
+	private ValueChangedEvent m_moneyChanged = new ValueChangedEvent();
+	[SerializeField]
+	private ValueChangedEvent m_xpChanged = new ValueChangedEvent();
+	public void AddMoney( float rewardValue )
+	{
+		m_money += rewardValue;
+		m_moneyChanged.Invoke((int)m_money);
+	}
+
+	public void AddXp( float rewardValue )
+	{
+		m_xp += rewardValue;
+		m_xpChanged.Invoke((int)m_xp);
+	}
+	public int GetMoney() { return (int)m_money; }
 
 	public float GetCostMultiplier() { return m_costMultiplierPerPower; }
 	public float GetBaseCost() { return m_basePowerCost; }
@@ -39,10 +58,10 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 
 	[MenuItem("Tools/Combo tools/Get all combo's")]
-	static void GetAllCombos()
+	private static void GetAllCombos()
 	{
 		
-		var guid = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
+		ComboBase[] guid = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
 		GetInstance().m_allCombos = guid.ToList();
 
 	}
@@ -58,4 +77,6 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 		return false;
 	}
+
+
 }

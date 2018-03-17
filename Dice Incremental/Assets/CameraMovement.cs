@@ -9,7 +9,7 @@ public class CameraMovement : MonoBehaviour
 	private Camera m_camera;
 
 	// Use this for initialization
-	void Start ()
+	private void Start ()
 	{
 		m_camera.orthographicSize = Screen.height / 2;
 
@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	private void Update () {
 		
 	}
 }

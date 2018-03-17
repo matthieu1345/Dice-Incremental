@@ -12,12 +12,13 @@ public class Dice : MonoBehaviour
 	[SerializeField]
 	private Text m_text;
 
+	[SerializeField]
+	private LineRenderer m_outline;
+
 	private int m_rollValue = 1;
 	private int m_radius = 45;
 
 	public int GetRollValue() { return m_rollValue; }
-
-
 
 	public void AddPower() { m_stats.AddSide(); }
 

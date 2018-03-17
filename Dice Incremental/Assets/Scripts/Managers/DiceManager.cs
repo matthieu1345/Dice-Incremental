@@ -11,7 +11,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	private Transform m_dicePrefab = null;
 
 	[SerializeField]
-	int m_startingDice = 1;
+	private int m_startingDice = 1;
 
 	private List<Dice> m_allDice = new List<Dice>();
 

@@ -4,62 +4,62 @@ timeCreated: 1519070758
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hud-pieces_0
-    21300002: hud-pieces_1
-    21300004: hud-pieces_2
-    21300006: hud-pieces_3
-    21300008: hud-pieces_4
-    21300010: hud-pieces_5
-    21300012: hud-pieces_6
-    21300014: hud-pieces_7
-    21300016: hud-pieces_8
-    21300018: hud-pieces_9
-    21300020: hud-pieces_10
-    21300022: hud-pieces_11
-    21300024: hud-pieces_12
-    21300026: hud-pieces_13
-    21300028: hud-pieces_14
-    21300030: hud-pieces_15
-    21300032: hud-pieces_16
-    21300034: hud-pieces_17
-    21300036: hud-pieces_18
-    21300038: hud-pieces_19
-    21300040: hud-pieces_20
-    21300042: hud-pieces_21
-    21300044: hud-pieces_22
-    21300046: hud-pieces_23
-    21300048: hud-pieces_24
-    21300050: hud-pieces_25
-    21300052: hud-pieces_26
-    21300054: hud-pieces_27
-    21300056: hud-pieces_28
-    21300058: hud-pieces_29
-    21300060: hud-pieces_30
-    21300062: hud-pieces_31
-    21300064: hud-pieces_32
-    21300066: hud-pieces_33
+    21300000: 0_0
+    21300002: 0_1
+    21300004: 0_2
+    21300006: 0_3
+    21300008: 0_4
+    21300010: 0_5
+    21300012: 0_6
+    21300014: 0_7
+    21300016: 0_8
+    21300018: 0_9
+    21300020: 0_energy
+    21300022: 0_heart
+    21300024: 0_xp
+    21300026: 0_$
+    21300028: 0_empty
+    21300030: 1_0
+    21300032: 1_1
+    21300034: 1_2
+    21300036: 1_3
+    21300038: 1_4
+    21300040: 1_5
+    21300042: 1_6
+    21300044: 1_7
+    21300046: 1_8
+    21300048: 1_9
+    21300050: 1_empty
+    21300052: 1_$
+    21300054: 1_xp
+    21300056: 1_heart
+    21300058: 1_energy
+    21300060: 3_empty
+    21300062: 3_red0
+    21300064: 3_red1
+    21300066: 3_red2
     21300068: hud-pieces_34
-    21300070: hud-pieces_35
-    21300072: hud-pieces_36
-    21300074: hud-pieces_37
-    21300076: hud-pieces_38
-    21300078: hud-pieces_39
-    21300080: hud-pieces_40
-    21300082: hud-pieces_41
-    21300084: hud-pieces_42
-    21300086: hud-pieces_43
-    21300088: hud-pieces_44
-    21300090: hud-pieces_45
-    21300092: hud-pieces_46
-    21300094: hud-pieces_47
-    21300096: hud-pieces_48
-    21300098: hud-pieces_49
-    21300100: hud-pieces_50
-    21300102: hud-pieces_51
-    21300104: hud-pieces_52
-    21300106: hud-pieces_53
-    21300108: hud-pieces_54
-    21300110: hud-pieces_55
+    21300070: 3_purple0
+    21300072: 3_purple1
+    21300074: 3_purple2
+    21300076: 3_orange0
+    21300078: 3_black0
+    21300080: 3_blue0
+    21300082: 3_lblue0
+    21300084: 3_brown0
+    21300086: 3_green0
+    21300088: 3_orange1
+    21300090: 3_black1
+    21300092: 3_black2
+    21300094: 3_orange2
+    21300096: 3_blue2
+    21300098: 3_lblue2
+    21300100: 3_brown2
+    21300102: 3_green2
+    21300104: 3_blue1
+    21300106: 3_lblue1
+    21300108: 3_brown1
+    21300110: 3_green1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hud-pieces_0
+      name: 0_0
       rect:
         serializedVersion: 2
         x: 12
@@ -144,13 +144,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_1
+      name: 0_1
       rect:
         serializedVersion: 2
         x: 28
@@ -158,13 +158,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_2
+      name: 0_2
       rect:
         serializedVersion: 2
         x: 44
@@ -172,13 +172,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_3
+      name: 0_3
       rect:
         serializedVersion: 2
         x: 60
@@ -186,13 +186,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_4
+      name: 0_4
       rect:
         serializedVersion: 2
         x: 76
@@ -200,13 +200,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_5
+      name: 0_5
       rect:
         serializedVersion: 2
         x: 12
@@ -214,13 +214,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_6
+      name: 0_6
       rect:
         serializedVersion: 2
         x: 28
@@ -228,13 +228,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_7
+      name: 0_7
       rect:
         serializedVersion: 2
         x: 44
@@ -242,13 +242,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_8
+      name: 0_8
       rect:
         serializedVersion: 2
         x: 60
@@ -256,13 +256,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_9
+      name: 0_9
       rect:
         serializedVersion: 2
         x: 76
@@ -270,13 +270,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_10
+      name: 0_energy
       rect:
         serializedVersion: 2
         x: 76
@@ -284,13 +284,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_11
+      name: 0_heart
       rect:
         serializedVersion: 2
         x: 60
@@ -298,13 +298,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_12
+      name: 0_xp
       rect:
         serializedVersion: 2
         x: 44
@@ -312,13 +312,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_13
+      name: 0_$
       rect:
         serializedVersion: 2
         x: 28
@@ -326,13 +326,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_14
+      name: 0_empty
       rect:
         serializedVersion: 2
         x: 12
@@ -340,13 +340,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_15
+      name: 1_0
       rect:
         serializedVersion: 2
         x: 12
@@ -354,13 +354,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_16
+      name: 1_1
       rect:
         serializedVersion: 2
         x: 28
@@ -368,13 +368,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_17
+      name: 1_2
       rect:
         serializedVersion: 2
         x: 44
@@ -382,13 +382,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_18
+      name: 1_3
       rect:
         serializedVersion: 2
         x: 60
@@ -396,13 +396,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_19
+      name: 1_4
       rect:
         serializedVersion: 2
         x: 76
@@ -410,13 +410,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_20
+      name: 1_5
       rect:
         serializedVersion: 2
         x: 12
@@ -424,13 +424,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_21
+      name: 1_6
       rect:
         serializedVersion: 2
         x: 28
@@ -438,13 +438,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_22
+      name: 1_7
       rect:
         serializedVersion: 2
         x: 44
@@ -452,13 +452,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_23
+      name: 1_8
       rect:
         serializedVersion: 2
         x: 60
@@ -466,13 +466,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_24
+      name: 1_9
       rect:
         serializedVersion: 2
         x: 76
@@ -480,13 +480,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_25
+      name: 1_empty
       rect:
         serializedVersion: 2
         x: 12
@@ -494,13 +494,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_26
+      name: 1_$
       rect:
         serializedVersion: 2
         x: 28
@@ -508,13 +508,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_27
+      name: 1_xp
       rect:
         serializedVersion: 2
         x: 44
@@ -522,13 +522,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_28
+      name: 1_heart
       rect:
         serializedVersion: 2
         x: 60
@@ -536,13 +536,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_29
+      name: 1_energy
       rect:
         serializedVersion: 2
         x: 76
@@ -550,13 +550,13 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_30
+      name: 3_empty
       rect:
         serializedVersion: 2
         x: 96
@@ -564,13 +564,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_31
+      name: 3_red0
       rect:
         serializedVersion: 2
         x: 96
@@ -578,13 +578,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_32
+      name: 3_red1
       rect:
         serializedVersion: 2
         x: 104
@@ -592,13 +592,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_33
+      name: 3_red2
       rect:
         serializedVersion: 2
         x: 112
@@ -606,27 +606,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_34
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 76
-        width: 8
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: hud-pieces_35
+      name: 3_purple0
       rect:
         serializedVersion: 2
         x: 120
@@ -634,13 +620,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_36
+      name: 3_purple1
       rect:
         serializedVersion: 2
         x: 128
@@ -648,13 +634,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_37
+      name: 3_purple2
       rect:
         serializedVersion: 2
         x: 136
@@ -662,13 +648,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_38
+      name: 3_orange0
       rect:
         serializedVersion: 2
         x: 96
@@ -676,13 +662,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_39
+      name: 3_black0
       rect:
         serializedVersion: 2
         x: 120
@@ -690,13 +676,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_40
+      name: 3_blue0
       rect:
         serializedVersion: 2
         x: 96
@@ -704,13 +690,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_41
+      name: 3_lblue0
       rect:
         serializedVersion: 2
         x: 120
@@ -718,13 +704,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_42
+      name: 3_brown0
       rect:
         serializedVersion: 2
         x: 96
@@ -732,13 +718,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_43
+      name: 3_green0
       rect:
         serializedVersion: 2
         x: 120
@@ -746,13 +732,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_44
+      name: 3_orange1
       rect:
         serializedVersion: 2
         x: 104
@@ -760,13 +746,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_45
+      name: 3_black1
       rect:
         serializedVersion: 2
         x: 128
@@ -774,13 +760,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_46
+      name: 3_black2
       rect:
         serializedVersion: 2
         x: 136
@@ -788,13 +774,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_47
+      name: 3_orange2
       rect:
         serializedVersion: 2
         x: 112
@@ -802,13 +788,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_48
+      name: 3_blue2
       rect:
         serializedVersion: 2
         x: 112
@@ -816,13 +802,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_49
+      name: 3_lblue2
       rect:
         serializedVersion: 2
         x: 136
@@ -830,13 +816,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_50
+      name: 3_brown2
       rect:
         serializedVersion: 2
         x: 112
@@ -844,13 +830,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_51
+      name: 3_green2
       rect:
         serializedVersion: 2
         x: 136
@@ -858,13 +844,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_52
+      name: 3_blue1
       rect:
         serializedVersion: 2
         x: 104
@@ -872,13 +858,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_53
+      name: 3_lblue1
       rect:
         serializedVersion: 2
         x: 128
@@ -886,13 +872,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_54
+      name: 3_brown1
       rect:
         serializedVersion: 2
         x: 104
@@ -900,13 +886,13 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: hud-pieces_55
+      name: 3_green1
       rect:
         serializedVersion: 2
         x: 128
@@ -914,7 +900,7 @@ TextureImporter:
         width: 8
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
