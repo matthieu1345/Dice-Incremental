@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4715119042904326}
   - component: {fileID: 114174764942973058}
   - component: {fileID: 114061375465846334}
+  - component: {fileID: 114460716814161578}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Managers
@@ -54,10 +55,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_allCombos:
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
   m_costMultiplierPerPower: 0.2
   m_basePowerCost: 10
   m_money: 0
   m_xp: 0
+  m_moneyChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: UpdateValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: LevelManager+ValueChangedEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_xpChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: UpdateValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: LevelManager+ValueChangedEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114174764942973058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,3 +107,34 @@ MonoBehaviour:
   m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
     type: 2}
   m_startingDice: 1
+--- !u!114 &114460716814161578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa67598ad9584043ae2e664479c584e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buyDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_rollDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_selectNextDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  m_selectPreviousDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

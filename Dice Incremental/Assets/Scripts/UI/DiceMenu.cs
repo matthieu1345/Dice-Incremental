@@ -23,6 +23,23 @@ public class DiceMenu : MonoBehaviour
 		CalculateCosts();
 	}
 
+	public void SelectNextDice()
+	{
+		if (m_selectedDice.GetIndex() == DiceManager.GetInstance().GetDiceList().Count - 1)
+			SelectNewDice(DiceManager.GetInstance().GetDiceList()[0]);
+		else
+			SelectNewDice(DiceManager.GetInstance().GetDiceList()[m_selectedDice.GetIndex() + 1]);
+
+	}
+
+	public void SelectPreviousDice()
+	{
+		if (m_selectedDice.GetIndex() == 0)
+			SelectNewDice(DiceManager.GetInstance().GetDiceList()[DiceManager.GetInstance().GetDiceList().Count - 1]);
+		else
+			SelectNewDice(DiceManager.GetInstance().GetDiceList()[m_selectedDice.GetIndex() - 1]);
+	}
+
 	public void BuySide()
 	{
 		if ( LevelManager.GetInstance().Buy(m_sideCost) )
@@ -81,5 +98,11 @@ public class DiceMenu : MonoBehaviour
 		m_magicText.text = "cost: " + m_magicCost.ToString("F") + " Gold";
 	}
 
+
+	private void Awake()
+	{
+		InputManager.GetInstance().m_selectNextDiceEvent.AddListener(SelectNextDice);
+		InputManager.GetInstance().m_selectPreviousDiceEvent.AddListener(SelectPreviousDice);
+	}
 
 }

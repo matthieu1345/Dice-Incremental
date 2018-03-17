@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 
 
 public class MenuSelector : InstancedMonoBehaviour<MenuSelector>
@@ -52,8 +50,9 @@ public class MenuSelector : InstancedMonoBehaviour<MenuSelector>
 		m_diceMenu.SelectNewDice(dice);
 	}
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		foreach ( MenuPair menuPair in m_menuPairs )
 		{
 			m_buttonMenuPair.Add(menuPair.m_button, menuPair.m_menu);

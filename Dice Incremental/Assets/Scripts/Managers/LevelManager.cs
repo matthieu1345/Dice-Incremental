@@ -19,9 +19,28 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	[SerializeField]
 	private float m_money;
+	public float Money
+	{
+		get { return m_money; }
+		private set
+		{
+			m_money = value;
+			m_moneyChanged.Invoke((int)m_money);
+		}
+	}
 
 	[SerializeField]
 	private float m_xp;
+
+	public float Xp
+	{
+		get { return m_xp; }
+		private set
+		{
+			m_xp = value;
+			m_xpChanged.Invoke((int)m_xp);
+		}
+	}
 
 	[Serializable]
 	public class ValueChangedEvent : UnityEvent<int>
@@ -34,14 +53,12 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	private ValueChangedEvent m_xpChanged = new ValueChangedEvent();
 	public void AddMoney( float rewardValue )
 	{
-		m_money += rewardValue;
-		m_moneyChanged.Invoke((int)m_money);
+		Money += rewardValue;
 	}
 
 	public void AddXp( float rewardValue )
 	{
-		m_xp += rewardValue;
-		m_xpChanged.Invoke((int)m_xp);
+		Xp += rewardValue;
 	}
 	public int GetMoney() { return (int)m_money; }
 
@@ -68,9 +85,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public bool Buy( float cost )
 	{
-		if ( m_money >= cost )
+		if ( Money >= cost )
 		{
-			m_money -= cost;
+			Money -= cost;
 
 			return true;
 		}

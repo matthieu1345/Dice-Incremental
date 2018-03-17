@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewSingleDice", menuName = "Combos/SingleDice", order = 0)]
+[CreateAssetMenu(fileName = "NewDiceValue", menuName = "Combos/DiceValue", order = 0)]
 public class DiceValue : ComboBase
 {
 

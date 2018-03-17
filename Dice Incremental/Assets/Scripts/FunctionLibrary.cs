@@ -14,6 +14,13 @@ public static class FunctionLibrary
 		return (objectRef != null);
 	}
 
+	public static bool GetComponentInChildrenChecked<T>( this Component caller, ref T objectRef )
+	{
+		objectRef = caller.GetComponentInChildren<T>();
+
+		return ( objectRef != null );
+	}
+
 	public static T[] GetAllInstances<T>() where T : ScriptableObject
 	{
 		string[] guids = AssetDatabase.FindAssets("t:" + typeof(T).Name); //FindAssets uses tags check documentation for more info

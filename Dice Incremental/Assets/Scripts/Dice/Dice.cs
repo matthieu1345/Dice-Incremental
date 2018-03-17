@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Shapes2D;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,15 +9,17 @@ public class Dice : MonoBehaviour
 	[SerializeField]
 	private DiceStats m_stats;
 	[SerializeField]
-	private LineRenderer m_renderer;
+	private Shape m_renderer;
 	[SerializeField]
 	private Text m_text;
 
-	[SerializeField]
-	private LineRenderer m_outline;
+	[ReadOnly, SerializeField]
+	private int m_index;
+
+	public int GetIndex() { return m_index; }
+	public void SetIndex( int value ) { m_index = value; }
 
 	private int m_rollValue = 1;
-	private int m_radius = 45;
 
 	public int GetRollValue() { return m_rollValue; }
 
@@ -35,9 +38,9 @@ public class Dice : MonoBehaviour
 
 		if ( m_renderer == null )
 		{
-			if ( !this.GetComponentChecked<LineRenderer>(ref m_renderer) )
+			if ( !this.GetComponentInChildrenChecked<Shape>(ref m_renderer) )
 			{
-				m_renderer = gameObject.AddComponent<LineRenderer>();
+				Debug.LogError("The dice prefab has no shape renderer assigned!");
 			}
 		}
 
@@ -51,11 +54,10 @@ public class Dice : MonoBehaviour
 
 		transform.position += new Vector3(0, 0, 1);
 
-		Button m_button = GetComponent<Button>();
+		Button button = GetComponent<Button>();
 
-		if ( m_button != null )
-			m_button.onClick.AddListener(delegate { MenuSelector.GetInstance().OpenDiceMenu(this); });
-
+		if ( button != null )
+			button.onClick.AddListener(delegate { MenuSelector.GetInstance().OpenDiceMenu(this); });
 	}
 
 
@@ -77,18 +79,18 @@ public class Dice : MonoBehaviour
 
 	private void SetLineRenderer(int sideCount)
 	{
-		m_renderer.positionCount = sideCount;
-		float radius = (((RectTransform) transform).rect.width) / 2 - m_renderer.startWidth * 2;
+		const float radius = 0.5f;
 
-		Vector3[] coordinates = new Vector3[sideCount];
+		Vector2[] coordinates = new Vector2[sideCount];
 		for (int i = 0; i < sideCount; i++)
 		{
 			coordinates[i].x = radius * Mathf.Cos(2 * Mathf.PI * i / sideCount);
 			coordinates[i].y = radius * Mathf.Sin(2 * Mathf.PI * i / sideCount);
-			coordinates[i].z = 0;
 		}
 
-		m_renderer.SetPositions(coordinates);
+		m_renderer.settings.polyVertices = coordinates;
+		m_renderer.settings.polyVertices = m_renderer.settings.polyVertices;
+
 	}
 
 	private void Roll()

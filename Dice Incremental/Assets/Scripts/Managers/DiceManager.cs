@@ -25,6 +25,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	{
 		m_allDice.Add(dice);
 		dice.transform.SetParent(m_uiFolder.transform, false);
+		dice.SetIndex(m_allDice.Count - 1);
 		m_uiFolder.AddDiceObject(dice.gameObject);
 	}
 
@@ -54,6 +55,14 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		{
 			CreateDice();
 		}
+
+		InputManager.GetInstance().m_buyDiceEvent.AddListener(BuyDice);
+		InputManager.GetInstance().m_rollDiceEvent.AddListener(RollAll);
+	}
+
+	public void BuyDice()
+	{
+		CreateDice();
 	}
 
 }
