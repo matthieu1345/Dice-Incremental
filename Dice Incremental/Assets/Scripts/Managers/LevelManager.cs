@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
@@ -73,7 +76,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		}
 	}
 
-
+#if UNITY_EDITOR
 	[MenuItem("Tools/Combo tools/Get all combo's")]
 	private static void GetAllCombos()
 	{
@@ -82,6 +85,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		GetInstance().m_allCombos = guid.ToList();
 
 	}
+#endif
 
 	public bool Buy( float cost )
 	{
