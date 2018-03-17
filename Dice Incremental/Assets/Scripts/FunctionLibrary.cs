@@ -37,12 +37,10 @@ public static class FunctionLibrary
 		}
 
 		return a;
-#endif
-
-		// ReSharper disable HeuristicUnreachableCode
+#else
 		Debug.LogError("Editor function is being called from the build game!");
 		return null;
-		// ReSharper restore HeuristicUnreachableCode
+#endif
 	}
 
 

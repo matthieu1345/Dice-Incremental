@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class DiceUI : MonoBehaviour
 {
-
-	[ReadOnly, SerializeField]
-	private int m_diceCount = 0;
 	[SerializeField]
 	private int m_collumnCount = 5;
 
@@ -18,7 +15,7 @@ public class DiceUI : MonoBehaviour
 	[SerializeField]
 	private GameObject m_buyNewDiceObject;
 
-	private List<GameObject> m_diceObjects = new List<GameObject>();
+	private readonly List<GameObject> m_diceObjects = new List<GameObject>();
 
 	public int GetDiceCount() { return m_diceObjects.Count;}
 
@@ -53,7 +50,6 @@ public class DiceUI : MonoBehaviour
 
 		((RectTransform)transform).SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ((m_diceObjects.Count / m_collumnCount) + 1) * (m_layoutScript.cellSize.y + m_layoutScript.padding.vertical));
 
-		m_diceCount = m_diceObjects.Count;
 	}
 
 

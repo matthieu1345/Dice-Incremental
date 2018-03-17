@@ -18,7 +18,7 @@ public class DiceStats
 	[ReadOnly, SerializeField]
 	private int m_magic;
 	[ReadOnly, SerializeField]
-	private int m_usedPower;
+	private int m_usedMagic;
 
 	[Header("Starting Data")]
 	[SerializeField]

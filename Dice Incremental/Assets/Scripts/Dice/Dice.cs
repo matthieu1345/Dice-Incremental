@@ -79,6 +79,7 @@ public class Dice : MonoBehaviour
 
 	private void SetLineRenderer(int sideCount)
 	{
+
 		const float radius = 0.5f;
 
 		Vector2[] coordinates = new Vector2[sideCount];

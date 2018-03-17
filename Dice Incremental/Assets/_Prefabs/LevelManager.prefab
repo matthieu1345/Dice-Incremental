@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allCombos:
+  - {fileID: 11400000, guid: d178bf3f6b89eee4cb934be35c0e46c3, type: 2}
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
   - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
   m_costMultiplierPerPower: 0.2

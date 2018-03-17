@@ -9,14 +9,20 @@ public class DiceMenu : MonoBehaviour
 {
 
 	[ReadOnly, SerializeField]
-	private Dice m_selectedDice = null;
+	private Dice m_selectedDice;
 
 	[ReadOnly, SerializeField]
 	private float m_sideCost, m_maxSideCost, m_magicCost;
 
 	[SerializeField]
-	private Text m_singleText, m_maxText, m_magicText;
-	
+	private Text m_singleText;
+
+	[SerializeField]
+	private Text m_maxText;
+
+	[SerializeField]
+	private Text m_magicText;
+
 	public void SelectNewDice( Dice selectedDice )
 	{
 		m_selectedDice = selectedDice;
@@ -25,19 +31,26 @@ public class DiceMenu : MonoBehaviour
 
 	public void SelectNextDice()
 	{
-		if (m_selectedDice.GetIndex() == DiceManager.GetInstance().GetDiceList().Count - 1)
-			SelectNewDice(DiceManager.GetInstance().GetDiceList()[0]);
-		else
-			SelectNewDice(DiceManager.GetInstance().GetDiceList()[m_selectedDice.GetIndex() + 1]);
+		int newIndex;
 
+		if (m_selectedDice.GetIndex() == DiceManager.GetInstance().GetDiceList().Count - 1 )
+			newIndex = 0;
+		else
+			newIndex = m_selectedDice.GetIndex() + 1;
+
+		SelectNewDice(DiceManager.GetInstance().GetDiceList()[newIndex]);
 	}
 
 	public void SelectPreviousDice()
 	{
-		if (m_selectedDice.GetIndex() == 0)
-			SelectNewDice(DiceManager.GetInstance().GetDiceList()[DiceManager.GetInstance().GetDiceList().Count - 1]);
+		int newIndex;
+
+		if ( m_selectedDice.GetIndex() == 0 )
+			newIndex = DiceManager.GetInstance().GetDiceList().Count - 1;
 		else
-			SelectNewDice(DiceManager.GetInstance().GetDiceList()[m_selectedDice.GetIndex() - 1]);
+			newIndex = m_selectedDice.GetIndex() - 1;
+
+		SelectNewDice(DiceManager.GetInstance().GetDiceList()[newIndex]);
 	}
 
 	public void BuySide()

@@ -26,6 +26,10 @@ public class ComboBase : ScriptableObject
 
 	public virtual void GiveReward(string comboName, Dice winningdDice)
 	{
+#if DEBUG_COMBOS
+		Debug.LogFormat("{0} has given you a reward!", comboName);
+#endif
+
 		switch ( m_rewardType )
 		{
 
