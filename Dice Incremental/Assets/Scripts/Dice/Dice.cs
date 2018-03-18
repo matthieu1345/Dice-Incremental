@@ -68,6 +68,7 @@ public class Dice : MonoBehaviour
 		{
 			m_stats.Start();
 			m_stats.m_powerAdded += SetLineRenderer;
+			SetLineRenderer(m_stats.GetSides());
 		}
 
 		if ( DiceManager.m_instance != null )
@@ -75,6 +76,7 @@ public class Dice : MonoBehaviour
 			DiceManager.m_instance.m_rollEvent += Roll;
 			DiceManager.m_instance.AddDice(this);
 		}
+
 	}
 
 	private void SetLineRenderer(int sideCount)
