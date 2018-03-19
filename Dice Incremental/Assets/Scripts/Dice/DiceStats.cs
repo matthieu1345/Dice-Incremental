@@ -30,6 +30,19 @@ public class DiceStats
 
 	public PowerAdded m_powerAdded;
 
+	public DiceStats(DiceStats dice)
+	{
+		this.m_power = dice.m_power;
+		this.m_sides = dice.m_sides;
+		this.m_goalSides = dice.m_goalSides;
+		this.m_magic = dice.m_magic;
+		this.m_usedMagic = dice.m_usedMagic;
+	}
+
+	public DiceStats()
+	{
+	}
+
 	public int GetSides() { return m_sides; }
 	public int GetPower() { return m_power; }
 	public int GetGoal() { return m_goalSides; }

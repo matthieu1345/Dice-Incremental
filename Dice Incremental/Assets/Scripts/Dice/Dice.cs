@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Shapes2D;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Dice : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class Dice : MonoBehaviour
 
 	public int GetIndex() { return m_index; }
 	public void SetIndex( int value ) { m_index = value; }
+	public DiceStats GetStats() { return m_stats;}
 
 	private int m_rollValue = 1;
 

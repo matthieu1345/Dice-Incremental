@@ -100,4 +100,14 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	}
 
 
+	public void Save()
+	{
+		SaveLoad.Save();
+	}
+
+	public void Load()
+	{
+		SaveLoad.Load();
+	}
+
 }
