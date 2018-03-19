@@ -18,4 +18,10 @@
     <enabled>false</enabled>
     <sortOrder>2</sortOrder>
   </Directive>
+  <Directive>
+    <name>DEVLOGIN</name>
+    <targets>Android</targets>
+    <enabled>false</enabled>
+    <sortOrder>3</sortOrder>
+  </Directive>
 </ArrayOfDirective>
