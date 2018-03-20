@@ -22,6 +22,13 @@ public class Dice : MonoBehaviour
 	public void SetIndex( int value ) { m_index = value; }
 	public DiceStats GetStats() { return m_stats;}
 
+	public void LoadStats( DiceStats stats )
+	{
+		m_stats = stats;
+		m_stats.m_powerAdded += SetLineRenderer;
+		SetLineRenderer(m_stats.GetSides());
+	}
+
 	private int m_rollValue = 1;
 
 	public int GetRollValue() { return m_rollValue; }
@@ -69,7 +76,6 @@ public class Dice : MonoBehaviour
 	{
 		if ( m_stats != null )
 		{
-			m_stats.Start();
 			m_stats.m_powerAdded += SetLineRenderer;
 			SetLineRenderer(m_stats.GetSides());
 		}

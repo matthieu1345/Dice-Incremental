@@ -27,7 +27,7 @@ public class DiceStats
 	private int m_firstSidesGoal = 6;
 
 	public delegate void PowerAdded( int sides );
-
+	[NonSerialized]
 	public PowerAdded m_powerAdded;
 
 	public DiceStats(DiceStats dice)
@@ -41,6 +41,8 @@ public class DiceStats
 
 	public DiceStats()
 	{
+		m_sides = m_baseSides;
+		m_goalSides = m_firstSidesGoal;
 	}
 
 	public int GetSides() { return m_sides; }
@@ -52,14 +54,6 @@ public class DiceStats
 	{
 		m_baseSides = baseSides;
 		m_firstSidesGoal = firstGoal;
-		Start();
-	}
-
-	// Use this for initialization
-	public void Start ()
-	{
-		m_sides = m_baseSides;
-		m_goalSides = m_firstSidesGoal;
 	}
 
 	public void AddSide()

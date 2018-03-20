@@ -48,6 +48,13 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		Instantiate(m_dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 	}
 
+	public void LoadDice(DiceStats stats)
+	{
+		Transform dice = Instantiate(m_dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+		dice.GetComponent<Dice>().LoadStats(stats);
+	}
+
 	protected override void Awake()
 	{
 		base.Awake();
