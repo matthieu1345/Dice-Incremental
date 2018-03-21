@@ -8,6 +8,17 @@ using UnityEngine.Events;
 [Serializable]
 public class DiceStats
 {
+
+	public enum EDiceMagic
+	{
+
+		DM_NotSet,
+		DM_Xp,
+		DM_Money
+
+	}
+
+
 	[Header("Current Data")]
 	[ReadOnly, SerializeField]
 	private int m_power = 1;

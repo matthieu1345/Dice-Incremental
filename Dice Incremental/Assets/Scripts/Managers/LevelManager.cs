@@ -11,8 +11,20 @@ using UnityEditor;
 
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
+	//[SerializeField]
+	//private List<ComboBase> m_allCombos = new List<ComboBase>();
+
 	[SerializeField]
-	private List<ComboBase> m_allCombos = new List<ComboBase>();
+	private Dictionary<string, ComboBase> m_allCombos = new Dictionary<string, ComboBase>();
+
+	[SerializeField]
+	private List<ComboBase> m_defaultUnlockedCombos = new List<ComboBase>();
+	[ReadOnly, SerializeField]
+	private List<string> m_unlockedComboStrings = new List<string>();
+
+	public List<string> GetUnlockedCombos() { return m_unlockedComboStrings;}
+
+	public void LoadUnlockedCombos( List<string> combos ) { m_unlockedComboStrings = combos;}
 
 	[SerializeField]
 	private float m_costMultiplierPerPower = 1;
@@ -70,9 +82,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public void CheckCombos()
 	{
-		foreach ( ComboBase combo in m_allCombos )
+		foreach ( string combo in m_unlockedComboStrings )
 		{
-			combo.CheckCombo(DiceManager.GetInstance().GetDiceList());
+			m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
 		}
 	}
 
@@ -80,9 +92,20 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	[MenuItem("Tools/Combo tools/Get all combo's")]
 	private static void GetAllCombos()
 	{
-		
-		ComboBase[] guid = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
-		GetInstance().m_allCombos = guid.ToList();
+		GetInstance().m_allCombos.Clear();
+		GetInstance().m_unlockedComboStrings.Clear();
+
+		ComboBase[] list = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
+
+		foreach ( ComboBase combo in list)
+		{
+			GetInstance().m_allCombos.Add(combo.GetGuid(), combo);
+		}
+
+		foreach ( ComboBase combo in GetInstance().m_defaultUnlockedCombos)
+		{
+			GetInstance().m_unlockedComboStrings.Add(combo.GetGuid());
+		}
 
 	}
 #endif
@@ -107,6 +130,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public void Load()
 	{
+		DiceManager.GetInstance().RemoveAllDice();
 		SaveLoad.Load();
 	}
 

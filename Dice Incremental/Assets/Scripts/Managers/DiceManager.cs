@@ -50,6 +50,8 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void LoadDice(DiceStats stats)
 	{
+		RemoveAllDice();
+
 		Transform dice = Instantiate(m_dicePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
 		dice.GetComponent<Dice>().LoadStats(stats);
@@ -72,4 +74,13 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		CreateDice();
 	}
 
+	public void RemoveAllDice()
+	{
+		for ( int i = 0; i < m_allDice.Count; i++ )
+		{
+			Destroy(m_allDice[i].gameObject);
+		}
+		m_allDice.Clear();
+		m_uiFolder.Reset();
+	}
 }

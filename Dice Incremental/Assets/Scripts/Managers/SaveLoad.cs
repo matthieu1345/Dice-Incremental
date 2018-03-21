@@ -5,19 +5,27 @@ using UnityEngine;
 
 public class SaveLoad {
 
-	private static List<DiceStats> m_savedDice = new List<DiceStats>();
+	//serialized variables, in order
+	private static List<DiceStats> _savedDice = new List<DiceStats>();
+	private static List<string> _unlockedCombos = new List<string>();
 
 	private static void SaveDice(BinaryFormatter bf, FileStream file)
 	{
-		m_savedDice = new List<DiceStats>();
+		_savedDice = new List<DiceStats>();
 		for ( int i = 0; i < DiceManager.GetInstance().GetDiceList().Count; i++ )
 		{
 			DiceStats temp = new DiceStats(DiceManager.GetInstance().GetDiceList()[i].GetStats());
-			m_savedDice.Add(temp);
+			_savedDice.Add(temp);
 		}
 
-		bf.Serialize(file, SaveLoad.m_savedDice);
-		file.Close();
+		bf.Serialize(file, _savedDice);
+	}
+
+	private static void SaveUnlockedCombos(BinaryFormatter bf, FileStream file)
+	{
+		_unlockedCombos = LevelManager.GetInstance().GetUnlockedCombos();
+		
+		bf.Serialize(file, _unlockedCombos);
 	}
 
 	public static void Save()
@@ -26,6 +34,7 @@ public class SaveLoad {
 		FileStream file = File.Create(Application.persistentDataPath + "/savedGame.gd");
 
 		SaveDice(bf, file);
+		SaveUnlockedCombos(bf, file);
 
 		file.Close();
 	}
@@ -37,18 +46,25 @@ public class SaveLoad {
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Open(Application.persistentDataPath + "/savedGame.gd", FileMode.Open);
 
-			m_savedDice = new List<DiceStats>();
-			SaveLoad.m_savedDice = (List<DiceStats>)bf.Deserialize(file);
+			_savedDice = (List<DiceStats>)bf.Deserialize(file);
+
+			_unlockedCombos = (List<string>)bf.Deserialize(file);
 
 			file.Close();
 		}
 
 		LoadDice();
+		LoadUnlockedCombos();
 	}
 
 	private static void LoadDice()
 	{
-		for(int i = 0; i < m_savedDice.Count; i++)
-		DiceManager.GetInstance().LoadDice(m_savedDice[i]);
+		for(int i = 0; i < _savedDice.Count; i++)
+		DiceManager.GetInstance().LoadDice(_savedDice[i]);
+	}
+
+	private static void LoadUnlockedCombos()
+	{
+		LevelManager.GetInstance().LoadUnlockedCombos(_unlockedCombos);
 	}
 }

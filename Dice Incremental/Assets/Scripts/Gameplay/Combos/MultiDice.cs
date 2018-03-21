@@ -70,7 +70,7 @@ public class MultiDice : ComboBase
 	public void GiveReward()
 	{
 
-		if (m_rewardType == ERewardType.RT_ValueMultiplication)
+		if (m_comboRewardType == EComboRewardType.CRT_ValueMultiplication)
 		{
 			foreach (Dice winningDice in m_diceList)
 			{

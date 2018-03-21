@@ -71,4 +71,9 @@ public class DiceUI : MonoBehaviour
 		m_layoutScript.cellSize = cellSize;
 	}
 
+	public void Reset()
+	{
+		m_diceObjects.Clear();
+	}
+
 }

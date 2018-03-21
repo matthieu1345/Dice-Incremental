@@ -53,10 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85dc96a4ede96a948a7d5bead6f90e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_allCombos:
-  - {fileID: 11400000, guid: d178bf3f6b89eee4cb934be35c0e46c3, type: 2}
+  m_defaultUnlockedCombos:
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
-  - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
+  m_unlockedComboStrings:
+  - b31e053a-7378-4733-80ae-a48962590b6d
   m_costMultiplierPerPower: 0.2
   m_basePowerCost: 10
   m_money: 0
