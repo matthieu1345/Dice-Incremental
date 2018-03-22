@@ -30,15 +30,15 @@ public class MultiDice : ComboBase
 	{
 		ResetList();
 
-		foreach ( Dice dice in diceList )
+		for ( int i = 0; i < diceList.Count; i++ )
 		{
-
+			Dice dice = diceList[i];
 			bool hasEverything = true;
 			bool counted = false;
 
 			foreach ( ValuePair pair in m_valueList )
 			{
-				if ( !pair.m_found && pair.m_value == dice.GetRollValue() && !counted)
+				if ( !pair.m_found && pair.m_value == dice.GetRollValue() && !counted )
 				{
 					counted = true;
 					pair.m_found = true;
@@ -49,13 +49,15 @@ public class MultiDice : ComboBase
 					hasEverything = false;
 			}
 
-			if ( hasEverything ) { GiveReward(); }
-
+			if ( hasEverything )
+			{
+				GiveReward();
+			}
 		}
 	}
 
 
-	public void ResetList()
+	private void ResetList()
 	{
 		m_valueList = new List<ValuePair>();
 		m_diceList = new List<Dice>();
@@ -67,7 +69,7 @@ public class MultiDice : ComboBase
 
 	}
 
-	public void GiveReward()
+	private void GiveReward()
 	{
 
 		if (m_comboRewardType == EComboRewardType.CRT_ValueMultiplication)

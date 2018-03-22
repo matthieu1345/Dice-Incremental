@@ -11,9 +11,8 @@ using UnityEditor;
 
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
-	//[SerializeField]
-	//private List<ComboBase> m_allCombos = new List<ComboBase>();
-
+	[SerializeField]
+	private List<ComboBase> m_allComboObjects = new List<ComboBase>();
 	[SerializeField]
 	private Dictionary<string, ComboBase> m_allCombos = new Dictionary<string, ComboBase>();
 
@@ -92,14 +91,14 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	[MenuItem("Tools/Combo tools/Get all combo's")]
 	private static void GetAllCombos()
 	{
-		GetInstance().m_allCombos.Clear();
+		GetInstance().m_allComboObjects.Clear();
 		GetInstance().m_unlockedComboStrings.Clear();
 
 		ComboBase[] list = Resources.LoadAll<ComboBase>("_DataAssets/DiceCombos");
 
 		foreach ( ComboBase combo in list)
 		{
-			GetInstance().m_allCombos.Add(combo.GetGuid(), combo);
+			GetInstance().m_allComboObjects.Add(combo);
 		}
 
 		foreach ( ComboBase combo in GetInstance().m_defaultUnlockedCombos)
@@ -132,6 +131,15 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	{
 		DiceManager.GetInstance().RemoveAllDice();
 		SaveLoad.Load();
+	}
+
+	protected override void Awake()
+	{
+		base.Awake();
+		foreach ( ComboBase combo in m_allComboObjects )
+		{
+			GetInstance().m_allCombos.Add(combo.GetGuid(), combo);
+		}
 	}
 
 }

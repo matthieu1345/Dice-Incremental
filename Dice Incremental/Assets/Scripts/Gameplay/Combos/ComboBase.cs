@@ -2,6 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 using UnityEngine;
 
 public class ComboBase : ScriptableObject
@@ -12,7 +17,11 @@ public class ComboBase : ScriptableObject
 
 	public string GetGuid() { return m_guid;}
 
-	public enum EComboRewardType
+#if UNITY_EDITOR
+	public void GenerateNewGuid() { m_guid = Guid.NewGuid().ToString(); }
+#endif
+
+	protected enum EComboRewardType
 	{
 
 		CRT_NotSet, //InValid! should never happen
@@ -30,7 +39,7 @@ public class ComboBase : ScriptableObject
 
 	public virtual void CheckCombo( List<Dice> diceList) { }
 
-	public virtual void GiveReward(string comboName, Dice winningdDice)
+	protected virtual void GiveReward(string comboName, Dice winningdDice)
 	{
 #if DEBUG_COMBOS
 		Debug.LogFormat("{0} has given you a reward!", comboName);
@@ -66,3 +75,26 @@ public class ComboBase : ScriptableObject
 	protected virtual float GetMoneyMultiplication(Dice winningDice) { return 0; }
 
 }
+
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(ComboBase), true)]
+public class ComboEditor : Editor
+{
+
+	public override void OnInspectorGUI()
+	{
+		base.OnInspectorGUI();
+
+		EditorGUILayout.LabelField(" ", " ");
+
+		if (GUILayout.Button("Generate New Guid"))
+		{
+			((ComboBase)target).GenerateNewGuid();
+		}
+
+	}
+
+
+}
+#endif
