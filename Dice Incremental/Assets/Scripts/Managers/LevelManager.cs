@@ -32,6 +32,12 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	private float m_basePowerCost = 1;
 
 	[SerializeField]
+	private float m_diceCost = 10;
+
+	[SerializeField]
+	private float m_diceCostMultiplier = 1;
+
+	[SerializeField]
 	private float m_money;
 	public float Money
 	{
@@ -67,11 +73,13 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	private ValueChangedEvent m_xpChanged = new ValueChangedEvent();
 	public void AddMoney( float rewardValue )
 	{
+		StatsManager.GetInstance().RecievedMoney((int)rewardValue);
 		Money += rewardValue;
 	}
 
 	public void AddXp( float rewardValue )
 	{
+		StatsManager.GetInstance().RecievedXp((int)rewardValue);
 		Xp += rewardValue;
 	}
 	public int GetMoney() { return (int)m_money; }
@@ -121,6 +129,13 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		return false;
 	}
 
+	public bool BuyDice()
+	{
+		float diceCost = m_diceCost * (float)Math.Pow(m_diceCostMultiplier, DiceManager.GetInstance().GetDiceCount() - GetBeginningDiceCount());
+
+		return Buy(diceCost);
+	}
+
 
 	public void Save()
 	{
@@ -138,8 +153,11 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		base.Awake();
 		foreach ( ComboBase combo in m_allComboObjects )
 		{
-			GetInstance().m_allCombos.Add(combo.GetGuid(), combo);
+			if (!GetInstance().m_allCombos.ContainsKey(combo.GetGuid()))
+				GetInstance().m_allCombos.Add(combo.GetGuid(), combo);
 		}
 	}
+
+	private int GetBeginningDiceCount() { return 1; }
 
 }

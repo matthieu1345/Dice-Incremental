@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(fileName = "NewDiceSequence", menuName = "Combos/DiceSequence", order = 3)]
 public class DiceSequence : ComboBase
@@ -9,6 +12,14 @@ public class DiceSequence : ComboBase
 
 	[SerializeField]
 	private List<int> m_requiredValues = new List<int>();
+#if UNITY_EDITOR
+	public List<int> GUIRequiredValues
+	{
+		get { return m_requiredValues; }
+		set { m_requiredValues = value; }
+	}
+#endif
+
 
 	private class ValueCheck
 	{
@@ -123,3 +134,30 @@ public class DiceSequence : ComboBase
 		}
 	}
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(DiceSequence), true)]
+public class SequenceEditor : ComboEditor
+{
+
+	private bool m_showList = false;
+	public override void OnInspectorGUI()
+	{
+		DiceSequence combo = target as DiceSequence;
+
+
+		base.OnInspectorGUI();
+
+		m_showList = EditorGUILayout.Foldout(m_showList, "Dice Values needed:");
+
+		if ( !m_showList || combo == null ) return;
+
+		for ( int i = 0; i < combo.GUIRequiredValues.Count; i++ )
+		{
+			combo.GUIRequiredValues[i] = EditorGUILayout.IntField("Dice Value #" + i + ": ", combo.GUIRequiredValues[i]);
+		}
+	}
+
+
+}
+#endif

@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [CreateAssetMenu(fileName = "NewMultiDice", menuName = "Combos/MultiDice", order = 2)]
 public class MultiDice : ComboBase
@@ -8,6 +11,13 @@ public class MultiDice : ComboBase
 
 	[SerializeField]
 	private int[] m_diceValues;
+#if UNITY_EDITOR
+	public int[] GUIRequiredValues
+	{
+		get { return m_diceValues; }
+		set { m_diceValues = value; }
+	}
+#endif
 
 	private class ValuePair
 	{
@@ -87,3 +97,30 @@ public class MultiDice : ComboBase
 		ResetList();
 	}
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(MultiDice), true)]
+public class MultiEditor : ComboEditor
+{
+
+	private bool m_showList = false;
+	public override void OnInspectorGUI()
+	{
+		MultiDice combo = target as MultiDice;
+
+
+		base.OnInspectorGUI();
+
+		m_showList = EditorGUILayout.Foldout(m_showList, "Dice Values needed:");
+
+		if (!m_showList || combo == null) return;
+
+		for (int i = 0; i < combo.GUIRequiredValues.Length; i++)
+		{
+			combo.GUIRequiredValues[i] = EditorGUILayout.IntField("Dice Value #" + i + ": ", combo.GUIRequiredValues[i]);
+		}
+	}
+
+
+}
+#endif

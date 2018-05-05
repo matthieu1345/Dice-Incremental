@@ -21,6 +21,8 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public RollEvent m_rollEvent;
 
+	public int GetDiceCount() { return m_allDice.Count; }
+
 	public void AddDice(Dice dice)
 	{
 		m_allDice.Add(dice);
@@ -71,7 +73,8 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void BuyDice()
 	{
-		CreateDice();
+		if (LevelManager.GetInstance().BuyDice())
+			CreateDice();
 	}
 
 	public void RemoveAllDice()

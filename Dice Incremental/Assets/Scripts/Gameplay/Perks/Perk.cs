@@ -55,8 +55,8 @@ public class Perk : ScriptableObject
 	}
 
 #if UNITY_EDITOR
+	// ReSharper disable ConvertToAutoPropertyWhenPossible
 	// ReSharper disable ConvertToAutoProperty
-
 	public EPerkRewardType GUIAward
 	{
 		get {return m_rewardType;}
@@ -64,6 +64,7 @@ public class Perk : ScriptableObject
 	}
 
 	public int GUIMoneyReward
+		
 	{
 		get {return m_moneyReward;}
 		set {m_moneyReward = value;}
@@ -74,8 +75,8 @@ public class Perk : ScriptableObject
 		get {return m_comboReward;}
 		set {m_comboReward = value;}
 	}
-
 	// ReSharper restore ConvertToAutoProperty
+	// ReSharper restore ConvertToAutoPropertyWhenPossible
 #endif
 }
 

@@ -8,6 +8,7 @@ public class SaveLoad {
 	//serialized variables, in order
 	private static List<DiceStats> _savedDice = new List<DiceStats>();
 	private static List<string> _unlockedCombos = new List<string>();
+	private static StatsData _savedStats = new StatsData();
 
 	private static void SaveDice(BinaryFormatter bf, FileStream file)
 	{
@@ -28,6 +29,12 @@ public class SaveLoad {
 		bf.Serialize(file, _unlockedCombos);
 	}
 
+	private static void SaveStats( BinaryFormatter bf, FileStream file )
+	{
+		_savedStats = StatsManager.GetInstance().GetStats();
+		bf.Serialize(file, _savedStats);
+	}
+
 	public static void Save()
 	{
 		BinaryFormatter bf = new BinaryFormatter();
@@ -35,6 +42,7 @@ public class SaveLoad {
 
 		SaveDice(bf, file);
 		SaveUnlockedCombos(bf, file);
+		SaveStats(bf, file);
 
 		file.Close();
 	}
@@ -50,11 +58,14 @@ public class SaveLoad {
 
 			_unlockedCombos = (List<string>)bf.Deserialize(file);
 
+			_savedStats = (StatsData)bf.Deserialize(file);
+
 			file.Close();
 		}
 
 		LoadDice();
 		LoadUnlockedCombos();
+		LoadStats();
 	}
 
 	private static void LoadDice()
@@ -66,5 +77,10 @@ public class SaveLoad {
 	private static void LoadUnlockedCombos()
 	{
 		LevelManager.GetInstance().LoadUnlockedCombos(_unlockedCombos);
+	}
+
+	private static void LoadStats()
+	{
+		StatsManager.GetInstance().LoadStats(_savedStats);
 	}
 }

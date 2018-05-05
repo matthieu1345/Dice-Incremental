@@ -553,11 +553,11 @@ PlayerSettings:
   webGLUseWasm: 0
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
-    1: 
-    4: 
-    7: 
-    13: 
-    14: 
+    1: DEBUG_COMBOS
+    4: DEBUG_COMBOS
+    7: DEBUG_COMBOS
+    13: DEBUG_COMBOS
+    14: DEBUG_COMBOS
     17: 
     18: 
     19: 

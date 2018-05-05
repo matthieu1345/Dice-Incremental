@@ -109,5 +109,6 @@ public class Dice : MonoBehaviour
 	{
 		m_rollValue = Random.Range(1, m_stats.GetSides() + 1);
 		m_text.text = m_rollValue.ToString();
+		StatsManager.GetInstance().RolledDice(m_rollValue);
 	}
 }

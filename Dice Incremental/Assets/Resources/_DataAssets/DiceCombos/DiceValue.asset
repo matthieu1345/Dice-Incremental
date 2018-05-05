@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d5eb7eb7e663e49a735f54afbe6677, type: 3}
   m_Name: DiceValue
   m_EditorClassIdentifier: 
-  m_rewardType: 2
+  m_guid: 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
+  m_comboRewardType: 2
   m_moneyReward: 1
   m_xpReward: 0
