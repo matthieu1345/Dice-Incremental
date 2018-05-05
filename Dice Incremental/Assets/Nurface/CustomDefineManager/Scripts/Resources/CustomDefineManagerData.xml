@@ -3,7 +3,7 @@
   <Directive>
     <name>DEBUG_COMBOS</name>
     <targets>Standalone iOS Android WebGL Metro</targets>
-    <enabled>true</enabled>
+    <enabled>false</enabled>
     <sortOrder>0</sortOrder>
   </Directive>
   <Directive>
