@@ -96,15 +96,19 @@ public class DiceMenu : MonoBehaviour
 	private void CalculateCosts()
 	{
 		m_sideCost = m_maxSideCost = m_magicCost = 0;
-		m_sideCost = LevelManager.GetInstance().GetBaseCost() + LevelManager.GetInstance().GetCostMultiplier() * (m_selectedDice.GetPower() - 1) * LevelManager.GetInstance().GetBaseCost();
+
+		float powerBaseCost = DiceManager.GetInstance().GetPowerBaseCost();
+		float powerMultiplier = DiceManager.GetInstance().GetPowerCostMultiplier();
+
+		m_sideCost = powerBaseCost + powerMultiplier * (m_selectedDice.GetPower() - 1) * powerBaseCost;
 		
 		for ( int i = m_selectedDice.GetSides(); i < m_selectedDice.GetGoal(); i++ )
 		{
-			m_maxSideCost += LevelManager.GetInstance().GetBaseCost() + LevelManager.GetInstance().GetBaseCost() * LevelManager.GetInstance().GetCostMultiplier() * (m_selectedDice.GetPower() - 1 + i - m_selectedDice.GetSides());
+			m_maxSideCost += powerBaseCost + powerBaseCost * powerMultiplier * (m_selectedDice.GetPower() - 1 + i - m_selectedDice.GetSides());
 		}
 
 		m_magicCost = m_maxSideCost;
-		m_magicCost += LevelManager.GetInstance().GetBaseCost() + LevelManager.GetInstance().GetBaseCost() * LevelManager.GetInstance().GetCostMultiplier() * (m_selectedDice.GetPower() - 1 + m_selectedDice.GetGoal() - m_selectedDice.GetSides());
+		m_magicCost += powerBaseCost + powerBaseCost * powerMultiplier * (m_selectedDice.GetPower() - 1 + m_selectedDice.GetGoal() - m_selectedDice.GetSides());
 
 		m_singleText.text = "cost: " + m_sideCost.ToString("F") + " Gold";
 		m_maxText.text = "cost: " + m_maxSideCost.ToString("F") + " Gold";

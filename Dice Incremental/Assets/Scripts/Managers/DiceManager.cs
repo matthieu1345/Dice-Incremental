@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,18 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	[SerializeField]
 	private int m_startingDice = 1;
 
+	[SerializeField]
+	private float m_diceCost = 10;
+
+	[SerializeField]
+	private float m_diceCostMultiplier = 2;
+
+	[SerializeField]
+	private float m_costMultiplierPerPower = 0.2f;
+
+	[SerializeField]
+	private float m_basePowerCost = 10;
+
 	private List<Dice> m_allDice = new List<Dice>();
 
 	public List<Dice> GetDiceList() { return m_allDice; }
@@ -23,18 +36,32 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public int GetDiceCount() { return m_allDice.Count; }
 
+	private float GetNewDiceCost()
+	{
+		float newDiceCost = m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice);
+
+		m_uiFolder.SetDiceCost(newDiceCost);
+
+		return newDiceCost;
+	}
+
+	public float GetPowerCostMultiplier() { return m_costMultiplierPerPower; }
+	public float GetPowerBaseCost() { return m_basePowerCost; }
+
+
 	public void AddDice(Dice dice)
 	{
 		m_allDice.Add(dice);
 		dice.transform.SetParent(m_uiFolder.transform, false);
 		dice.SetIndex(m_allDice.Count - 1);
 		m_uiFolder.AddDiceObject(dice.gameObject);
+		GetNewDiceCost();
 	}
 
 	public void RollAll()
 	{
 		m_rollEvent.Invoke();
-		LevelManager.GetInstance().CheckCombos();
+		ComboManager.GetInstance().CheckCombos();
 	}
 
 	public void AddPowerToAll()
@@ -73,7 +100,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void BuyDice()
 	{
-		if (LevelManager.GetInstance().BuyDice())
+		if (LevelManager.GetInstance().Buy(GetNewDiceCost()))
 			CreateDice();
 	}
 

@@ -1,26 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1939431470150900}
-  m_IsPrefabParent: 1
 --- !u!1 &1939431470150900
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 4715119042904326}
   - component: {fileID: 114174764942973058}
   - component: {fileID: 114061375465846334}
+  - component: {fileID: 9052614161712673264}
   - component: {fileID: 114460716814161578}
   - component: {fileID: 114430375967096962}
   m_Layer: 0
@@ -32,9 +23,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4715119042904326
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939431470150900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -43,35 +35,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114174764942973058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd02d2ad20c23eb4daf8c95a6b24a3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiFolder: {fileID: 0}
+  m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
+    type: 3}
+  m_startingDice: 1
+  m_diceCost: 10
+  m_diceCostMultiplier: 2
+  m_costMultiplierPerPower: 0.2
+  m_basePowerCost: 10
 --- !u!114 &114061375465846334
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939431470150900}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85dc96a4ede96a948a7d5bead6f90e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_allComboObjects:
-  - {fileID: 11400000, guid: d178bf3f6b89eee4cb934be35c0e46c3, type: 2}
-  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
-  - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
-  - {fileID: 11400000, guid: b059fc7c5fcb60342aa59ec3dfbad0e6, type: 2}
-  - {fileID: 11400000, guid: 4e8ba9053fcd7b545a761dd429f87cd4, type: 2}
-  - {fileID: 11400000, guid: 962d5080c90d7c84b994a1cf577b6cb8, type: 2}
-  - {fileID: 11400000, guid: 119bdc35d6badfc488ad2cb17be19120, type: 2}
-  - {fileID: 11400000, guid: 0ca1c91b76fd2b24d826572b862957bc, type: 2}
-  - {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
-  m_defaultUnlockedCombos:
-  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
-  m_unlockedComboStrings:
-  - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
-  m_costMultiplierPerPower: 0.2
-  m_basePowerCost: 10
-  m_diceCost: 10
-  m_diceCostMultiplier: 2
   m_money: 0
   m_xp: 0
   m_moneyChanged:
@@ -88,8 +83,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: LevelManager+ValueChangedEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
   m_xpChanged:
     m_PersistentCalls:
       m_Calls:
@@ -104,28 +97,61 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: LevelManager+ValueChangedEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &114174764942973058
+--- !u!114 &9052614161712673264
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939431470150900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd02d2ad20c23eb4daf8c95a6b24a3ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e5227236b5483c4a8a7118b19772b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiFolder: {fileID: 0}
-  m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
-    type: 2}
-  m_startingDice: 1
+  m_allComboObjects:
+  - {fileID: 11400000, guid: d178bf3f6b89eee4cb934be35c0e46c3, type: 2}
+  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
+  - {fileID: 11400000, guid: b059fc7c5fcb60342aa59ec3dfbad0e6, type: 2}
+  - {fileID: 11400000, guid: 4e8ba9053fcd7b545a761dd429f87cd4, type: 2}
+  - {fileID: 11400000, guid: 962d5080c90d7c84b994a1cf577b6cb8, type: 2}
+  - {fileID: 11400000, guid: 119bdc35d6badfc488ad2cb17be19120, type: 2}
+  - {fileID: 11400000, guid: 0ca1c91b76fd2b24d826572b862957bc, type: 2}
+  - {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
+  m_unlockedComboStrings: []
+  m_defaultUnlockedCombos:
+  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+--- !u!114 &114460716814161578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa67598ad9584043ae2e664479c584e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_buyDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_rollDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_selectNextDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_selectPreviousDiceEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &114430375967096962
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939431470150900}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -137,34 +163,3 @@ MonoBehaviour:
     m_totalXp: 0
     m_totalRolls: 0
     m_totalEyes: 0
---- !u!114 &114460716814161578
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1939431470150900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aa67598ad9584043ae2e664479c584e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_buyDiceEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_rollDiceEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_selectNextDiceEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  m_selectPreviousDiceEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null

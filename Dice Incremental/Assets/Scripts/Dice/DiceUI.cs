@@ -15,6 +15,9 @@ public class DiceUI : MonoBehaviour
 	[SerializeField]
 	private GameObject m_buyNewDiceObject;
 
+	[SerializeField]
+	private Text m_diceBuyText;
+
 	private readonly List<GameObject> m_diceObjects = new List<GameObject>();
 
 	public int GetDiceCount() { return m_diceObjects.Count;}
@@ -76,4 +79,8 @@ public class DiceUI : MonoBehaviour
 		m_diceObjects.Clear();
 	}
 
+	public void SetDiceCost(float newCost)
+	{
+		m_diceBuyText.text = "Buy new dice (" + newCost.ToString( "F" ) + " Gold)";
+	}
 }

@@ -24,7 +24,7 @@ public class SaveLoad {
 
 	private static void SaveUnlockedCombos(BinaryFormatter bf, FileStream file)
 	{
-		_unlockedCombos = LevelManager.GetInstance().GetUnlockedCombos();
+		_unlockedCombos = ComboManager.GetInstance().GetUnlockedCombos();
 		
 		bf.Serialize(file, _unlockedCombos);
 	}
@@ -76,7 +76,7 @@ public class SaveLoad {
 
 	private static void LoadUnlockedCombos()
 	{
-		LevelManager.GetInstance().LoadUnlockedCombos(_unlockedCombos);
+		ComboManager.GetInstance().LoadUnlockedCombos(_unlockedCombos);
 	}
 
 	private static void LoadStats()
