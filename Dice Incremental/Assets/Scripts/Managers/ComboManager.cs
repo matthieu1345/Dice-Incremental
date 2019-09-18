@@ -13,8 +13,9 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 
 	[SerializeField]
 	private List<ComboBase> m_allComboObjects = new List<ComboBase>();
+
 	[ReadOnly, SerializeField]
-	private List<string> m_unlockedComboStrings = new List<string>();
+	private List<string> m_unlockedComboStrings;
 
 	[SerializeField]
 	private List<ComboBase> m_defaultUnlockedCombos = new List<ComboBase>();
@@ -25,7 +26,6 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 
 	protected override void Awake()
 	{
-		base.Awake();
 		foreach (ComboBase combo in m_allComboObjects)
 		{
 			if (!GetInstance().m_allCombos.ContainsKey(combo.GetGuid()))
@@ -45,6 +45,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 	[MenuItem( "Tools/Combo tools/Get all combo's")]
 	private static void GetAllCombos()
 	{
+		EditorUtility.SetDirty(GetInstance());
 		GetInstance().m_allComboObjects.Clear();
 		GetInstance().m_unlockedComboStrings.Clear();
 
