@@ -68,9 +68,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	}
 
 	[SerializeField]
-	private ValueChangedEvent m_moneyChanged = new ValueChangedEvent();
+	public ValueChangedEvent m_moneyChanged = new ValueChangedEvent();
 	[SerializeField]
-	private ValueChangedEvent m_xpChanged = new ValueChangedEvent();
+	public ValueChangedEvent m_xpChanged = new ValueChangedEvent();
 	public void AddMoney( float rewardValue )
 	{
 		StatsManager.GetInstance().RecievedMoney((int)rewardValue);
