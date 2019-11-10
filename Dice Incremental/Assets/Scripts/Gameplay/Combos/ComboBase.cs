@@ -85,9 +85,9 @@ public class ComboBase : ScriptableObject
 		
 	}
 
-	protected virtual float GetXpMultiplication(Dice winningDice) { return 0; }
+	protected virtual float GetXpMultiplication(Dice winningDice) { return winningDice.GetRollValue() * m_xpReward; }
 
-	protected virtual float GetMoneyMultiplication(Dice winningDice) { return 0; }
+	protected virtual float GetMoneyMultiplication(Dice winningDice) { return winningDice.GetRollValue() * m_moneyReward; }
 
 }
 

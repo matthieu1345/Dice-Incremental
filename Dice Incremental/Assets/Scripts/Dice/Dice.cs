@@ -36,7 +36,7 @@ public class Dice : MonoBehaviour
 	public void AddPower() { m_stats.AddSide(); }
 
 	public int GetSides() { return m_stats.GetSides(); }
-	public int GetPower() { return m_stats.GetPower(); }
+	public float GetPower() { return m_stats.GetPower(); }
 	public int GetGoal() { return m_stats.GetGoal(); }
 
 	private void Awake()

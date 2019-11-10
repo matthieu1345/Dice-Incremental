@@ -21,7 +21,7 @@ public class DiceStats
 
 	[Header("Current Data")]
 	[ReadOnly, SerializeField]
-	private int m_power = 1;
+	private float m_power = 1;
 	[ReadOnly, SerializeField]
 	private int m_sides = 3;
 	[ReadOnly, SerializeField]
@@ -57,7 +57,7 @@ public class DiceStats
 	}
 
 	public int GetSides() { return m_sides; }
-	public int GetPower() { return m_power; }
+	public float GetPower() { return m_power; }
 	public int GetGoal() { return m_goalSides; }
 	public int GetMagic() { return m_magic; }
 

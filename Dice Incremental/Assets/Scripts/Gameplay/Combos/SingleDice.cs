@@ -28,16 +28,6 @@ public class SingleDice : ComboBase
 				GiveReward(name, dice);
 		}
 	}
-
-	protected override float GetMoneyMultiplication(Dice winningDice)
-	{
-		return winningDice.GetRollValue() * m_moneyReward;
-	}
-
-	protected override float GetXpMultiplication(Dice winningDice)
-	{
-		return winningDice.GetRollValue() * m_xpReward;
-	}
 }
 
 #if UNITY_EDITOR
