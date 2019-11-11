@@ -10,8 +10,8 @@ class BuildScript
 	{
 		BuildPlayerOptions options = new BuildPlayerOptions();
 		options.scenes = FindEditorScenes();
-		options.locationPathName = "d:\JenkinsSlave\workspace\Dice-Incremental\Dice-Incremental-Testing\docs\";
 		options.target = BuildTarget.WebGL;
+		options.locationPathName = "d:/JenkinsSlave/workspace/Dice-Incremental/Dice-Incremental-Testing/docs/";
 		options.options = BuildOptions.None;
 
 		BuildPipeline.BuildPlayer( options );
