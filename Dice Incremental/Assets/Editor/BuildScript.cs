@@ -21,7 +21,7 @@ class BuildScript
 		BuildPlayerOptions options = new BuildPlayerOptions();
 		options.scenes           = FindEditorScenes();
 		options.target           = BuildTarget.Android;
-		options.locationPathName = "d:/JenkinsSlave/workspace/Dice-Incremental/Dice-Incremental-Android/android_build/";
+		options.locationPathName = "d:/JenkinsSlave/workspace/Dice-Incremental/Dice-Incremental-Android/android_build/DiceIncremental.apk";
 		options.options          = BuildOptions.None;
 
 		BuildPipeline.BuildPlayer(options);
