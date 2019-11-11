@@ -5,16 +5,26 @@ using UnityEngine;
 
 class BuildScript
 {
-	[MenuItem( "Build/Test")]
 	static void PerformWebglBuild()
 	{
 		BuildPlayerOptions options = new BuildPlayerOptions();
 		options.scenes = FindEditorScenes();
 		options.target = BuildTarget.WebGL;
-		options.locationPathName = "d:/JenkinsSlave/workspace/Dice-Incremental/Dice-Incremental-Testing/docs/";
+		options.locationPathName = "d:/JenkinsSlave/workspace/Dice-Incremental/Dice-Incremental-WebGL/docs/";
 		options.options = BuildOptions.None;
 
 		BuildPipeline.BuildPlayer( options );
+	}
+
+	static void PerformAndroidBuild()
+	{
+		BuildPlayerOptions options = new BuildPlayerOptions();
+		options.scenes           = FindEditorScenes();
+		options.target           = BuildTarget.Android;
+		options.locationPathName = "d:/JenkinsSlave/workspace/Dice-Incremental/Dice-Incremental-Android/android_build/";
+		options.options          = BuildOptions.None;
+
+		BuildPipeline.BuildPlayer(options);
 	}
 
 	private static string[ ] FindEditorScenes()
