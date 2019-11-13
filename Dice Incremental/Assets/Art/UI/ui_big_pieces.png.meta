@@ -1,33 +1,75 @@
 fileFormatVersion: 2
 guid: d796fa0ffb457ae42a42872865bd5340
-timeCreated: 1519070756
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: fancy_button_left
-    21300002: fancy_button_left_hover
-    21300004: fancy_button_middle_hover
-    21300006: fancy_button_right_hover
-    21300008: fancy_button_middle
-    21300010: fancy_button_right
-    21300012: fancy_button_left_press
-    21300014: fancy_button_middle_press
-    21300016: fancy_button_right_press
-    21300018: ui_big_pieces_9
-    21300020: ui_big_pieces_10
-    21300022: ui_big_pieces_11
-    21300024: ui_big_pieces_12
-    21300026: ui_big_pieces_13
-    21300028: ui_big_pieces_14
-    21300030: ui_big_pieces_15
-    21300032: ButtonUnpressedLeft
-    21300034: ButtonUnpressedMiddle
-    21300036: ButtonUnpressedRight
-    21300038: ButtonPressedLeft
-    21300040: ButtonPressedMiddle
-    21300042: ButtonPressedRight
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: fancy_button_left
+  - first:
+      213: 21300002
+    second: fancy_button_left_hover
+  - first:
+      213: 21300004
+    second: fancy_button_middle_hover
+  - first:
+      213: 21300006
+    second: fancy_button_right_hover
+  - first:
+      213: 21300008
+    second: fancy_button_middle
+  - first:
+      213: 21300010
+    second: fancy_button_right
+  - first:
+      213: 21300012
+    second: fancy_button_left_press
+  - first:
+      213: 21300014
+    second: fancy_button_middle_press
+  - first:
+      213: 21300016
+    second: fancy_button_right_press
+  - first:
+      213: 21300018
+    second: ui_big_pieces_9
+  - first:
+      213: 21300020
+    second: ui_big_pieces_10
+  - first:
+      213: 21300022
+    second: ui_big_pieces_11
+  - first:
+      213: 21300024
+    second: ui_big_pieces_12
+  - first:
+      213: 21300026
+    second: ui_big_pieces_13
+  - first:
+      213: 21300028
+    second: ui_big_pieces_14
+  - first:
+      213: 21300030
+    second: ui_big_pieces_15
+  - first:
+      213: 21300032
+    second: ButtonUnpressedLeft
+  - first:
+      213: 21300034
+    second: ButtonUnpressedMiddle
+  - first:
+      213: 21300036
+    second: ButtonUnpressedRight
+  - first:
+      213: 21300038
+    second: ButtonPressedLeft
+  - first:
+      213: 21300040
+    second: ButtonPressedMiddle
+  - first:
+      213: 21300042
+    second: ButtonPressedRight
   externalObjects: {}
-  serializedVersion: 4
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -45,6 +87,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -55,7 +99,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -67,18 +111,21 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -88,7 +135,9 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - buildTarget: Standalone
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -98,6 +147,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -115,6 +165,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_left_hover
       rect:
@@ -129,6 +186,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_middle_hover
       rect:
@@ -143,6 +207,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_right_hover
       rect:
@@ -157,6 +228,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_middle
       rect:
@@ -171,6 +249,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_right
       rect:
@@ -185,6 +270,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_left_press
       rect:
@@ -199,6 +291,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_middle_press
       rect:
@@ -213,6 +312,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: fancy_button_right_press
       rect:
@@ -227,6 +333,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ButtonUnpressedLeft
       rect:
@@ -241,6 +354,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ButtonUnpressedMiddle
       rect:
@@ -255,6 +375,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ButtonUnpressedRight
       rect:
@@ -269,6 +396,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ButtonPressedLeft
       rect:
@@ -283,6 +417,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ButtonPressedMiddle
       rect:
@@ -297,6 +438,13 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ButtonPressedRight
       rect:
@@ -311,9 +459,26 @@ TextureImporter:
       outline: []
       physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
