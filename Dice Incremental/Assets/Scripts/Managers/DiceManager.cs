@@ -102,7 +102,10 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	public void BuyDice()
 	{
 		if (LevelManager.GetInstance().Buy(GetNewDiceCost()))
+		{
+			StatsManager.GetInstance().BoughtDice();
 			CreateDice();
+		}
 	}
 
 	public void RemoveAllDice()

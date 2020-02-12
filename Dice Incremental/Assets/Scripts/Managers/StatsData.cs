@@ -29,4 +29,8 @@ public class StatsData
 	[SerializeField]
 	private int m_totalCombos;
 	public void AddCombo(int value) {m_totalCombos += value;}
+
+	[SerializeField]
+	private int m_totalBoughtDice;
+	public void AddBoughtDice(int value) {m_totalBoughtDice += value;}
 }

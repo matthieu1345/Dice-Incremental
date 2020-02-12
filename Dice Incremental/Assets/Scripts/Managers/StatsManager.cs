@@ -40,4 +40,9 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 		m_stats.AddCombo(1);
 	}
 
+	public void BoughtDice()
+	{
+		m_stats.AddBoughtDice(1);
+	}
+
 }
