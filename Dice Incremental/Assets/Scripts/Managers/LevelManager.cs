@@ -9,7 +9,6 @@ using UnityEngine.Events;
 
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
-
 	[SerializeField]
 	private float m_money;
 	public float Money
@@ -24,7 +23,6 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	[SerializeField]
 	private float m_xp;
-
 	public float Xp
 	{
 		get { return m_xp; }
@@ -34,6 +32,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 			m_xpChanged.Invoke((int)m_xp);
 		}
 	}
+
 
 	[Serializable]
 	public class ValueChangedEvent : UnityEvent<int>
@@ -78,5 +77,11 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	{
 		DiceManager.GetInstance().RemoveAllDice();
 		SaveLoad.Load();
+	}
+
+	public void LoadMana(ManaData data)
+	{
+		Money = data.m_money;
+		Xp = data.m_xp;
 	}
 }

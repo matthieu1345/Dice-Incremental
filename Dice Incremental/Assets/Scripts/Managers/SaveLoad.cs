@@ -10,6 +10,7 @@ public class SaveLoad {
 		public List<DiceStats> _savedDice = new List<DiceStats>();
 		public List<string> _unlockedCombos = new List<string>();
 		public StatsData _savedStats = new StatsData();
+		public ManaData _savedMana = new ManaData();
 	}
 
 	private static SaveData _save = new SaveData();
@@ -44,11 +45,19 @@ public class SaveLoad {
 		_save._savedStats = StatsManager.GetInstance().GetStats();
 	}
 
+	private static void GatherMana()
+	{
+		LevelManager levelManagerInstance = LevelManager.GetInstance();
+		_save._savedMana.m_money = levelManagerInstance.Money;
+		_save._savedMana.m_xp = levelManagerInstance.Xp;
+	}
+
 	public static void Save()
 	{
 		GatherDice();
 		GatherUnlockedCombos();
 		GatherStats();
+		GatherMana();
 
 		SaveJson();
 	}
@@ -63,6 +72,7 @@ public class SaveLoad {
 		LoadDice();
 		LoadUnlockedCombos();
 		LoadStats();
+		LoadMana();
 	}
 
 	private static void LoadDice()
@@ -79,5 +89,10 @@ public class SaveLoad {
 	private static void LoadStats()
 	{
 		StatsManager.GetInstance().LoadStats(_save._savedStats);
+	}
+
+	private static void LoadMana()
+	{
+		LevelManager.GetInstance().LoadMana(_save._savedMana);
 	}
 }
