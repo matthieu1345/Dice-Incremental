@@ -30,4 +30,9 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 		m_stats.AddEyes(eyeValue);
 	}
 
+	public void TakenRoll()
+	{
+		m_stats.AddTurn(1);
+	}
+
 }

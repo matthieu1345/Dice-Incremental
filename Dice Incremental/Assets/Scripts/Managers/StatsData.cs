@@ -26,4 +26,9 @@ public class StatsData
 
 	public void AddEyes( int value ) { m_totalEyes += value; }
 
+	[SerializeField]
+	private int m_totalTurns;
+
+	public void AddTurn(int value) {m_totalTurns += value;}
+
 }

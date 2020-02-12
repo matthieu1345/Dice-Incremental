@@ -60,6 +60,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void RollAll()
 	{
+		StatsManager.GetInstance().TakenRoll();
 		m_rollEvent.Invoke();
 		ComboManager.GetInstance().CheckCombos();
 	}
