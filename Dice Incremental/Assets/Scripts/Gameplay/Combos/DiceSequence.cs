@@ -120,6 +120,8 @@ public class DiceSequence : ComboBase
 	{
 		for ( int i = 0; i < combo.Count; i++ )
 		{
+			StatsManager.GetInstance().CompletedCombo();
+
 			if ( m_comboRewardType == EComboRewardType.CRT_ValueMultiplication )
 				GiveReward(name, m_valueDictionary[combo[i].m_value].Last());
 			else if (i == 0)

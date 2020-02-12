@@ -8,27 +8,25 @@ public class StatsData
 {
 	[SerializeField]
 	private int m_totalGold;
-
 	public void AddGold( int value ) { m_totalGold += value; }
 
 	[SerializeField]
 	private int m_totalXp;
-
 	public void AddXp( int value ) { m_totalXp += value; }
 
 	[SerializeField]
 	private int m_totalRolls;
-
 	public void AddRolls( int value ) { m_totalRolls += value; }
 
 	[SerializeField]
 	private int m_totalEyes;
-
 	public void AddEyes( int value ) { m_totalEyes += value; }
 
 	[SerializeField]
 	private int m_totalTurns;
-
 	public void AddTurn(int value) {m_totalTurns += value;}
 
+	[SerializeField]
+	private int m_totalCombos;
+	public void AddCombo(int value) {m_totalCombos += value;}
 }

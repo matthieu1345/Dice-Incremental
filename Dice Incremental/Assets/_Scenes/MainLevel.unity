@@ -2591,8 +2591,78 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}
+      propertyPath: m_defaultUnlockedCombos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_unlockedComboStrings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_allComboObjects.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
       propertyPath: m_unlockedComboStrings.Array.data[0]
       value: 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_defaultUnlockedCombos.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 151b6882960db59478a90012b6b42501,
+        type: 2}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_unlockedComboStrings.Array.data[1]
+      value: 80158ad8-1458-4a46-9019-9477739334b0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_defaultUnlockedCombos.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 93e79b70b955c4e40a58a19436f4f7ad,
+        type: 2}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_defaultUnlockedCombos.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 08ca444b29ee1da4e820c4b670ef5c48,
+        type: 2}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_allComboObjects.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b,
+        type: 2}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_allComboObjects.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_allComboObjects.Array.data[10]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_allComboObjects.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b,
+        type: 2}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_unlockedComboStrings.Array.data[2]
+      value: 2241aca4-0c5f-4ab5-ba08-bed18b6c73e1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052614161712673264, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_unlockedComboStrings.Array.data[3]
+      value: 21e86faa-8e7b-49de-bf3f-14c24c3c80e8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1400e172dfbcb604f9da857389c751a5, type: 3}

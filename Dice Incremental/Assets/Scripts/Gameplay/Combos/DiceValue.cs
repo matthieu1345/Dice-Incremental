@@ -10,6 +10,7 @@ public class DiceValue : ComboBase
 	{
 		foreach ( Dice dice in diceList )
 		{
+			StatsManager.GetInstance().CompletedCombo();
 			GiveReward(name, dice);
 		}
 	}

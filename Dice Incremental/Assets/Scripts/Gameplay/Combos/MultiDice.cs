@@ -46,10 +46,12 @@ public class MultiDice : ComboBase
 			bool hasEverything = true;
 			bool counted = false;
 
+			// go over each value needed and check if the dice has this value
 			foreach ( ValuePair pair in m_valueList )
 			{
-				if ( !pair.m_found && pair.m_value == dice.GetRollValue() && !counted )
+				if ( !pair.m_found && pair.m_value == dice.GetRollValue() && !counted ) 
 				{
+					//check if the value is not already found, the dice has the current value, and is not counted yet
 					counted = true;
 					pair.m_found = true;
 					m_diceList.Add(dice);
@@ -59,6 +61,7 @@ public class MultiDice : ComboBase
 					hasEverything = false;
 			}
 
+			//if every value is used, give the reward once
 			if ( hasEverything )
 			{
 				GiveReward();
@@ -81,7 +84,7 @@ public class MultiDice : ComboBase
 
 	private void GiveReward()
 	{
-
+		StatsManager.GetInstance().CompletedCombo();
 		if (m_comboRewardType == EComboRewardType.CRT_ValueMultiplication)
 		{
 			foreach (Dice winningDice in m_diceList)

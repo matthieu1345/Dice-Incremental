@@ -25,7 +25,10 @@ public class SingleDice : ComboBase
 		foreach (Dice dice in diceList)
 		{
 			if (dice.GetRollValue() == m_diceValue)
+			{
+				StatsManager.GetInstance().CompletedCombo();
 				GiveReward(name, dice);
+			}
 		}
 	}
 }
