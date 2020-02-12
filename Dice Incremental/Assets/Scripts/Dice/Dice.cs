@@ -70,8 +70,6 @@ public class Dice : MonoBehaviour
 			button.onClick.AddListener(delegate { MenuSelector.GetInstance().OpenDiceMenu(this); });
 	}
 
-
-
 	private void Start()
 	{
 		if ( m_stats != null )
@@ -86,6 +84,11 @@ public class Dice : MonoBehaviour
 			DiceManager.m_instance.AddDice(this);
 		}
 
+	}
+
+	private void OnDestroy()
+	{
+		DiceManager.m_instance.m_rollEvent -= Roll;
 	}
 
 	private void SetLineRenderer(int sideCount)
