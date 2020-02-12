@@ -5,62 +5,59 @@ using UnityEngine;
 
 public class SaveLoad {
 
-	//serialized variables, in order
-	private static List<DiceStats> _savedDice = new List<DiceStats>();
-	private static List<string> _unlockedCombos = new List<string>();
-	private static StatsData _savedStats = new StatsData();
-
-	private static void SaveDice(BinaryFormatter bf, FileStream file)
+	public class SaveData
 	{
-		_savedDice = new List<DiceStats>();
+		public List<DiceStats> _savedDice = new List<DiceStats>();
+		public List<string> _unlockedCombos = new List<string>();
+		public StatsData _savedStats = new StatsData();
+	}
+
+	private static SaveData _save = new SaveData();
+	private static string _saveLocation = Application.persistentDataPath + "/savedGame.json";
+
+	private static void SaveJson()
+	{
+		string json = JsonUtility.ToJson(_save, true);
+
+		Debug.Log("Saving as JSON: " + json);
+
+		File.WriteAllText(_saveLocation, json);
+	}
+
+	private static void GatherDice()
+	{
+		_save._savedDice = new List<DiceStats>();
 		for ( int i = 0; i < DiceManager.GetInstance().GetDiceList().Count; i++ )
 		{
 			DiceStats temp = new DiceStats(DiceManager.GetInstance().GetDiceList()[i].GetStats());
-			_savedDice.Add(temp);
+			_save._savedDice.Add(temp);
 		}
-
-		bf.Serialize(file, _savedDice);
 	}
 
-	private static void SaveUnlockedCombos(BinaryFormatter bf, FileStream file)
+	private static void GatherUnlockedCombos()
 	{
-		_unlockedCombos = ComboManager.GetInstance().GetUnlockedCombos();
-		
-		bf.Serialize(file, _unlockedCombos);
+		_save._unlockedCombos = ComboManager.GetInstance().GetUnlockedCombos();
 	}
 
-	private static void SaveStats( BinaryFormatter bf, FileStream file )
+	private static void GatherStats()
 	{
-		_savedStats = StatsManager.GetInstance().GetStats();
-		bf.Serialize(file, _savedStats);
+		_save._savedStats = StatsManager.GetInstance().GetStats();
 	}
 
 	public static void Save()
 	{
-		BinaryFormatter bf = new BinaryFormatter();
-		FileStream file = File.Create(Application.persistentDataPath + "/savedGame.gd");
+		GatherDice();
+		GatherUnlockedCombos();
+		GatherStats();
 
-		SaveDice(bf, file);
-		SaveUnlockedCombos(bf, file);
-		SaveStats(bf, file);
-
-		file.Close();
+		SaveJson();
 	}
 
 	public static void Load()
 	{
-		if ( File.Exists(Application.persistentDataPath + "/savedGame.gd") )
+		if ( File.Exists(_saveLocation) )
 		{
-			BinaryFormatter bf = new BinaryFormatter();
-			FileStream file = File.Open(Application.persistentDataPath + "/savedGame.gd", FileMode.Open);
-
-			_savedDice = (List<DiceStats>)bf.Deserialize(file);
-
-			_unlockedCombos = (List<string>)bf.Deserialize(file);
-
-			_savedStats = (StatsData)bf.Deserialize(file);
-
-			file.Close();
+			_save = JsonUtility.FromJson<SaveData>(File.ReadAllText(_saveLocation));
 		}
 
 		LoadDice();
@@ -70,17 +67,17 @@ public class SaveLoad {
 
 	private static void LoadDice()
 	{
-		for(int i = 0; i < _savedDice.Count; i++)
-		DiceManager.GetInstance().LoadDice(_savedDice[i]);
+		for(int i = 0; i < _save._savedDice.Count; i++)
+		DiceManager.GetInstance().LoadDice(_save._savedDice[i]);
 	}
 
 	private static void LoadUnlockedCombos()
 	{
-		ComboManager.GetInstance().LoadUnlockedCombos(_unlockedCombos);
+		ComboManager.GetInstance().LoadUnlockedCombos(_save._unlockedCombos);
 	}
 
 	private static void LoadStats()
 	{
-		StatsManager.GetInstance().LoadStats(_savedStats);
+		StatsManager.GetInstance().LoadStats(_save._savedStats);
 	}
 }
