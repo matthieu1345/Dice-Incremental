@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 public class DiceMenu : MonoBehaviour
 {
@@ -15,13 +15,13 @@ public class DiceMenu : MonoBehaviour
 	private float m_sideCost, m_maxSideCost, m_magicCost;
 
 	[SerializeField]
-	private Text m_singleText;
+	private TextMeshProUGUI m_singleText;
 
 	[SerializeField]
-	private Text m_maxText;
+	private TextMeshProUGUI m_maxText;
 
 	[SerializeField]
-	private Text m_magicText;
+	private TextMeshProUGUI m_magicText;
 
 	public void SelectNewDice( Dice selectedDice )
 	{

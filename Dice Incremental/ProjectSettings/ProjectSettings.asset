@@ -614,11 +614,11 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: DEBUG_COMBOS
-    4: DEBUG_COMBOS
-    7: DEBUG_COMBOS
-    13: DEBUG_COMBOS
-    14: DEBUG_COMBOS
+    1: 
+    4: 
+    7: 
+    13: 
+    14: 
     17: 
     18: 
     19: 
