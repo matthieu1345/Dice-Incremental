@@ -20,10 +20,14 @@ public class Counter : MonoBehaviour
 		m_counter = newValue;
 		for ( int i = 0; i < m_childSprites.Length; i++ )
 		{
-			m_childSprites[m_childSprites.Length - i - 1].sprite = m_sprite[(int)( m_counter / Math.Pow(10, i)) % 10];
+			m_childSprites[m_childSprites.Length - i - 1].sprite = m_sprite[CalculateSpriteIndex(m_counter, i)];
 		}
 	}
 
+	public int CalculateSpriteIndex(int value, int number)
+	{
+		return (int)( value / Math.Pow(10, number)) % 10;
+	}
 
 	private void Awake() { UpdateValue(0); }
 
