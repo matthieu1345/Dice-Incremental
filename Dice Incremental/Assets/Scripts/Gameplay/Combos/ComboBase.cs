@@ -52,7 +52,7 @@ public class ComboBase : ScriptableObject
 	[SerializeField]
 	protected int m_xpReward;
 
-	public virtual void CheckCombo( List<Dice> diceList) { }
+	public virtual int CheckCombo( List<Dice> diceList) { return 0; }
 
 	protected virtual void GiveReward(string comboName, Dice winningdDice)
 	{

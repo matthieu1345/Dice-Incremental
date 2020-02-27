@@ -42,45 +42,51 @@ public class DiceSequence : ComboBase
 	private readonly SortedDictionary<int, List<Dice>> m_valueDictionary = new SortedDictionary<int, List<Dice>>();
 
 
-	public override void CheckCombo(List<Dice> diceList)
+	public override int CheckCombo(List<Dice> diceList)
 	{
+		int combosFound = 0;
+
 		GenerateValueDictionary(diceList);
 		m_requiredValues.Sort();
-		List<ValueCheck> required = new List<ValueCheck>();
+		List<ValueCheck> requiredValues = new List<ValueCheck>();
 
 		for (int i = 0; i < m_requiredValues.Count; i++)
 		{
-			required.Add(new ValueCheck(m_requiredValues[i]));
+			requiredValues.Add(new ValueCheck(m_requiredValues[i]));
 		}
 
-		while ( m_valueDictionary.Keys.Last() >= required.Last().m_value )
+		while ( m_valueDictionary.Keys.Last() >= requiredValues.Last().m_value )
 		{
 
 			Dictionary<int, int> valueCopy = m_valueDictionary.ToDictionary(k => k.Key, k => k.Value.Count);
 
-			for ( int i = 0; i < required.Count; i++ )
+			for ( int i = 0; i < requiredValues.Count; i++ )
 			{
 
-				if ( valueCopy.ContainsKey(required[i].m_value) )
+				if ( valueCopy.ContainsKey(requiredValues[i].m_value) )
 				{
-					required[i].m_found = true;
+					requiredValues[i].m_found = true;
 
-					valueCopy[required[i].m_value]--;
+					valueCopy[requiredValues[i].m_value]--;
 
-					if ( valueCopy[required[i].m_value] == 0 )
+					if ( valueCopy[requiredValues[i].m_value] == 0 )
 					{
-						valueCopy.Remove(required[i].m_value);
+						valueCopy.Remove(requiredValues[i].m_value);
 					}
 				}
 				else
 				{
-					Reset(required);
+					Reset(requiredValues);
 
 					break;
 				}
 
-				if (i == required.Count - 1)
-					PostCombo(required);
+				if (i == requiredValues.Count - 1)
+				{
+					StatsManager.GetInstance().CompletedCombo();
+					combosFound++;
+					PostCombo(requiredValues);
+				}
 			}
 
 			if ( m_valueDictionary.Count < 1 )
@@ -88,6 +94,7 @@ public class DiceSequence : ComboBase
 
 		}
 
+		return combosFound;
 	}
 
 	private void GenerateValueDictionary(List<Dice> diceList)
@@ -120,8 +127,6 @@ public class DiceSequence : ComboBase
 	{
 		for ( int i = 0; i < combo.Count; i++ )
 		{
-			StatsManager.GetInstance().CompletedCombo();
-
 			if ( m_comboRewardType == EComboRewardType.CRT_ValueMultiplication )
 				GiveReward(name, m_valueDictionary[combo[i].m_value].Last());
 			else if (i == 0)

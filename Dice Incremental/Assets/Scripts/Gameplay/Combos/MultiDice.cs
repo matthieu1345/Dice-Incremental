@@ -36,8 +36,9 @@ public class MultiDice : ComboBase
 
 	private List<Dice> m_diceList;
 
-	public override void CheckCombo( List<Dice> diceList )
+	public override int CheckCombo( List<Dice> diceList )
 	{
+		int combosFound = 0;
 		ResetList();
 
 		for ( int i = 0; i < diceList.Count; i++ )
@@ -64,9 +65,12 @@ public class MultiDice : ComboBase
 			//if every value is used, give the reward once
 			if ( hasEverything )
 			{
+				combosFound++;
 				GiveReward();
 			}
 		}
+
+		return combosFound;
 	}
 
 

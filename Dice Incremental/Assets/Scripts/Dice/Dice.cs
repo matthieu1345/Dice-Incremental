@@ -114,4 +114,9 @@ public class Dice : MonoBehaviour
 		m_text.text = m_rollValue.ToString();
 		StatsManager.GetInstance().RolledDice(m_rollValue);
 	}
+
+	public void TestRollValueSetter(int newRollValue)
+	{
+		m_rollValue = newRollValue;
+	}
 }
