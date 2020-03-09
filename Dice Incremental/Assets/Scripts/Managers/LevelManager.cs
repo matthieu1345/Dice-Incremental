@@ -118,6 +118,8 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	{
 		Money = data.m_money;
 		Xp = data.m_xp;
+		Rolls = data.m_rolls;
+		RollBonusPoints = data.m_rollBonusPoints;
 	}
 
 	public void Roll()
