@@ -45,6 +45,18 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		}
 	}
 
+	[SerializeField]
+	private int m_rollBonusPoints;
+	public int RollBonusPoints
+	{
+		get {return m_rollBonusPoints;}
+		private set
+		{
+			m_rollBonusPoints = value;
+			m_rollBonusPointsChanged.Invoke(m_rollBonusPoints);
+		}
+	}
+
 
 	[Serializable]
 	public class ValueChangedEvent : UnityEvent<int>
@@ -57,6 +69,8 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	public ValueChangedEvent m_xpChanged = new ValueChangedEvent();
 	[SerializeField]
 	public ValueChangedEvent m_rollsChanged = new ValueChangedEvent();
+	[SerializeField]
+	public ValueChangedEvent m_rollBonusPointsChanged = new ValueChangedEvent();
 
 	public void AddMoney( float rewardValue )
 	{
@@ -69,6 +83,12 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		StatsManager.GetInstance().RecievedXp((int)rewardValue);
 		Xp += rewardValue;
 	}
+
+	public void AddRollBonusPoint(int rewardValue)
+	{
+		RollBonusPoints += rewardValue;
+	}
+
 	public int GetMoney() { return (int)m_money; }
 
 	public bool Buy( float cost )
