@@ -3,15 +3,18 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2beea35a27602c944821a034ecbdbbe2, type: 3}
   m_Name: Lucky7
   m_EditorClassIdentifier: 
-  m_rewardType: 1
+  m_guid: d482e9a8-b2ed-4756-8812-042cb3e7d8d8
+  m_comboRewardType: 1
   m_moneyReward: 7
   m_xpReward: 7
+  m_rollBonusPointReward: 7
   m_diceValue: 7
