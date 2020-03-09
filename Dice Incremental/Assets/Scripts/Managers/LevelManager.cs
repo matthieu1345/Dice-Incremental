@@ -53,9 +53,18 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		private set
 		{
 			m_rollBonusPoints = value;
+			CheckRollBonusPoints();
 			m_rollBonusPointsChanged.Invoke(m_rollBonusPoints);
 		}
 	}
+
+	[SerializeField]
+	private int m_baseRollBonusPointCost;
+	[SerializeField]
+	private float m_rollBonusPointCostMultiplier;
+	private int m_bonusRolls = 0;
+	[SerializeField]
+	private int m_nextBonusRollCost;
 
 
 	[Serializable]
@@ -103,6 +112,30 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		return false;
 	}
 
+	public void Roll()
+	{
+		Rolls--;
+		if (Rolls == 0)
+			Restart(); //possibly show a restart message first.
+	}
+
+	private void CheckRollBonusPoints()
+	{
+		m_nextBonusRollCost = CalculateNextRollCost();
+		while ( RollBonusPoints >= m_nextBonusRollCost)
+		{
+			Rolls++;
+			RollBonusPoints -= m_nextBonusRollCost;
+			m_bonusRolls++;
+			m_nextBonusRollCost = CalculateNextRollCost();
+		}
+	}
+
+	int CalculateNextRollCost()
+	{
+		return Mathf.FloorToInt(m_baseRollBonusPointCost * (float)Math.Pow(m_rollBonusPointCostMultiplier, m_bonusRolls));
+	}
+
 	public void Save()
 	{
 		SaveLoad.Save();
@@ -122,12 +155,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		RollBonusPoints = data.m_rollBonusPoints;
 	}
 
-	public void Roll()
-	{
-		Rolls--;
-		if (Rolls == 0)
-			Restart(); //possibly show a restart message first.
-	}
+
 
 	private void Restart()
 	{
