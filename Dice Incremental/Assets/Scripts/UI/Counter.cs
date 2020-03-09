@@ -18,6 +18,10 @@ public class Counter : MonoBehaviour
 	public void UpdateValue(int newValue)
 	{
 		m_counter = newValue;
+
+		if (m_counter < 0) //we can't show values under 0, so don't show those yet
+			m_counter = 0;
+
 		for ( int i = 0; i < m_childSprites.Length; i++ )
 		{
 			m_childSprites[m_childSprites.Length - i - 1].sprite = m_sprite[CalculateSpriteIndex(m_counter, i)];

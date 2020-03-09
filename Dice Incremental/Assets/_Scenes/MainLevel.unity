@@ -203,7 +203,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1415518995}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.3611111
+  m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3729,6 +3729,11 @@ PrefabInstance:
       propertyPath: m_rollsChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114061375465846334, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_rolls
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 114174764942973058, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}
       propertyPath: m_uiFolder
@@ -3742,7 +3747,7 @@ PrefabInstance:
     - target: {fileID: 114460716814161578, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}
       propertyPath: m_rollDiceEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114460716814161578, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}
@@ -3793,11 +3798,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_rollDiceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1893557851}
+      objectReference: {fileID: 702306415}
     - target: {fileID: 114460716814161578, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}
       propertyPath: m_rollDiceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TakenRoll
+      value: Roll
       objectReference: {fileID: 0}
     - target: {fileID: 114460716814161578, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}

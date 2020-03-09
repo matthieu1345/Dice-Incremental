@@ -99,4 +99,16 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		Money = data.m_money;
 		Xp = data.m_xp;
 	}
+
+	public void Roll()
+	{
+		Rolls--;
+		if (Rolls == 0)
+			Restart(); //possibly show a restart message first.
+	}
+
+	private void Restart()
+	{
+		//todo: implement restart stuffs!
+	}
 }
