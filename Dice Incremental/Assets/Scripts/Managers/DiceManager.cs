@@ -34,9 +34,9 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public int GetDiceCount() { return m_allDice.Count; }
 
-	private float GetNewDiceCost()
+	private int GetNewDiceCost()
 	{
-		float newDiceCost = m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice);
+		int newDiceCost = Mathf.FloorToInt(m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice));
 
 		m_uiFolder.SetDiceCost(newDiceCost);
 

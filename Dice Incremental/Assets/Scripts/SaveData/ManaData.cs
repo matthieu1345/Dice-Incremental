@@ -7,7 +7,7 @@ using UnityEngine;
 public class ManaData
 {
 	[SerializeField]
-	public float m_money;
+	public int m_money;
 	[SerializeField]
-	public float m_xp;
+	public int m_xp;
 }

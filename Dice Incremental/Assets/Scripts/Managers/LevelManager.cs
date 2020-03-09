@@ -10,26 +10,26 @@ using UnityEngine.Events;
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
 	[SerializeField]
-	private float m_money;
-	public float Money
+	private int m_money;
+	public int Money
 	{
 		get { return m_money; }
 		private set
 		{
 			m_money = value;
-			m_moneyChanged.Invoke((int)m_money);
+			m_moneyChanged.Invoke(m_money);
 		}
 	}
 
 	[SerializeField]
-	private float m_xp;
-	public float Xp
+	private int m_xp;
+	public int Xp
 	{
 		get { return m_xp; }
 		private set
 		{
 			m_xp = value;
-			m_xpChanged.Invoke((int)m_xp);
+			m_xpChanged.Invoke(m_xp);
 		}
 	}
 
@@ -72,15 +72,15 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	[SerializeField]
 	public ValueChangedEvent m_rollBonusPointsChanged = new ValueChangedEvent();
 
-	public void AddMoney( float rewardValue )
+	public void AddMoney( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedMoney((int)rewardValue);
+		StatsManager.GetInstance().RecievedMoney(rewardValue);
 		Money += rewardValue;
 	}
 
-	public void AddXp( float rewardValue )
+	public void AddXp( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedXp((int)rewardValue);
+		StatsManager.GetInstance().RecievedXp(rewardValue);
 		Xp += rewardValue;
 	}
 
@@ -91,7 +91,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public int GetMoney() { return (int)m_money; }
 
-	public bool Buy( float cost )
+	public bool Buy( int cost )
 	{
 		if ( Money >= cost )
 		{
