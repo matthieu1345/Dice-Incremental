@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -14,5 +15,6 @@ MonoBehaviour:
   m_guid: 0821f643-843b-4918-b0f9-34a907231dbe
   m_comboRewardType: 1
   m_moneyReward: 5
-  m_xpReward: 0
+  m_xpReward: 5
+  m_rollBonusPointReward: 5
   m_requiredValues: 0100000001000000

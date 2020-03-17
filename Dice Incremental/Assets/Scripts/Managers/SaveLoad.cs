@@ -50,6 +50,8 @@ public class SaveLoad {
 		LevelManager levelManagerInstance = LevelManager.GetInstance();
 		_save._savedMana.m_money = levelManagerInstance.Money;
 		_save._savedMana.m_xp = levelManagerInstance.Xp;
+		_save._savedMana.m_rolls = levelManagerInstance.Rolls;
+		_save._savedMana.m_rollBonusPoints = levelManagerInstance.RollBonusPoints;
 	}
 
 	public static void Save()

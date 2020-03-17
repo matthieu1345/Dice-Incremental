@@ -30,15 +30,13 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public List<Dice> GetDiceList() { return m_allDice; }
 
-	public delegate void RollEvent();
-
-	public RollEvent m_rollEvent;
+	public UnityEvent m_rollEvent = new UnityEvent();
 
 	public int GetDiceCount() { return m_allDice.Count; }
 
-	private float GetNewDiceCost()
+	private int GetNewDiceCost()
 	{
-		float newDiceCost = m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice);
+		int newDiceCost = Mathf.FloorToInt(m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice));
 
 		m_uiFolder.SetDiceCost(newDiceCost);
 
@@ -60,7 +58,9 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void RollAll()
 	{
-		StatsManager.GetInstance().TakenRoll();
+		if (LevelManager.GetInstance().Rolls <= 0)
+			return; // we can't roll anymore if there's no rolls left!
+
 		m_rollEvent.Invoke();
 		ComboManager.GetInstance().CheckCombos();
 	}
