@@ -18,6 +18,7 @@ public class StatsData
 	[SerializeField]
 	private int m_totalRolls;
 	public void AddRolls( int value ) { m_totalRolls += value; }
+	public int GetTotalDiceRolled() {return m_totalRolls;}
 
 	[SerializeField]
 	private int m_totalEyes;
