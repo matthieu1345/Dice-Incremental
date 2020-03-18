@@ -33,6 +33,7 @@ public class StatsData
 	[SerializeField]
 	private int m_totalCombos;
 	public void AddCombo(int value) {m_totalCombos += value;}
+	public int GetComboCount() {return m_totalCombos;}
 
 	[SerializeField]
 	private int m_totalBoughtDice;

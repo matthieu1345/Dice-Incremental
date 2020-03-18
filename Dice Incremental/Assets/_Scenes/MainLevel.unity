@@ -203,7 +203,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1415518995}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.3611111
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3690,41 +3690,6 @@ PrefabInstance:
       propertyPath: m_selectPreviousDiceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1813549584}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_allPerkObjects.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_allPerkObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 27447bb482d952a42a3e2a7c854c9ad0,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_allPerkObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 67dce703432877e45bdfc472688edd6d,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_allPerkObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_allPerkObjects.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_allPerkObjects.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: ee9d51d64c701c94d9a4bc8d1850c8d4,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1400e172dfbcb604f9da857389c751a5, type: 3}
 --- !u!1 &594405402
