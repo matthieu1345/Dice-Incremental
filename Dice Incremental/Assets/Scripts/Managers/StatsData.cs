@@ -28,6 +28,7 @@ public class StatsData
 	[SerializeField]
 	private int m_totalTurns;
 	public void AddTurn(int value) {m_totalTurns += value;}
+	public int GetTotalTurnsTaken() {return m_totalTurns;}
 
 	[SerializeField]
 	private int m_totalCombos;
