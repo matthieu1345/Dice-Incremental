@@ -11,6 +11,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/DefaultPerk", order = 0)]
 public class Perk : ScriptableObject
 {
+	[ReadOnly, SerializeField]
+	private string m_guid = Guid.NewGuid().ToString();
+
+	public string GetGuid() { return m_guid;}
 
 	public enum EPerkRewardType
 	{
@@ -24,7 +28,7 @@ public class Perk : ScriptableObject
 	private EPerkRewardType m_rewardType;
 
 	//money reward
-	private int m_moneyReward = 0;
+	private int m_rewardAmount = 0;
 
 	//Combo reward
 	private ComboBase m_comboReward;
@@ -34,15 +38,30 @@ public class Perk : ScriptableObject
 		switch ( m_rewardType )
 		{
 		case EPerkRewardType.PRT_Money:
+			
+			LevelManager.GetInstance().AddMoney(m_rewardAmount);
 
 			break;
 		case EPerkRewardType.PRT_Dice:
 
+			for (int i = 0; i < m_rewardAmount; i++)
+			{
+				DiceManager.GetInstance().AddPerkDice();
+			}
+
 			break;
 		case EPerkRewardType.PRT_Combo:
 
+				//TODO: unlock a combo!
+				ComboManager.GetInstance().UnlockCombo(m_comboReward);
+
 			break;
 		case EPerkRewardType.PRT_Power:
+
+			for (int i = 0; i < m_rewardAmount; i++)
+			{
+				//TODO: write perk power reward fucntion in DiceManager
+			}
 
 			break;
 
@@ -63,11 +82,11 @@ public class Perk : ScriptableObject
 		set {m_rewardType = value;}
 	}
 
-	public int GUIMoneyReward
+	public int GUIRewardAmount
 		
 	{
-		get {return m_moneyReward;}
-		set {m_moneyReward = value;}
+		get {return m_rewardAmount;}
+		set {m_rewardAmount = value;}
 	}
 
 	public ComboBase GUIComboReward
@@ -77,6 +96,8 @@ public class Perk : ScriptableObject
 	}
 	// ReSharper restore ConvertToAutoProperty
 	// ReSharper restore ConvertToAutoPropertyWhenPossible
+
+	public void GenerateNewGuid() { m_guid = Guid.NewGuid().ToString(); }
 #endif
 }
 
@@ -100,6 +121,11 @@ public class PerkEditor : Editor
 		}
 
 		EditorGUILayout.LabelField("Script", perk.GetType().ToString());
+		EditorGUILayout.LabelField("Guid", perk.GetGuid());
+		if (GUILayout.Button("Generate New Guid"))
+		{
+			((ComboBase)target).GenerateNewGuid();
+		}
 
 		EditorGUILayout.LabelField(" ", " ");
 
@@ -111,16 +137,16 @@ public class PerkEditor : Editor
 		switch ( perk.GUIAward)
 		{
 		case Perk.EPerkRewardType.PRT_Money:
-			perk.GUIMoneyReward = EditorGUILayout.IntField("The player will start with more money:", perk.GUIMoneyReward);
+			perk.GUIRewardAmount = EditorGUILayout.IntField("The player will start with more money:", perk.GUIRewardAmount);
 			break;
 		case Perk.EPerkRewardType.PRT_Dice:
-			EditorGUILayout.LabelField("The player will start with 1 more dice");
+			perk.GUIRewardAmount = EditorGUILayout.IntField("The player will start with more dice:", perk.GUIRewardAmount);
 			break;
 		case Perk.EPerkRewardType.PRT_Combo:
 			perk.GUIComboReward = (ComboBase)EditorGUILayout.ObjectField("The player will unlock the combo:", perk.GUIComboReward, typeof(ComboBase), false);
 			break;
 		case Perk.EPerkRewardType.PRT_Power:
-			EditorGUILayout.LabelField("The players dice will start with 1 more power");
+			perk.GUIRewardAmount = EditorGUILayout.IntField("The players dice will start with more power:", perk.GUIRewardAmount);
 			break;
 
 		default:

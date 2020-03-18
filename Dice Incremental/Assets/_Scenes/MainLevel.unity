@@ -3690,6 +3690,17 @@ PrefabInstance:
       propertyPath: m_selectPreviousDiceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1813549584}
+    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_defaultUnlockedPerks.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c,
+        type: 2}
+    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_unlockedPerkStrings.Array.data[0]
+      value: 08df1fcc-cfd4-4b74-98e4-73796c7476a2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1400e172dfbcb604f9da857389c751a5, type: 3}
 --- !u!1 &594405402

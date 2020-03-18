@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4715119042904326}
-  - component: {fileID: 114174764942973058}
   - component: {fileID: 114061375465846334}
-  - component: {fileID: 9052614161712673264}
+  - component: {fileID: 114174764942973058}
   - component: {fileID: 114460716814161578}
   - component: {fileID: 114430375967096962}
+  - component: {fileID: 9052614161712673264}
+  - component: {fileID: 7849964866604715989}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Managers
@@ -35,51 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114174764942973058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939431470150900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd02d2ad20c23eb4daf8c95a6b24a3ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_uiFolder: {fileID: 0}
-  m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
-    type: 3}
-  m_startingDice: 1
-  m_diceCost: 10
-  m_diceCostMultiplier: 2
-  m_costMultiplierPerPower: 0.2
-  m_basePowerCost: 10
-  m_rollEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114061375465846334}
-        m_MethodName: Roll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114430375967096962}
-        m_MethodName: TakenRoll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &114061375465846334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +111,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &9052614161712673264
+--- !u!114 &114174764942973058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,23 +120,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 1939431470150900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e5227236b5483c4a8a7118b19772b10, type: 3}
+  m_Script: {fileID: 11500000, guid: cd02d2ad20c23eb4daf8c95a6b24a3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_allComboObjects:
-  - {fileID: 11400000, guid: d178bf3f6b89eee4cb934be35c0e46c3, type: 2}
-  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
-  - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
-  - {fileID: 11400000, guid: b059fc7c5fcb60342aa59ec3dfbad0e6, type: 2}
-  - {fileID: 11400000, guid: 4e8ba9053fcd7b545a761dd429f87cd4, type: 2}
-  - {fileID: 11400000, guid: 962d5080c90d7c84b994a1cf577b6cb8, type: 2}
-  - {fileID: 11400000, guid: 119bdc35d6badfc488ad2cb17be19120, type: 2}
-  - {fileID: 11400000, guid: 0ca1c91b76fd2b24d826572b862957bc, type: 2}
-  - {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
-  m_unlockedComboStrings:
-  - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
-  m_defaultUnlockedCombos:
-  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  m_uiFolder: {fileID: 0}
+  m_dicePrefab: {fileID: 224758099045833426, guid: e870f50eb08f8bd439e2b55f55064b4f,
+    type: 3}
+  m_startingDice: 1
+  m_diceCost: 10
+  m_diceCostMultiplier: 2
+  m_costMultiplierPerPower: 0.2
+  m_basePowerCost: 10
+  m_rollEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114061375465846334}
+        m_MethodName: Roll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114430375967096962}
+        m_MethodName: TakenRoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &114460716814161578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,3 +233,50 @@ MonoBehaviour:
     m_totalTurns: 0
     m_totalCombos: 0
     m_totalBoughtDice: 0
+--- !u!114 &9052614161712673264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5227236b5483c4a8a7118b19772b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allComboObjects:
+  - {fileID: 11400000, guid: d178bf3f6b89eee4cb934be35c0e46c3, type: 2}
+  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  - {fileID: 11400000, guid: 73791c3613f9d3242b96d764ee82f2bf, type: 2}
+  - {fileID: 11400000, guid: b059fc7c5fcb60342aa59ec3dfbad0e6, type: 2}
+  - {fileID: 11400000, guid: 4e8ba9053fcd7b545a761dd429f87cd4, type: 2}
+  - {fileID: 11400000, guid: 962d5080c90d7c84b994a1cf577b6cb8, type: 2}
+  - {fileID: 11400000, guid: 119bdc35d6badfc488ad2cb17be19120, type: 2}
+  - {fileID: 11400000, guid: 0ca1c91b76fd2b24d826572b862957bc, type: 2}
+  - {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
+  m_unlockedComboStrings:
+  - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
+  m_defaultUnlockedCombos:
+  - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+--- !u!114 &7849964866604715989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6ca72cbadb0124eae3ff3147c0ab28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allPerkObjects:
+  - {fileID: 11400000, guid: 67dce703432877e45bdfc472688edd6d, type: 2}
+  - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}
+  - {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4, type: 2}
+  - {fileID: 11400000, guid: ee9d51d64c701c94d9a4bc8d1850c8d4, type: 2}
+  m_unlockedPerkStrings:
+  - 08df1fcc-cfd4-4b74-98e4-73796c7476a2
+  m_defaultUnlockedPerks:
+  - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}

@@ -13,6 +13,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	[SerializeField]
 	private int m_startingDice = 1;
+	private int m_startingPower = 1;
 
 	[SerializeField]
 	private float m_diceCost = 10;
@@ -65,6 +66,12 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		ComboManager.GetInstance().CheckCombos();
 	}
 
+	public void AddPerkDice()
+	{
+		m_startingDice++;
+		CreateDice();
+	}
+
 	public void AddPowerToAll()
 	{
 		for (int i = 0; i < m_allDice.Count; i++)
@@ -94,7 +101,10 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		{
 			CreateDice();
 		}
+	}
 
+	private void Start()
+	{
 		InputManager.GetInstance().m_buyDiceEvent.AddListener(BuyDice);
 		InputManager.GetInstance().m_rollDiceEvent.AddListener(RollAll);
 	}
