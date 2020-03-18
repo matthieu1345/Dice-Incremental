@@ -41,6 +41,8 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 		{
 			m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
 		}
+
+		PerkManager.GetInstance().CheckPerks();
 	}
 
 	public void UnlockCombo(ComboBase combo)

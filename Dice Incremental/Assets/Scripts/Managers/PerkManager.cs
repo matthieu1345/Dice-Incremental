@@ -14,8 +14,8 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 	[SerializeField]
 	private List<Perk> m_allPerkObjects = new List<Perk>();
 
-	[ReadOnly, SerializeField]
-	private List<string> m_unlockedPerkStrings;
+	[SerializeField]
+	private List<string> m_unlockedPerkStrings = new List<string>();
 
 	[SerializeField]
 	private List<Perk> m_defaultUnlockedPerks = new List<Perk>();
@@ -44,6 +44,17 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 		}
 	}
 
+	public void CheckPerks()
+	{
+		foreach (Perk perk in m_allPerkObjects)
+		{
+			if (perk.CheckPerk() && !m_unlockedPerkStrings.Contains(perk.GetGuid()))
+			{
+				m_unlockedPerkStrings.Add(perk.GetGuid());
+				perk.GiveReward();
+			}
+		}
+	}
 
 #if UNITY_EDITOR
 	[MenuItem( "Tools/Perk tools/Get all Perk's")]

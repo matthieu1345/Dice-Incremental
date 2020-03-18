@@ -9,6 +9,7 @@ public class StatsData
 	[SerializeField]
 	private int m_totalGold;
 	public void AddGold( int value ) { m_totalGold += value; }
+	public int GetTotalGold() {return m_totalGold;}
 
 	[SerializeField]
 	private int m_totalXp;
