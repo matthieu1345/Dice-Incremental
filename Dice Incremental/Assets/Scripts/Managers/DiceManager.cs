@@ -46,7 +46,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public float GetPowerCostMultiplier() { return m_costMultiplierPerPower; }
 	public float GetPowerBaseCost() { return m_basePowerCost; }
-
+	public float GetPowerBaseAmount() { return m_startingPower; }
 
 	public void AddDice(Dice dice)
 	{
@@ -70,6 +70,12 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	{
 		m_startingDice++;
 		CreateDice();
+	}
+
+	public void AddPerkPower()
+	{
+		m_startingPower++;
+		AddPowerToAll();
 	}
 
 	public void AddPowerToAll()

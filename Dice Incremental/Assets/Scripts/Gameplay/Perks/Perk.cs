@@ -38,37 +38,29 @@ public class Perk : ScriptableObject
 		switch ( m_rewardType )
 		{
 		case EPerkRewardType.PRT_Money:
-			
 			LevelManager.GetInstance().AddMoney(m_rewardAmount);
-
 			break;
-		case EPerkRewardType.PRT_Dice:
 
+		case EPerkRewardType.PRT_Dice:
 			for (int i = 0; i < m_rewardAmount; i++)
 			{
 				DiceManager.GetInstance().AddPerkDice();
 			}
-
 			break;
+
 		case EPerkRewardType.PRT_Combo:
-
-				//TODO: unlock a combo!
-				ComboManager.GetInstance().UnlockCombo(m_comboReward);
-
+			ComboManager.GetInstance().UnlockCombo(m_comboReward);
 			break;
-		case EPerkRewardType.PRT_Power:
 
+		case EPerkRewardType.PRT_Power:
 			for (int i = 0; i < m_rewardAmount; i++)
 			{
-				//TODO: write perk power reward fucntion in DiceManager
+				DiceManager.GetInstance().AddPerkPower();
 			}
-
 			break;
 
 		default:
-
 			Debug.LogWarningFormat("Perk {0} has set a wrong reward!", name);
-
 			break;
 		}
 	}

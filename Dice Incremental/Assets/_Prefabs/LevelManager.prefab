@@ -276,7 +276,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}
   - {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4, type: 2}
   - {fileID: 11400000, guid: ee9d51d64c701c94d9a4bc8d1850c8d4, type: 2}
-  m_unlockedPerkStrings:
-  - 08df1fcc-cfd4-4b74-98e4-73796c7476a2
-  m_defaultUnlockedPerks:
-  - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}
+  m_unlockedPerkStrings: []
+  m_defaultUnlockedPerks: []
