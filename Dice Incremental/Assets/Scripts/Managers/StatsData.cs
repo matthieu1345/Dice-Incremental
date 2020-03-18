@@ -34,4 +34,5 @@ public class StatsData
 	[SerializeField]
 	private int m_totalBoughtDice;
 	public void AddBoughtDice(int value) {m_totalBoughtDice += value;}
+	public int GetTotalBoughtDice() {return m_totalBoughtDice;}
 }
