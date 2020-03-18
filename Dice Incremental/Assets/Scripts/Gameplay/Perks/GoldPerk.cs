@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-[CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/GoldPerk", order = 1)]
+[CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/GoldPerk", order = 0)]
 public class GoldPerk : Perk
 {
 	public override bool CheckPerk()

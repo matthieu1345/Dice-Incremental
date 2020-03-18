@@ -8,7 +8,7 @@ using UnityEditor;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/DefaultPerk", order = 0)]
+[CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/DefaultPerk", order = 99)]
 public class Perk : ScriptableObject
 {
 	[ReadOnly, SerializeField]
