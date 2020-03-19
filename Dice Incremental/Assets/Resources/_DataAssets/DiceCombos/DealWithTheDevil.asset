@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2747668ca6fbab34c99945b1009aad78, type: 3}
   m_Name: DealWithTheDevil
   m_EditorClassIdentifier: 
-  m_guid: 5ff8d28d-3466-4374-bdbd-ae7f2493950d
+  m_guid: a9cede2f-7573-4d46-9c0a-aee8a65b7db7
+  m_readableName: Deal with the Devil
+  m_description: Throw the devil's number (6 & 6 & 6)
   m_comboRewardType: 1
   m_moneyReward: 6
   m_xpReward: 6

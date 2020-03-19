@@ -178,7 +178,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ca1c91b76fd2b24d826572b862957bc, type: 2}
   - {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
   m_unlockedComboStrings:
-  - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
+  - cddd4288-c3a7-49e2-8a7e-4fa56420ae9e
   m_defaultUnlockedCombos:
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
 --- !u!114 &114460716814161578
