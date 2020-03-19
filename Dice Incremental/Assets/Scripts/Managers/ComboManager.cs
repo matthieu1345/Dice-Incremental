@@ -10,6 +10,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 {
 	[SerializeField]
 	private Dictionary<string, ComboBase> m_allCombos = new Dictionary<string, ComboBase>();
+	public Dictionary<string, ComboBase> GetAllCombos() {return m_allCombos;}
 
 	[SerializeField]
 	private List<ComboBase> m_allComboObjects = new List<ComboBase>();
@@ -43,7 +44,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 
 #if UNITY_EDITOR
 	[MenuItem( "Tools/Combo tools/Get all combo's")]
-	private static void GetAllCombos()
+	private static void CollectAllCombos()
 	{
 		EditorUtility.SetDirty(GetInstance());
 		GetInstance().m_allComboObjects.Clear();

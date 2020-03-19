@@ -18,7 +18,11 @@ public class ComboBase : ScriptableObject
 	public string GetGuid() { return m_guid;}
 
 #if UNITY_EDITOR
-	public void GenerateNewGuid() { m_guid = Guid.NewGuid().ToString(); }
+	public void GenerateNewGuid() 
+	{
+		m_guid = Guid.NewGuid().ToString();
+		EditorUtility.SetDirty(this);
+	}
 	public EComboRewardType GUIAwardType
 	{
 		get { return m_comboRewardType; }
@@ -59,6 +63,28 @@ public class ComboBase : ScriptableObject
 			m_rollBonusPointReward = value;
 		}
 	}
+
+	public string GUIReadableName
+	{
+		get { return m_readableName;}
+		set
+		{
+			if (m_readableName != value)
+				EditorUtility.SetDirty(this);
+			m_readableName = value;
+		}
+	}
+
+	public string GUIDescription
+	{
+		get {return m_description;}
+		set
+		{
+			if (m_description != value)
+				EditorUtility.SetDirty(this);
+			m_description = value;
+		}
+	}
 #endif
 
 	public enum EComboRewardType
@@ -71,13 +97,24 @@ public class ComboBase : ScriptableObject
 	};
 
 	[SerializeField]
+	string m_readableName = "";
+	public string GetReadableName() {return m_readableName;}
+	[SerializeField]
+	string m_description = "";
+	public string GetDescription() {return m_description;}
+
+	[SerializeField]
 	protected EComboRewardType m_comboRewardType = EComboRewardType.CRT_StaticAmount;
+	public EComboRewardType GetRewardType() {return m_comboRewardType;}
 	[SerializeField]
 	protected int m_moneyReward;
+	public int GetMoneyReward() {return m_moneyReward;}
 	[SerializeField]
 	protected int m_xpReward;
+	public int GetXPReward() {return m_xpReward;}
 	[SerializeField]
 	protected int m_rollBonusPointReward;
+	public int GetRollBonusPointReward() {return m_rollBonusPointReward;}
 
 	public virtual int CheckCombo( List<Dice> diceList) { return 0; }
 
@@ -148,7 +185,13 @@ public class ComboEditor : Editor
 			((ComboBase)target).GenerateNewGuid();
 		}
 
-		EditorGUILayout.LabelField(" ", " ");
+		EditorGUILayout.Space();
+
+		combo.GUIReadableName = EditorGUILayout.TextField("GUI Combo Name: ", combo.GUIReadableName);
+		EditorGUILayout.LabelField("GUI Combo Description:");
+		combo.GUIDescription = EditorGUILayout.TextArea( combo.GUIDescription);
+
+		EditorGUILayout.Space();
 
 		combo.GUIAwardType = (ComboBase.EComboRewardType)EditorGUILayout.EnumPopup("Reward to give:", combo.GUIAwardType);
 
