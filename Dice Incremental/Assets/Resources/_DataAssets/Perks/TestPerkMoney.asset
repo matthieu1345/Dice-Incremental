@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: TestPerkMoney
   m_EditorClassIdentifier: 
   m_guid: fb3cd812-f08c-49f3-a011-6c3bb7fa96a4
+  m_readableName: Test Money Perk
+  m_description: 'Test Money Perk
+
+    Tests giving Money with a perk'

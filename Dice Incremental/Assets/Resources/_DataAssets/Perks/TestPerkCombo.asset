@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: TestPerkCombo
   m_EditorClassIdentifier: 
   m_guid: bf1a601b-9789-486e-9a1a-6d2c40a71a0c
+  m_readableName: Test Combo Perk
+  m_description: 'Test Combo Perk
+
+    Tests giving a combo with a perk'
