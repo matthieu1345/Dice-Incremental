@@ -82,6 +82,11 @@ public class Dice : MonoBehaviour
 		{
 			DiceManager.m_instance.m_rollEvent.AddListener(Roll);
 			DiceManager.m_instance.AddDice(this);
+
+			while (m_stats.GetPower() < DiceManager.m_instance.GetPowerBaseAmount())
+			{
+				AddPower();
+			}
 		}
 
 	}

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class DiceMenu : MonoBehaviour
 {
-
 	[ReadOnly, SerializeField]
 	private Dice m_selectedDice;
 
@@ -99,24 +98,24 @@ public class DiceMenu : MonoBehaviour
 
 		float powerBaseCost = DiceManager.GetInstance().GetPowerBaseCost();
 		float powerMultiplier = DiceManager.GetInstance().GetPowerCostMultiplier();
+		float powerBaseAmount = DiceManager.GetInstance().GetPowerBaseAmount();
 
-		m_sideCost = Mathf.FloorToInt(powerBaseCost + powerMultiplier * ((int)m_selectedDice.GetPower() - 1) * powerBaseCost);
+		m_sideCost = Mathf.FloorToInt(powerBaseCost + powerMultiplier * ((int)m_selectedDice.GetPower() - powerBaseAmount) * powerBaseCost);
 		
 		for ( int i = m_selectedDice.GetSides(); i < m_selectedDice.GetGoal(); i++ )
 		{
-			m_maxSideCost += Mathf.FloorToInt(powerBaseCost + powerBaseCost * powerMultiplier * ((int)m_selectedDice.GetPower() - 1 + i - m_selectedDice.GetSides()));
+			m_maxSideCost += Mathf.FloorToInt(powerBaseCost + powerBaseCost * powerMultiplier * ((int)m_selectedDice.GetPower() - powerBaseAmount + i - m_selectedDice.GetSides()));
 		}
 
 		m_magicCost = m_maxSideCost;
-		m_magicCost += Mathf.FloorToInt(powerBaseCost + powerBaseCost * powerMultiplier * ((int)m_selectedDice.GetPower() - 1 + m_selectedDice.GetGoal() - m_selectedDice.GetSides()));
+		m_magicCost += Mathf.FloorToInt(powerBaseCost + powerBaseCost * powerMultiplier * ((int)m_selectedDice.GetPower() - powerBaseAmount + m_selectedDice.GetGoal() - m_selectedDice.GetSides()));
 
 		m_singleText.text = "cost: " + m_sideCost.ToString("F") + " Gold";
 		m_maxText.text = "cost: " + m_maxSideCost.ToString("F") + " Gold";
 		m_magicText.text = "cost: " + m_magicCost.ToString("F") + " Gold";
 	}
 
-
-	private void Awake()
+	private void Start()
 	{
 		InputManager.GetInstance().m_selectNextDiceEvent.AddListener(SelectNextDice);
 		InputManager.GetInstance().m_selectPreviousDiceEvent.AddListener(SelectPreviousDice);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -27,6 +28,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 
 	protected override void Awake()
 	{
+		base.Awake();
 		foreach (ComboBase combo in m_allComboObjects)
 		{
 			if (!GetInstance().m_allCombos.ContainsKey(combo.GetGuid()))
@@ -40,6 +42,14 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 		{
 			m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
 		}
+
+		PerkManager.GetInstance().CheckPerks();
+	}
+
+	public void UnlockCombo(ComboBase combo)
+	{
+		if (!GetInstance().m_unlockedComboStrings.Contains(combo.GetGuid()))
+			GetInstance().m_unlockedComboStrings.Add(combo.GetGuid());
 	}
 
 #if UNITY_EDITOR
