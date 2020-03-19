@@ -16,6 +16,14 @@ public class Perk : ScriptableObject
 
 	public string GetGuid() { return m_guid;}
 
+	[SerializeField]
+	private string m_readableName = "";
+	public string GetReadableName() {return m_readableName;}
+
+	[SerializeField]
+	private string m_description = "";
+	public string GetDescription() {return m_description;}
+
 	public enum EPerkRewardType
 	{
 		PRT_NotSet,
@@ -34,15 +42,19 @@ public class Perk : ScriptableObject
 	}
 
 	private EPerkRewardType m_rewardType;
+	public EPerkRewardType GetRewardType() {return m_rewardType;}
+
 	protected EPerkStatType m_statType;
 
 	//money reward
 	private int m_rewardAmount = 0;
+	public int GetRewardAmount() {return m_rewardAmount;}
 
 	protected int m_statNumber = 0;
 
 	//Combo reward
 	private ComboBase m_comboReward;
+	public ComboBase GetComboReward() {return m_comboReward;}
 
 	public void GiveReward()
 	{
@@ -84,32 +96,79 @@ public class Perk : ScriptableObject
 	public EPerkRewardType GUIAward
 	{
 		get {return m_rewardType;}
-		set {m_rewardType = value;}
+		set 
+		{
+			if (m_rewardType != value)
+				EditorUtility.SetDirty(this);
+			m_rewardType = value;
+		}
 	}
 
 	public int GUIRewardAmount
 		
 	{
 		get {return m_rewardAmount;}
-		set {m_rewardAmount = value;}
+		set 
+		{
+			if (m_rewardAmount != value)
+				EditorUtility.SetDirty(this);
+			m_rewardAmount = value;
+		}
 	}
 
 	public ComboBase GUIComboReward
 	{
 		get {return m_comboReward;}
-		set {m_comboReward = value;}
+		set 
+		{
+			if (m_comboReward != value)
+				EditorUtility.SetDirty(this);			
+			m_comboReward = value;
+		}
 	}
 
 	public EPerkStatType GUIStatType
 	{
 		get { return m_statType;}
-		set { m_statType = value;}
+		set 
+		{
+			if (m_statType != value)	
+				EditorUtility.SetDirty(this);
+			m_statType = value;
+		}
 	}
 
 	public int GUIStatNumber
 	{
 		get { return m_statNumber;}
-		set { m_statNumber = value;}
+		set 
+		{
+			if (m_statNumber != value)
+				EditorUtility.SetDirty(this);			
+			m_statNumber = value;
+		}
+	}
+
+	public string GUIReadableName
+	{
+		get { return m_readableName;}
+		set
+		{
+			if (m_readableName != value)
+				EditorUtility.SetDirty(this);
+			m_readableName = value;
+		}
+	}
+
+	public string GUIDescription
+	{
+		get {return m_description;}
+		set
+		{
+			if (m_description != value)
+				EditorUtility.SetDirty(this);
+			m_description = value;
+		}
 	}
 	// ReSharper restore ConvertToAutoProperty
 	// ReSharper restore ConvertToAutoPropertyWhenPossible
@@ -123,6 +182,7 @@ public class Perk : ScriptableObject
 [CustomEditor(typeof(Perk))]
 public class PerkEditor : Editor
 {
+	bool GUIFoldout = false;
 	bool rewardFoldout = false;
 	bool typeFoldout = false;
 
@@ -130,7 +190,6 @@ public class PerkEditor : Editor
 	public override void OnInspectorGUI()
 	{
 		Perk perk = target as Perk;
-		EditorUtility.SetDirty(perk);
 
 		if ( perk == null )
 		{
@@ -150,62 +209,15 @@ public class PerkEditor : Editor
 
 		EditorGUILayout.Space();
 
-		rewardFoldout = EditorGUILayout.Foldout(rewardFoldout, "Reward Options");
-
-		if (rewardFoldout)
-		{
-			EditorGUI.indentLevel++;
-			perk.GUIAward = (Perk.EPerkRewardType)EditorGUILayout.EnumPopup("Reward to give:", perk.GUIAward);
-
-			EditorGUILayout.Space();
-
-			EditorGUILayout.LabelField("The following reward will be given:");
-			EditorGUI.indentLevel++;
-			switch ( perk.GUIAward)
-			{
-			case Perk.EPerkRewardType.PRT_Money:
-				EditorGUILayout.LabelField("The player will start with more money:");
-				perk.GUIRewardAmount = EditorGUILayout.IntField(" ", perk.GUIRewardAmount);
-				break;
-			case Perk.EPerkRewardType.PRT_Dice:
-				EditorGUILayout.LabelField("The player will start with more dice:");
-				perk.GUIRewardAmount = EditorGUILayout.IntField(" ", perk.GUIRewardAmount);
-				break;
-			case Perk.EPerkRewardType.PRT_Combo:
-				EditorGUILayout.LabelField("The player will unlock the combo:");
-				perk.GUIComboReward = (ComboBase)EditorGUILayout.ObjectField("", perk.GUIComboReward, typeof(ComboBase), false);
-				break;
-			case Perk.EPerkRewardType.PRT_Power:
-				EditorGUILayout.LabelField("The players dice will start with more power:");
-				perk.GUIRewardAmount = EditorGUILayout.IntField(" ", perk.GUIRewardAmount);
-				break;
-
-			default:
-				EditorGUILayout.LabelField("WARNING: Reward type has not been set", "WARNING: Reward type has not been set");
-				EditorGUILayout.Space();
-				EditorGUILayout.LabelField("WARNING: Reward type has not been set", "WARNING: Reward type has not been set");
-
-				break;
-			}
-			EditorGUI.indentLevel--;
-			EditorGUI.indentLevel--;
-		}
+		DrawGUIFoldout(perk);
 
 		EditorGUILayout.Space();
 
-		typeFoldout = EditorGUILayout.Foldout(typeFoldout, "Type Options");
+		DrawRewardFoldout(perk);
 
-		if (typeFoldout)
-		{
-			EditorGUI.indentLevel++;
-			perk.GUIStatType = (Perk.EPerkStatType)EditorGUILayout.EnumPopup("Perk type:", perk.GUIStatType);
+		EditorGUILayout.Space();
 
-			EditorGUILayout.Space();
-
-			TypeOptions(perk);
-
-			EditorGUI.indentLevel--;
-		}
+		DrawTypeFoldout(perk);
 	}
 
 	public virtual void TypeOptions(Perk perk)
@@ -213,6 +225,85 @@ public class PerkEditor : Editor
 		EditorGUILayout.LabelField("WARNING: This type of perk is invalid!", "WARNING: This type of perk is invalid!");
 		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("WARNING: This type of perk is invalid!", "WARNING: This type of perk is invalid!");
+	}
+
+	void DrawGUIFoldout(Perk perk)
+	{
+		GUIFoldout = EditorGUILayout.Foldout(GUIFoldout, "GUI Options");
+
+		if (!GUIFoldout)
+			return;
+
+		EditorGUI.indentLevel++;
+
+		perk.GUIReadableName = EditorGUILayout.TextField("GUI Perk Name: ", perk.GUIReadableName);
+		EditorGUILayout.LabelField("GUI Perk Description:");
+		perk.GUIDescription = EditorGUILayout.TextArea( perk.GUIDescription);
+
+		EditorGUI.indentLevel--;
+	}
+
+	void DrawRewardFoldout(Perk perk)
+	{
+		rewardFoldout = EditorGUILayout.Foldout(rewardFoldout, "Reward Options");
+
+		if (!rewardFoldout)
+			return;
+
+		EditorGUI.indentLevel++;
+		perk.GUIAward = (Perk.EPerkRewardType)EditorGUILayout.EnumPopup("Reward to give:", perk.GUIAward);
+		
+		EditorGUILayout.Space();
+
+		EditorGUILayout.LabelField("The following reward will be given:");
+		EditorGUI.indentLevel++;
+
+		switch ( perk.GUIAward)
+		{
+		case Perk.EPerkRewardType.PRT_Money:
+			EditorGUILayout.LabelField("The player will start with more money:");
+			perk.GUIRewardAmount = EditorGUILayout.IntField(" ", perk.GUIRewardAmount);
+			break;
+		case Perk.EPerkRewardType.PRT_Dice:
+			EditorGUILayout.LabelField("The player will start with more dice:");
+			perk.GUIRewardAmount = EditorGUILayout.IntField(" ", perk.GUIRewardAmount);
+			break;
+		case Perk.EPerkRewardType.PRT_Combo:
+			EditorGUILayout.LabelField("The player will unlock the combo:");
+			perk.GUIComboReward = (ComboBase)EditorGUILayout.ObjectField("", perk.GUIComboReward, typeof(ComboBase), false);
+			break;
+		case Perk.EPerkRewardType.PRT_Power:
+			EditorGUILayout.LabelField("The players dice will start with more power:");
+			perk.GUIRewardAmount = EditorGUILayout.IntField(" ", perk.GUIRewardAmount);
+			break;
+
+		default:
+			EditorGUILayout.LabelField("WARNING: Reward type has not been set", "WARNING: Reward type has not been set");
+			EditorGUILayout.Space();
+			EditorGUILayout.LabelField("WARNING: Reward type has not been set", "WARNING: Reward type has not been set");
+
+			break;
+		}
+		
+		EditorGUI.indentLevel--;
+		EditorGUI.indentLevel--;
+	}
+
+	void DrawTypeFoldout(Perk perk)
+	{
+		typeFoldout = EditorGUILayout.Foldout(typeFoldout, "Type Options");
+
+		if (!typeFoldout)
+			return;
+		
+		EditorGUI.indentLevel++;
+		perk.GUIStatType = (Perk.EPerkStatType)EditorGUILayout.EnumPopup("Perk type:", perk.GUIStatType);
+
+		EditorGUILayout.Space();
+
+		TypeOptions(perk);
+
+		EditorGUI.indentLevel--;
 	}
 }
 #endif
