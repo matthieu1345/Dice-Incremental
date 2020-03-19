@@ -19,10 +19,12 @@ public class StatsData
 			m_highestTurnGold = c_currentTurnGold;
 	}
 	public int GetTotalGold() {return m_totalGold;}
+	public int GetHighestTurnGold() {return m_highestTurnGold;}
 
 	[SerializeField]
 	private int m_totalXp;
 	public void AddXp( int value ) { m_totalXp += value; }
+	public int GetTotalXP() {return m_totalXp;}
 
 	[SerializeField]
 	private int m_totalRolls;
@@ -37,6 +39,7 @@ public class StatsData
 			m_highestTurnRolls = c_currentTurnRolls;
 	}
 	public int GetTotalDiceRolled() {return m_totalRolls;}
+	public int GetHighestTurnRolls() {return m_highestTurnRolls;}
 
 	[SerializeField]
 	private int m_totalEyes;
@@ -51,6 +54,7 @@ public class StatsData
 			m_highestTurnEyes = c_currentTurnEyes;
 	}
 	public int GetTotalEyes() {return m_totalEyes;}
+	public int GetHighestTurnEyes() {return m_highestTurnEyes;}
 
 	[SerializeField]
 	private int m_totalTurns;
@@ -70,6 +74,7 @@ public class StatsData
 			m_highestTurnCombos = c_currentTurnCombos;
 	}
 	public int GetComboCount() {return m_totalCombos;}
+	public int GetHighestTurnComos() {return m_highestTurnCombos;}
 
 	[SerializeField]
 	private int m_totalBoughtDice;
@@ -84,3 +89,4 @@ public class StatsData
 		c_currentTurnCombos = 0;
 	}
 }
+
