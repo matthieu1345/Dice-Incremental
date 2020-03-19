@@ -3134,7 +3134,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3528,7 +3528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &545560037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3740,10 +3740,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1939431470150900, guid: 1400e172dfbcb604f9da857389c751a5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4715119042904326, guid: 1400e172dfbcb604f9da857389c751a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3823,60 +3819,6 @@ PrefabInstance:
       propertyPath: m_selectPreviousDiceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1813549584}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_defaultUnlockedPerks.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_unlockedPerkStrings.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_defaultUnlockedPerks.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 67dce703432877e45bdfc472688edd6d,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_defaultUnlockedPerks.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_defaultUnlockedPerks.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_defaultUnlockedPerks.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: ee9d51d64c701c94d9a4bc8d1850c8d4,
-        type: 2}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_unlockedPerkStrings.Array.data[0]
-      value: bf1a601b-9789-486e-9a1a-6d2c40a71a0c
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_unlockedPerkStrings.Array.data[1]
-      value: 08df1fcc-cfd4-4b74-98e4-73796c7476a2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_unlockedPerkStrings.Array.data[2]
-      value: fb3cd812-f08c-49f3-a011-6c3bb7fa96a4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7849964866604715989, guid: 1400e172dfbcb604f9da857389c751a5,
-        type: 3}
-      propertyPath: m_unlockedPerkStrings.Array.data[3]
-      value: 5e27070e-5d7a-4be1-8274-8927624ed2d7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1400e172dfbcb604f9da857389c751a5, type: 3}
 --- !u!1 &594405402
@@ -6888,9 +6830,9 @@ RectTransform:
   m_Father: {fileID: 545560037}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 480, y: -405}
   m_SizeDelta: {x: 940, y: 790}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257503402
@@ -7783,7 +7725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1417732645
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7799,10 +7741,10 @@ RectTransform:
   m_Father: {fileID: 912713706}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 715.75006, y: -35}
+  m_SizeDelta: {x: 154.83334, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417732646
 MonoBehaviour:
@@ -8356,9 +8298,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1750484741
 MonoBehaviour:
