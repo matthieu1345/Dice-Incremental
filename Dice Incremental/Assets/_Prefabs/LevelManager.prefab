@@ -256,7 +256,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ca1c91b76fd2b24d826572b862957bc, type: 2}
   - {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
   m_unlockedComboStrings:
-  - cddd4288-c3a7-49e2-8a7e-4fa56420ae9e
+  - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
   m_defaultUnlockedCombos:
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
 --- !u!114 &7849964866604715989
@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allPerkObjects:
+  - {fileID: 11400000, guid: 21ebe01f7a7b09c4e970ceadfd6dc623, type: 2}
   - {fileID: 11400000, guid: 67dce703432877e45bdfc472688edd6d, type: 2}
   - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}
   - {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4, type: 2}
