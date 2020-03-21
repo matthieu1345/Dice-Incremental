@@ -42,7 +42,7 @@ public class DiceSequence : ComboBase
 	private readonly SortedDictionary<int, List<Dice>> m_valueDictionary = new SortedDictionary<int, List<Dice>>();
 
 
-	public override int CheckCombo(List<Dice> diceList)
+	public override int CheckCombo(List<Dice> diceList, bool giveReward = true)
 	{
 		int combosFound = 0;
 
@@ -83,9 +83,13 @@ public class DiceSequence : ComboBase
 
 				if (i == requiredValues.Count - 1)
 				{
-					StatsManager.GetInstance().CompletedCombo();
+					if (giveReward)
+					{
+						StatsManager.GetInstance().CompletedCombo();
+					}
+					PostCombo(requiredValues, giveReward);
+
 					combosFound++;
-					PostCombo(requiredValues);
 				}
 			}
 
@@ -123,14 +127,17 @@ public class DiceSequence : ComboBase
 		}
 	}
 
-	private void PostCombo(List<ValueCheck> combo)
+	private void PostCombo(List<ValueCheck> combo, bool giveReward)
 	{
 		for ( int i = 0; i < combo.Count; i++ )
 		{
-			if ( m_comboRewardType == EComboRewardType.CRT_ValueMultiplication )
-				GiveReward(name, m_valueDictionary[combo[i].m_value].Last());
-			else if (i == 0)
-				GiveReward(name, m_valueDictionary[combo[i].m_value].Last());
+			if (giveReward)
+			{
+				if ( m_comboRewardType == EComboRewardType.CRT_ValueMultiplication )
+					GiveReward(name, m_valueDictionary[combo[i].m_value].Last());
+				else if (i == 0)
+					GiveReward(name, m_valueDictionary[combo[i].m_value].Last());
+			}
 
 			m_valueDictionary[combo[i].m_value].RemoveAt(m_valueDictionary[combo[i].m_value].Count - 1);
 

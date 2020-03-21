@@ -36,7 +36,7 @@ public class MultiDice : ComboBase
 
 	private List<Dice> m_diceList;
 
-	public override int CheckCombo( List<Dice> diceList )
+	public override int CheckCombo( List<Dice> diceList, bool b_giveReward = true)
 	{
 		int combosFound = 0;
 		ResetList();
@@ -66,7 +66,7 @@ public class MultiDice : ComboBase
 			if ( hasEverything )
 			{
 				combosFound++;
-				GiveReward();
+				GiveReward(b_giveReward);
 			}
 		}
 
@@ -86,8 +86,14 @@ public class MultiDice : ComboBase
 
 	}
 
-	private void GiveReward()
+	private void GiveReward(bool b_giveReward)
 	{
+		if (!b_giveReward)
+		{
+			ResetList();
+			return;
+		}
+
 		StatsManager.GetInstance().CompletedCombo();
 		if (m_comboRewardType == EComboRewardType.CRT_ValueMultiplication)
 		{

@@ -20,15 +20,18 @@ public class SingleDice : ComboBase
 #endif
 
 
-	public override int CheckCombo(List<Dice> diceList)
+	public override int CheckCombo(List<Dice> diceList, bool giveReward = true)
 	{
 		int combosFound = 0;
 		foreach (Dice dice in diceList)
 		{
 			if (dice.GetRollValue() == m_diceValue)
 			{
-				StatsManager.GetInstance().CompletedCombo();
-				GiveReward(name, dice);
+				if (giveReward)
+				{
+					StatsManager.GetInstance().CompletedCombo();
+					GiveReward(name, dice);
+				}
 				combosFound++;
 			}
 		}
