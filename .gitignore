@@ -1,2 +1,4 @@
 AndroidBuilds/
 android_build/*.zip
+log.txt
+results.xml

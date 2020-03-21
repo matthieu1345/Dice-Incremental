@@ -79,7 +79,7 @@ public class ComboBase : ScriptableObject
 	[SerializeField]
 	protected int m_rollBonusPointReward;
 
-	public virtual int CheckCombo( List<Dice> diceList) { return 0; }
+	public virtual int CheckCombo( List<Dice> diceList, bool giveReward = true) { return 0; }
 
 	protected virtual void GiveReward(string comboName, Dice winningdDice)
 	{

@@ -6,13 +6,16 @@ using UnityEngine;
 public class DiceValue : ComboBase
 {
 
-	public override int CheckCombo( List<Dice> diceList )
+	public override int CheckCombo( List<Dice> diceList , bool giveReward = true)
 	{
 		int combosFound = 0;
 		foreach ( Dice dice in diceList )
 		{
-			StatsManager.GetInstance().CompletedCombo();
-			GiveReward(name, dice);
+			if (giveReward)
+			{
+				StatsManager.GetInstance().CompletedCombo();
+				GiveReward(name, dice);
+			}
 			combosFound++;
 		}
 

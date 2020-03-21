@@ -19,7 +19,7 @@ public class ComboTests
 			diceList[i].TestRollValueSetter(i);
 		}
 
-		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList),0);
+		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList, false),0);
 	}
 
 	[Test]
@@ -38,7 +38,7 @@ public class ComboTests
 			diceList[i].TestRollValueSetter(i);
 		}
 
-		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList),0);
+		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList, false),0);
 	}
 
 	// tests for 6x six in the dice array [6, 6, 6, 6, 6, 0, 1, 2, 3, 4]
@@ -64,7 +64,7 @@ public class ComboTests
 			diceList[i+5].TestRollValueSetter(i);
 		}
 
-		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList),0);
+		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList, false),0);
 	}
 
 	// tests for 1 and 4 in the dice array [0, 1, 2, 3, 0, 1, 2, 3, 4]
@@ -90,7 +90,7 @@ public class ComboTests
 			diceList[i+4].TestRollValueSetter(i);
 		}
 
-		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList),0);
+		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList, false),0);
 	}
 
 	[Test]
@@ -112,7 +112,7 @@ public class ComboTests
 			diceList[i].TestRollValueSetter(3);
 		}
 
-		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList),0);
+		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList, false),0);
 	}
 
 	[Test]
@@ -134,6 +134,6 @@ public class ComboTests
 			diceList[i].TestRollValueSetter(i);
 		}
 
-		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList),0);
+		Assert.AreEqual(expectedCombos, comboType.CheckCombo(diceList, false),0);
 	}
 }
