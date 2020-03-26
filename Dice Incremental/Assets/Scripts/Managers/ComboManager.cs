@@ -51,6 +51,23 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 			GetInstance().m_unlockedComboStrings.Add(combo.GetGuid());
 	}
 
+	public void Reset(bool keepUnlocks)
+	{
+		if (keepUnlocks)
+			return;
+
+		m_unlockedComboStrings.Clear();
+		UnlockAllDefaultUnlockedCombos();
+	}
+
+	private void UnlockAllDefaultUnlockedCombos()
+	{
+		foreach (ComboBase combo in GetInstance().m_defaultUnlockedCombos)
+		{
+			m_unlockedComboStrings.Add(combo.GetGuid());
+		}
+	}
+
 #if UNITY_EDITOR
 	[MenuItem( "Tools/Combo tools/Get all combo's")]
 	private static void GetAllCombos()
@@ -66,10 +83,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 			GetInstance().m_allComboObjects.Add(combo);
 		}
 
-		foreach (ComboBase combo in GetInstance().m_defaultUnlockedCombos)
-		{
-			GetInstance().m_unlockedComboStrings.Add(combo.GetGuid());
-		}
+		GetInstance().UnlockAllDefaultUnlockedCombos();
 
 	}
 #endif

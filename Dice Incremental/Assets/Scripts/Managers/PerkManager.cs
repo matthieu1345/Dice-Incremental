@@ -62,9 +62,9 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 
 	private void UnlockAllDefaultUnlockedPerks()
 	{
-		foreach (Perk combo in GetInstance().m_defaultUnlockedPerks)
+		foreach (Perk perk in GetInstance().m_defaultUnlockedPerks)
 		{
-			GetInstance().m_unlockedPerkStrings.Add(combo.GetGuid());
+			m_unlockedPerkStrings.Add(perk.GetGuid());
 		}
 	}
 
