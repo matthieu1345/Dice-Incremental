@@ -291,6 +291,8 @@ MonoBehaviour:
     m_highestPrestigeCombos: 0
     m_highestTurnCombos: 0
     m_totalBoughtDice: 0
+    m_highestPrestigeBoughtDice: 0
+    m_highestTurnBoughtDice: 0
 --- !u!114 &9052614161712673264
 MonoBehaviour:
   m_ObjectHideFlags: 0

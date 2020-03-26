@@ -130,6 +130,7 @@ public class StatsManagerEditor : Editor
 		SingleTurnRolls();
 		SingleTurnEyes();
 		SingleTurnCombos();
+		SingleTurnBoughtDice();
 
 		EditorGUI.indentLevel--;
 	}
@@ -150,6 +151,7 @@ public class StatsManagerEditor : Editor
 		PrestigeEyes();
 		PrestigeTurns();
 		PrestigeCombos();
+		PrestigeBoughtDice();
 
 		EditorGUI.indentLevel--;
 	}
@@ -165,8 +167,8 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalGold();
-		SingleTurnGold();
 		PrestigeGold();
+		SingleTurnGold();
 
 		EditorGUI.indentLevel--;
 	}
@@ -182,8 +184,8 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalXP();
-		SingleTurnXP();
 		PrestigeXP();
+		SingleTurnXP();
 
 		EditorGUI.indentLevel--;
 	}
@@ -199,8 +201,8 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalRolls();
-		SingleTurnRolls();
 		PrestigeRolls();
+		SingleTurnRolls();
 
 		EditorGUI.indentLevel--;
 	}
@@ -249,8 +251,8 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalCombos();
-		SingleTurnCombos();
 		PrestigeCombos();
+		SingleTurnCombos();
 
 		EditorGUI.indentLevel--;
 	}
@@ -266,6 +268,8 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalDiceBought();
+		PrestigeBoughtDice();
+		SingleTurnBoughtDice();
 
 		EditorGUI.indentLevel--;
 	}
@@ -364,7 +368,17 @@ public class StatsManagerEditor : Editor
 //Dice Count
 	void TotalDiceBought()
 	{
-		EditorGUILayout.LabelField("Total Dice Bought:", stats.GetStats().GetTotalBoughtDice().ToString());
+		EditorGUILayout.LabelField("Total Dice Bought:", stats.GetStats().TotalBoughtDice.ToString());
+	}
+
+	void SingleTurnBoughtDice()
+	{
+		EditorGUILayout.LabelField("Single Turn Dice Bought:", stats.GetStats().HighestTurnBoughtDice.ToString());
+	}
+
+	void PrestigeBoughtDice()
+	{
+		EditorGUILayout.LabelField("Prestige Dice Bought:", stats.GetStats().HighestPrestigeBoughtDice.ToString());
 	}
 }
 #endif

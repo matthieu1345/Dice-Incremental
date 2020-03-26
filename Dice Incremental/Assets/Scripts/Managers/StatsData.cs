@@ -151,9 +151,28 @@ public class StatsData
 
 	[SerializeField]
 	private int m_totalBoughtDice;
+	public int TotalBoughtDice { get => m_totalBoughtDice; set => m_totalBoughtDice = value; }
+	[SerializeField]
+	private int m_highestPrestigeBoughtDice;
+	public int HighestPrestigeBoughtDice {get => m_highestPrestigeBoughtDice; private set => m_highestPrestigeBoughtDice = value;}
+	public int c_currentPrestigeBoughtDice {get; private set;}
+	[SerializeField]
+	private int m_highestTurnBoughtDice;
+	public int HighestTurnBoughtDice { get => m_highestTurnBoughtDice; private set => m_highestTurnBoughtDice = value;}
+	public int c_currentTurnBoughtDice {get; private set;}
+	public void AddBoughtDice(int value)
+	{
+		TotalBoughtDice += value;
+	
+		c_currentPrestigeBoughtDice += value;
+		if (HighestPrestigeBoughtDice < c_currentPrestigeBoughtDice)
+			HighestPrestigeBoughtDice = c_currentPrestigeBoughtDice;
 
-	public void AddBoughtDice(int value) {m_totalBoughtDice += value;}
-	public int GetTotalBoughtDice() {return m_totalBoughtDice;}
+		c_currentTurnBoughtDice += value;
+		if (HighestTurnBoughtDice < c_currentTurnBoughtDice)
+			HighestTurnBoughtDice = c_currentTurnBoughtDice;
+	}
+
 
 	private void ResetAll()
 	{
@@ -174,7 +193,9 @@ public class StatsData
 		TotalCombos = 0;
 		HighestPrestigeCombos = 0;
 		HighestTurnCombos = 0;
-		m_totalBoughtDice = 0;
+		TotalBoughtDice = 0;
+		HighestPrestigeBoughtDice = 0;
+		HighestTurnBoughtDice = 0;
 	}
 
 	private void ResetCurrentPrestige()
@@ -185,6 +206,7 @@ public class StatsData
 		c_currentPrestigeEyes = 0;
 		c_currentPrestigeTurns = 0;
 		c_currentPrestigeCombos = 0;
+		c_currentPrestigeBoughtDice = 0;
 	}
 
 	public void ResetCurrentRoll()
@@ -194,6 +216,7 @@ public class StatsData
 		c_currentTurnRolls = 0;
 		c_currentTurnEyes = 0;
 		c_currentTurnCombos = 0;
+		c_currentTurnBoughtDice = 0;
 	}
 
 	public void ResetStats(bool keepTotals)
