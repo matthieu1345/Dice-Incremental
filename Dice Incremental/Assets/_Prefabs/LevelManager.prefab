@@ -286,7 +286,9 @@ MonoBehaviour:
     m_highestPrestigeEyes: 0
     m_highestTurnEyes: 0
     m_totalTurns: 0
+    m_highestPrestigeTurns: 0
     m_totalCombos: 0
+    m_highestPrestigeCombos: 0
     m_highestTurnCombos: 0
     m_totalBoughtDice: 0
 --- !u!114 &9052614161712673264

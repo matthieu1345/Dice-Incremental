@@ -148,6 +148,8 @@ public class StatsManagerEditor : Editor
 		PrestigeXP();
 		PrestigeRolls();
 		PrestigeEyes();
+		PrestigeTurns();
+		PrestigeCombos();
 
 		EditorGUI.indentLevel--;
 	}
@@ -214,6 +216,7 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalEyes();
+		PrestigeEyes();
 		SingleTurnEyes();
 
 		EditorGUI.indentLevel--;
@@ -230,6 +233,7 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalTurns();
+		PrestigeTurns();
 
 		EditorGUI.indentLevel--;
 	}
@@ -246,6 +250,7 @@ public class StatsManagerEditor : Editor
 
 		TotalCombos();
 		SingleTurnCombos();
+		PrestigeCombos();
 
 		EditorGUI.indentLevel--;
 	}
@@ -332,18 +337,28 @@ public class StatsManagerEditor : Editor
 //Turns
 	void TotalTurns()
 	{
-		EditorGUILayout.LabelField("Total Turns:", stats.GetStats().GetTotalTurnsTaken().ToString());
+		EditorGUILayout.LabelField("Total Turns:", stats.GetStats().TotalTurns.ToString());
+	}
+
+	void PrestigeTurns()
+	{
+		EditorGUILayout.LabelField("Prestige Turns:", stats.GetStats().HighestPrestigeTurns.ToString());
 	}
 
 //Combos
 	void TotalCombos()
 	{
-		EditorGUILayout.LabelField("Total Combos:", stats.GetStats().GetComboCount().ToString());
+		EditorGUILayout.LabelField("Total Combos:", stats.GetStats().TotalCombos.ToString());
 	}
 
 	void SingleTurnCombos()
 	{
-		EditorGUILayout.LabelField("Single Turn Combos:", stats.GetStats().GetHighestTurnComos().ToString());
+		EditorGUILayout.LabelField("Single Turn Combos:", stats.GetStats().HighestTurnCombos.ToString());
+	}
+
+	void PrestigeCombos()
+	{
+		EditorGUILayout.LabelField("Prestige Combos:", stats.GetStats().HighestPrestigeCombos.ToString());
 	}
 
 //Dice Count

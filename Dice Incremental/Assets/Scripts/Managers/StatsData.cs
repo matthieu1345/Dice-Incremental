@@ -111,23 +111,43 @@ public class StatsData
 
 	[SerializeField]
 	private int m_totalTurns;
-	public void AddTurn(int value) {m_totalTurns += value;}
-	public int GetTotalTurnsTaken() {return m_totalTurns;}
+	public int TotalTurns { get => m_totalTurns; private set => m_totalTurns = value; }
+	[SerializeField]
+	private int m_highestPrestigeTurns;
+	public int HighestPrestigeTurns { get => m_highestPrestigeTurns; private set => m_highestPrestigeTurns = value; }
+	public int c_currentPrestigeTurns {get; private set;}
+	public void AddTurn(int value) 
+	{
+		TotalTurns += value;
+
+		c_currentPrestigeTurns += value;
+		if (HighestPrestigeTurns < c_currentPrestigeTurns)
+			HighestPrestigeTurns = c_currentPrestigeTurns;
+	}
 
 	[SerializeField]
 	private int m_totalCombos;
+	public int TotalCombos { get => m_totalCombos; private set => m_totalCombos = value; }
+	[SerializeField]
+	private int m_highestPrestigeCombos;
+	public int HighestPrestigeCombos { get => m_highestPrestigeCombos; set => m_highestPrestigeCombos = value; }
+	public int c_currentPrestigeCombos {get; private set;}
 	[SerializeField]
 	private int m_highestTurnCombos;
+	public int HighestTurnCombos { get => m_highestTurnCombos; set => m_highestTurnCombos = value; }
 	private int c_currentTurnCombos;
 	public void AddCombo(int value) 
 	{
-		m_totalCombos += value;
+		TotalCombos += value;
+
+		c_currentPrestigeCombos += value;
+		if (HighestPrestigeCombos < c_currentPrestigeCombos)
+			HighestPrestigeCombos = c_currentPrestigeCombos;
+
 		c_currentTurnCombos += value;
-		if (m_highestTurnCombos < c_currentTurnCombos)
-			m_highestTurnCombos = c_currentTurnCombos;
+		if (HighestTurnCombos < c_currentTurnCombos)
+			HighestTurnCombos = c_currentTurnCombos;
 	}
-	public int GetComboCount() {return m_totalCombos;}
-	public int GetHighestTurnComos() {return m_highestTurnCombos;}
 
 	[SerializeField]
 	private int m_totalBoughtDice;
@@ -149,9 +169,11 @@ public class StatsData
 		TotalEyes = 0;
 		HighestPrestigeEyes = 0;
 		HighestTurnEyes = 0;
-		m_totalTurns = 0;
-		m_totalCombos = 0;
-		m_highestTurnCombos = 0;
+		TotalTurns = 0;
+		HighestPrestigeTurns = 0;
+		TotalCombos = 0;
+		HighestPrestigeCombos = 0;
+		HighestTurnCombos = 0;
 		m_totalBoughtDice = 0;
 	}
 
@@ -161,6 +183,8 @@ public class StatsData
 		c_currentPrestigeXP = 0;
 		c_currentPrestigeRolls = 0;
 		c_currentPrestigeEyes = 0;
+		c_currentPrestigeTurns = 0;
+		c_currentPrestigeCombos = 0;
 	}
 
 	public void ResetCurrentRoll()

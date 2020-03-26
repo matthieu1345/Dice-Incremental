@@ -13,7 +13,7 @@ public class AllComboCountPerk : Perk
 		switch (m_statType)
 		{
 			case EPerkStatType.PST_Total:
-				if (StatsManager.GetInstance().GetStats().GetComboCount() >= m_statNumber)
+				if (StatsManager.GetInstance().GetStats().TotalCombos >= m_statNumber)
 					return true;
 				break;
 			case EPerkStatType.PST_SingleRoll:

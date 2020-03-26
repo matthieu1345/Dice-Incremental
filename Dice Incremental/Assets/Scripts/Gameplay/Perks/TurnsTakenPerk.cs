@@ -13,7 +13,7 @@ public class TurnsTakenPerk : Perk
 		switch (m_statType)
 		{
 			case EPerkStatType.PST_Total:
-				if (StatsManager.GetInstance().GetStats().GetTotalTurnsTaken() >= m_statNumber)
+				if (StatsManager.GetInstance().GetStats().TotalTurns >= m_statNumber)
 					return true;
 				break;
 			case EPerkStatType.PST_SinglePrestige:
