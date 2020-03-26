@@ -17,3 +17,8 @@ MonoBehaviour:
   m_description: 'Test Money Perk
 
     Tests giving Money with a perk'
+  m_rewardType: 1
+  m_statType: 0
+  m_rewardAmount: 50
+  m_statNumber: 0
+  m_comboReward: {fileID: 0}

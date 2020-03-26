@@ -41,18 +41,23 @@ public class Perk : ScriptableObject
 		PST_SinglePrestige
 	}
 
+	[SerializeField]
 	private EPerkRewardType m_rewardType;
 	public EPerkRewardType GetRewardType() {return m_rewardType;}
 
+	[SerializeField]
 	protected EPerkStatType m_statType;
 
 	//money reward
+	[SerializeField]
 	private int m_rewardAmount = 0;
 	public int GetRewardAmount() {return m_rewardAmount;}
 
+	[SerializeField]
 	protected int m_statNumber = 0;
 
 	//Combo reward
+	[SerializeField]
 	private ComboBase m_comboReward;
 	public ComboBase GetComboReward() {return m_comboReward;}
 

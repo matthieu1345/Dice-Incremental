@@ -17,3 +17,8 @@ MonoBehaviour:
   m_description: 'Test Dice Perk
 
     Tests giving a Dice with a perk'
+  m_rewardType: 2
+  m_statType: 0
+  m_rewardAmount: 1
+  m_statNumber: 0
+  m_comboReward: {fileID: 0}

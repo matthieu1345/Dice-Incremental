@@ -17,3 +17,8 @@ MonoBehaviour:
   m_description: 'Test Combo Perk
 
     Tests giving a combo with a perk'
+  m_rewardType: 3
+  m_statType: 0
+  m_rewardAmount: 0
+  m_statNumber: 0
+  m_comboReward: {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}

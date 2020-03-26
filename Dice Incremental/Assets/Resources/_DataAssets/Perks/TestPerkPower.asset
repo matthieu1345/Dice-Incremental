@@ -17,3 +17,8 @@ MonoBehaviour:
   m_description: 'Test Power Perk
 
     Tests giving Power with a perk'
+  m_rewardType: 4
+  m_statType: 0
+  m_rewardAmount: 2
+  m_statNumber: 0
+  m_comboReward: {fileID: 0}
