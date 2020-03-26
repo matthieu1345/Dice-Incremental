@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Straight4
   m_EditorClassIdentifier: 
   m_guid: f57b2ab0-6670-4bfc-adbf-a299419fd7f4
+  m_readableName: Straight of Four
+  m_description: 'Roll a Straight of Four
+
+    a.k.a. 4 in a row (1 & 2 & 3 & 4)'
   m_comboRewardType: 1
   m_moneyReward: 30
   m_xpReward: 30

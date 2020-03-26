@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: DiceValue
   m_EditorClassIdentifier: 
   m_guid: 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
+  m_readableName: Dice Value
+  m_description: Get something from every dice!
   m_comboRewardType: 2
   m_moneyReward: 1
   m_xpReward: 0

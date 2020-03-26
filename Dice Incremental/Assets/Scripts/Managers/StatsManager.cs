@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 [Serializable]
 public class StatsManager : InstancedMonoBehaviour<StatsManager>
@@ -46,3 +49,249 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 	}
 
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(StatsManager))]
+public class StatsManagerEditor : Editor
+{
+	Dictionary<string, bool> foldouts = new Dictionary<string, bool>();
+
+	void AddFoldout(string key)
+	{
+		if (!foldouts.ContainsKey(key))
+			foldouts.Add(key, false);
+	}
+
+	StatsManager stats; 
+	public override void OnInspectorGUI()
+	{
+		stats = target as StatsManager;
+
+		
+		EditorGUILayout.LabelField("By Record Length", EditorStyles.boldLabel);
+		TotalStats();
+		SingleTurnStats();
+
+		EditorGUILayout.Space();
+		EditorGUILayout.LabelField("By Stat Type", EditorStyles.boldLabel);
+
+		GoldStats();
+		XPStats();
+		RollsStats();
+		EyesStats();
+		TurnsStats();
+		ComboStats();
+		DiceCountStats();
+	}
+
+	void TotalStats()
+	{
+		AddFoldout("TotalStats");
+		foldouts["TotalStats"] = EditorGUILayout.Foldout(foldouts["TotalStats"], "Totals");
+
+		if (!foldouts["TotalStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalGold();
+		TotalXP();
+		TotalRolls();
+		TotalEyes();
+		TotalTurns();
+		TotalCombos();
+		TotalDiceBought();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void SingleTurnStats()
+	{
+		AddFoldout("SingleTurnStats");
+		foldouts["SingleTurnStats"] = EditorGUILayout.Foldout(foldouts["SingleTurnStats"], "Single Turn");
+
+		if (!foldouts["SingleTurnStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		SingleTurnGold();
+		SingleTurnRolls();
+		SingleTurnEyes();
+		SingleTurnCombos();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void GoldStats()
+	{
+		AddFoldout("GoldStats");
+		foldouts["GoldStats"] = EditorGUILayout.Foldout(foldouts["GoldStats"], "Gold");
+
+		if (!foldouts["GoldStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalGold();
+		SingleTurnGold();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void XPStats()
+	{
+		AddFoldout("XPStats");
+		foldouts["XPStats"] = EditorGUILayout.Foldout(foldouts["XPStats"], "XP");
+
+		if (!foldouts["XPStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalXP();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void RollsStats()
+	{
+		AddFoldout("RollsStats");
+		foldouts["RollsStats"] = EditorGUILayout.Foldout(foldouts["RollsStats"], "Rolls");
+
+		if (!foldouts["RollsStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalRolls();
+		SingleTurnRolls();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void EyesStats()
+	{
+		AddFoldout("EyesStats");
+		foldouts["EyesStats"] = EditorGUILayout.Foldout(foldouts["EyesStats"], "Eyes");
+
+		if (!foldouts["EyesStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalEyes();
+		SingleTurnEyes();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void TurnsStats()
+	{
+		AddFoldout("TurnsStats");
+		foldouts["TurnsStats"] = EditorGUILayout.Foldout(foldouts["TurnsStats"], "Turns");
+
+		if (!foldouts["TurnsStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalTurns();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void ComboStats()
+	{
+		AddFoldout("ComboStats");
+		foldouts["ComboStats"] = EditorGUILayout.Foldout(foldouts["ComboStats"], "Combo");
+
+		if (!foldouts["ComboStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalCombos();
+		SingleTurnCombos();
+
+		EditorGUI.indentLevel--;
+	}
+
+	void DiceCountStats()
+	{
+		AddFoldout("DiceCountStats");
+		foldouts["DiceCountStats"] = EditorGUILayout.Foldout(foldouts["DiceCountStats"], "Dice Count");
+
+		if (!foldouts["DiceCountStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		TotalDiceBought();
+
+		EditorGUI.indentLevel--;
+	}
+
+//Gold
+	void TotalGold()
+	{
+		EditorGUILayout.LabelField("Total Gold:", stats.GetStats().GetTotalGold().ToString());
+	}
+
+	void SingleTurnGold()
+	{
+		EditorGUILayout.LabelField("Single Turn Gold:", stats.GetStats().GetHighestTurnGold().ToString());
+	}
+
+//XP
+	void TotalXP()
+	{
+		EditorGUILayout.LabelField("Total XP:", stats.GetStats().GetTotalXP().ToString());
+	}
+
+//Rolls
+	void TotalRolls()
+	{
+		EditorGUILayout.LabelField("Total Rolls:", stats.GetStats().GetTotalDiceRolled().ToString());
+	}
+
+	void SingleTurnRolls()
+	{
+		EditorGUILayout.LabelField("Single Turn Rolls:", stats.GetStats().GetHighestTurnRolls().ToString());
+	}
+
+//Eyes
+	void TotalEyes()
+	{
+		EditorGUILayout.LabelField("Total Eyes:", stats.GetStats().GetTotalEyes().ToString());
+	}
+
+	void SingleTurnEyes()
+	{
+		EditorGUILayout.LabelField("Single Turn Eyes:", stats.GetStats().GetHighestTurnEyes().ToString());
+	}
+
+//Turns
+	void TotalTurns()
+	{
+		EditorGUILayout.LabelField("Total Turns:", stats.GetStats().GetTotalTurnsTaken().ToString());
+	}
+
+//Combos
+	void TotalCombos()
+	{
+		EditorGUILayout.LabelField("Total Combos:", stats.GetStats().GetComboCount().ToString());
+	}
+
+	void SingleTurnCombos()
+	{
+		EditorGUILayout.LabelField("Single Turn Combos:", stats.GetStats().GetHighestTurnComos().ToString());
+	}
+
+//Dice Count
+	void TotalDiceBought()
+	{
+		EditorGUILayout.LabelField("Total Dice Bought:", stats.GetStats().GetTotalBoughtDice().ToString());
+	}
+}
+#endif

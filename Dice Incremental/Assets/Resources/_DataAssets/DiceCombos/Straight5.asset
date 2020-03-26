@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16b47731b8fa5e46a27d7a5c04f4ae3, type: 3}
   m_Name: Straight5
   m_EditorClassIdentifier: 
-  m_guid: f57b2ab0-6670-4bfc-adbf-a299419fd7f4
+  m_guid: 8fc2c5a0-1a9d-4d80-b9a5-6981bc0196ce
+  m_readableName: Straight of Five
+  m_description: 'Roll a Straight of Five
+
+    a.k.a. 5 in a row (1 & 2 & 3 & 4 &
+    5)'
   m_comboRewardType: 1
   m_moneyReward: 40
   m_xpReward: 40

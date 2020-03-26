@@ -10,12 +10,14 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 {
     [SerializeField]
 	private Dictionary<string, Perk> m_allPerks = new Dictionary<string, Perk>();
+	public Dictionary<string, Perk> GetAllPerks() {return m_allPerks;}
 
 	[SerializeField]
 	private List<Perk> m_allPerkObjects = new List<Perk>();
 
 	[SerializeField]
 	private List<string> m_unlockedPerkStrings = new List<string>();
+	public List<string> GetUnlockedPerks() {return m_unlockedPerkStrings;}
 
 	[SerializeField]
 	private List<Perk> m_defaultUnlockedPerks = new List<Perk>();

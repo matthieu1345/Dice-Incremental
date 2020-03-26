@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Straight3
   m_EditorClassIdentifier: 
   m_guid: d2dcc652-bd65-4132-9d79-cbd9221cd9dc
+  m_readableName: Straight Three
+  m_description: 'Roll a Straight of Three
+
+    a.k.a. 3 in a row (1 & 2 & 3)'
   m_comboRewardType: 1
   m_moneyReward: 20
   m_xpReward: 20

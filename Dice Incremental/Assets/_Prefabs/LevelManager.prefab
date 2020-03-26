@@ -308,6 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allPerkObjects:
+  - {fileID: 11400000, guid: 21ebe01f7a7b09c4e970ceadfd6dc623, type: 2}
   - {fileID: 11400000, guid: 67dce703432877e45bdfc472688edd6d, type: 2}
   - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}
   - {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4, type: 2}

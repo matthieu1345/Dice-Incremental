@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2beea35a27602c944821a034ecbdbbe2, type: 3}
   m_Name: Lucky7
   m_EditorClassIdentifier: 
-  m_guid: d482e9a8-b2ed-4756-8812-042cb3e7d8d8
+  m_guid: abe5d861-ee50-4f4b-a6af-d31e8645bf6b
+  m_readableName: Lucky Seven
+  m_description: The Lucky Number Seven!
   m_comboRewardType: 1
   m_moneyReward: 7
   m_xpReward: 7
