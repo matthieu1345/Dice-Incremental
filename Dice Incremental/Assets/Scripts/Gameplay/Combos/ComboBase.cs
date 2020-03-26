@@ -22,17 +22,42 @@ public class ComboBase : ScriptableObject
 	public EComboRewardType GUIAwardType
 	{
 		get { return m_comboRewardType; }
-		set { m_comboRewardType = value; }
+		set 
+		{ 
+			if (m_comboRewardType != value)
+				EditorUtility.SetDirty(this);
+			m_comboRewardType = value;
+		}
 	}
 	public int GUIMoneyReward
 	{
 		get { return m_moneyReward; }
-		set { m_moneyReward = value; }
+		set 
+		{ 
+			if (m_moneyReward != value)
+				EditorUtility.SetDirty(this);
+			m_moneyReward = value;
+		}
 	}
 	public int GUIXpReward
 	{
 		get { return m_xpReward; }
-		set { m_xpReward = value; }
+		set
+		{ 
+			if (m_xpReward != value)
+				EditorUtility.SetDirty(this);
+			m_xpReward = value; 
+		}
+	}
+	public int GUIRollBonusPointReward
+	{
+		get { return m_rollBonusPointReward; }
+		set 
+		{
+			if (m_rollBonusPointReward != value)
+				EditorUtility.SetDirty(this);
+			m_rollBonusPointReward = value;
+		}
 	}
 #endif
 
@@ -51,8 +76,10 @@ public class ComboBase : ScriptableObject
 	protected int m_moneyReward;
 	[SerializeField]
 	protected int m_xpReward;
+	[SerializeField]
+	protected int m_rollBonusPointReward;
 
-	public virtual int CheckCombo( List<Dice> diceList) { return 0; }
+	public virtual int CheckCombo( List<Dice> diceList, bool giveReward = true) { return 0; }
 
 	protected virtual void GiveReward(string comboName, Dice winningdDice)
 	{
@@ -66,12 +93,14 @@ public class ComboBase : ScriptableObject
 		case EComboRewardType.CRT_StaticAmount:
 			LevelManager.GetInstance().AddMoney(m_moneyReward);
 			LevelManager.GetInstance().AddXp(m_xpReward);
+			LevelManager.GetInstance().AddRollBonusPoint(m_rollBonusPointReward);
 
 			break;
 			
 		case EComboRewardType.CRT_ValueMultiplication:
 			LevelManager.GetInstance().AddMoney(GetMoneyMultiplication(winningdDice));
 			LevelManager.GetInstance().AddXp(GetXpMultiplication(winningdDice));
+			LevelManager.GetInstance().AddRollBonusPoint(GetRollBonusPointMultiplication(winningdDice));
 
 			break;
 
@@ -85,9 +114,11 @@ public class ComboBase : ScriptableObject
 		
 	}
 
-	protected virtual float GetXpMultiplication(Dice winningDice) { return winningDice.GetRollValue() * m_xpReward; }
+	protected virtual int GetXpMultiplication(Dice winningDice) { return winningDice.GetRollValue() * m_xpReward; }
 
-	protected virtual float GetMoneyMultiplication(Dice winningDice) { return winningDice.GetRollValue() * m_moneyReward; }
+	protected virtual int GetMoneyMultiplication(Dice winningDice) { return winningDice.GetRollValue() * m_moneyReward; }
+
+	protected virtual int GetRollBonusPointMultiplication(Dice winningDice) {return winningDice.GetRollValue() * m_rollBonusPointReward; }
 
 }
 
@@ -126,10 +157,12 @@ public class ComboEditor : Editor
 		case ComboBase.EComboRewardType.CRT_StaticAmount:
 			combo.GUIMoneyReward = EditorGUILayout.IntField("Money to be given: ", combo.GUIMoneyReward);
 			combo.GUIXpReward = EditorGUILayout.IntField("xp to be given:", combo.GUIXpReward);
+			combo.GUIRollBonusPointReward = EditorGUILayout.IntField("Roll Bonus Points to be given:", combo.GUIRollBonusPointReward);
 			break;
 		case ComboBase.EComboRewardType.CRT_ValueMultiplication:
 			combo.GUIMoneyReward = EditorGUILayout.IntField("Value to be multiplied with for money: ", combo.GUIMoneyReward);
 			combo.GUIXpReward = EditorGUILayout.IntField("Value to be multiplied with for xp: ", combo.GUIXpReward);
+			combo.GUIRollBonusPointReward = EditorGUILayout.IntField("Value to be multiplied with for Roll Bonus Points: ", combo.GUIRollBonusPointReward);
 			break;
 		default:
 			EditorGUILayout.LabelField("WARNING: Reward type has not been set", "WARNING: Reward type has not been set");

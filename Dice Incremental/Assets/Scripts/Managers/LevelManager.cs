@@ -10,28 +10,61 @@ using UnityEngine.Events;
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
 	[SerializeField]
-	private float m_money;
-	public float Money
+	private int m_money;
+	public int Money
 	{
 		get { return m_money; }
 		private set
 		{
 			m_money = value;
-			m_moneyChanged.Invoke((int)m_money);
+			m_moneyChanged.Invoke(m_money);
 		}
 	}
 
 	[SerializeField]
-	private float m_xp;
-	public float Xp
+	private int m_xp;
+	public int Xp
 	{
 		get { return m_xp; }
 		private set
 		{
 			m_xp = value;
-			m_xpChanged.Invoke((int)m_xp);
+			m_xpChanged.Invoke(m_xp);
 		}
 	}
+
+	[SerializeField]
+	private int m_rolls;
+	public int Rolls
+	{
+		get {return m_rolls;}
+		private set
+		{
+			m_rolls = value;
+			m_rollsChanged.Invoke(m_rolls);
+		}
+	}
+
+	[SerializeField]
+	private int m_rollBonusPoints;
+	public int RollBonusPoints
+	{
+		get {return m_rollBonusPoints;}
+		private set
+		{
+			m_rollBonusPoints = value;
+			CheckRollBonusPoints();
+			m_rollBonusPointsChanged.Invoke(m_rollBonusPoints);
+		}
+	}
+
+	[SerializeField]
+	private int m_baseRollBonusPointCost;
+	[SerializeField]
+	private float m_rollBonusPointCostMultiplier;
+	private int m_bonusRolls = 0;
+	[SerializeField]
+	private int m_nextBonusRollCost;
 
 
 	[Serializable]
@@ -43,20 +76,31 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	public ValueChangedEvent m_moneyChanged = new ValueChangedEvent();
 	[SerializeField]
 	public ValueChangedEvent m_xpChanged = new ValueChangedEvent();
-	public void AddMoney( float rewardValue )
+	[SerializeField]
+	public ValueChangedEvent m_rollsChanged = new ValueChangedEvent();
+	[SerializeField]
+	public ValueChangedEvent m_rollBonusPointsChanged = new ValueChangedEvent();
+
+	public void AddMoney( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedMoney((int)rewardValue);
+		StatsManager.GetInstance().RecievedMoney(rewardValue);
 		Money += rewardValue;
 	}
 
-	public void AddXp( float rewardValue )
+	public void AddXp( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedXp((int)rewardValue);
+		StatsManager.GetInstance().RecievedXp(rewardValue);
 		Xp += rewardValue;
 	}
+
+	public void AddRollBonusPoint(int rewardValue)
+	{
+		RollBonusPoints += rewardValue;
+	}
+
 	public int GetMoney() { return (int)m_money; }
 
-	public bool Buy( float cost )
+	public bool Buy( int cost )
 	{
 		if ( Money >= cost )
 		{
@@ -66,6 +110,30 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		}
 
 		return false;
+	}
+
+	public void Roll()
+	{
+		Rolls--;
+		if (Rolls == 0)
+			Restart(); //possibly show a restart message first.
+	}
+
+	private void CheckRollBonusPoints()
+	{
+		m_nextBonusRollCost = CalculateNextRollCost();
+		while ( RollBonusPoints >= m_nextBonusRollCost)
+		{
+			Rolls++;
+			RollBonusPoints -= m_nextBonusRollCost;
+			m_bonusRolls++;
+			m_nextBonusRollCost = CalculateNextRollCost();
+		}
+	}
+
+	int CalculateNextRollCost()
+	{
+		return Mathf.FloorToInt(m_baseRollBonusPointCost * (float)Math.Pow(m_rollBonusPointCostMultiplier, m_bonusRolls));
 	}
 
 	public void Save()
@@ -83,5 +151,14 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	{
 		Money = data.m_money;
 		Xp = data.m_xp;
+		Rolls = data.m_rolls;
+		RollBonusPoints = data.m_rollBonusPoints;
+	}
+
+
+
+	private void Restart()
+	{
+		//todo: implement restart stuffs!
 	}
 }

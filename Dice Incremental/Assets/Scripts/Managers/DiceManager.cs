@@ -13,6 +13,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	[SerializeField]
 	private int m_startingDice = 1;
+	private int m_startingPower = 1;
 
 	[SerializeField]
 	private float m_diceCost = 10;
@@ -30,15 +31,13 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public List<Dice> GetDiceList() { return m_allDice; }
 
-	public delegate void RollEvent();
-
-	public RollEvent m_rollEvent;
+	public UnityEvent m_rollEvent = new UnityEvent();
 
 	public int GetDiceCount() { return m_allDice.Count; }
 
-	private float GetNewDiceCost()
+	private int GetNewDiceCost()
 	{
-		float newDiceCost = m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice);
+		int newDiceCost = Mathf.FloorToInt(m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice));
 
 		m_uiFolder.SetDiceCost(newDiceCost);
 
@@ -47,7 +46,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public float GetPowerCostMultiplier() { return m_costMultiplierPerPower; }
 	public float GetPowerBaseCost() { return m_basePowerCost; }
-
+	public float GetPowerBaseAmount() { return m_startingPower; }
 
 	public void AddDice(Dice dice)
 	{
@@ -60,9 +59,23 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void RollAll()
 	{
-		StatsManager.GetInstance().TakenRoll();
+		if (LevelManager.GetInstance().Rolls <= 0)
+			return; // we can't roll anymore if there's no rolls left!
+
 		m_rollEvent.Invoke();
 		ComboManager.GetInstance().CheckCombos();
+	}
+
+	public void AddPerkDice()
+	{
+		m_startingDice++;
+		CreateDice();
+	}
+
+	public void AddPerkPower()
+	{
+		m_startingPower++;
+		AddPowerToAll();
 	}
 
 	public void AddPowerToAll()
@@ -94,7 +107,10 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		{
 			CreateDice();
 		}
+	}
 
+	private void Start()
+	{
 		InputManager.GetInstance().m_buyDiceEvent.AddListener(BuyDice);
 		InputManager.GetInstance().m_rollDiceEvent.AddListener(RollAll);
 	}

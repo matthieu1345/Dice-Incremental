@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16b47731b8fa5e46a27d7a5c04f4ae3, type: 3}
-  m_Name: ThreeOfAKind
+  m_Script: {fileID: 11500000, guid: 3aa06f4834206e34692ddff47b6fd8c1, type: 3}
+  m_Name: TestPerkPower
   m_EditorClassIdentifier: 
-  m_guid: 0821f643-843b-4918-b0f9-34a907231dbe
-  m_comboRewardType: 1
-  m_moneyReward: 10
-  m_xpReward: 10
-  m_rollBonusPointReward: 10
-  m_requiredValues: 010000000100000001000000
+  m_guid: 5e27070e-5d7a-4be1-8274-8927624ed2d7

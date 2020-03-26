@@ -80,15 +80,20 @@ public class Dice : MonoBehaviour
 
 		if ( DiceManager.m_instance != null )
 		{
-			DiceManager.m_instance.m_rollEvent += Roll;
+			DiceManager.m_instance.m_rollEvent.AddListener(Roll);
 			DiceManager.m_instance.AddDice(this);
+
+			while (m_stats.GetPower() < DiceManager.m_instance.GetPowerBaseAmount())
+			{
+				AddPower();
+			}
 		}
 
 	}
 
 	private void OnDestroy()
 	{
-		DiceManager.m_instance.m_rollEvent -= Roll;
+		DiceManager.m_instance.m_rollEvent.RemoveListener(Roll);
 	}
 
 	private void SetLineRenderer(int sideCount)
