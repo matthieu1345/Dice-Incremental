@@ -48,6 +48,15 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 		m_stats.AddBoughtDice(1);
 	}
 
+	public void ResetCurrentRoll()
+	{
+		m_stats.ResetCurrentRoll();
+	}
+
+	public void ResetStats(bool keepTotals)
+	{
+		m_stats.ResetStats(keepTotals);
+	}
 }
 
 #if UNITY_EDITOR
@@ -71,6 +80,7 @@ public class StatsManagerEditor : Editor
 		EditorGUILayout.LabelField("By Record Length", EditorStyles.boldLabel);
 		TotalStats();
 		SingleTurnStats();
+		PrestigeStats();
 
 		EditorGUILayout.Space();
 		EditorGUILayout.LabelField("By Stat Type", EditorStyles.boldLabel);
@@ -123,6 +133,22 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel--;
 	}
 
+	void PrestigeStats()
+	{
+		AddFoldout("PrestigeStats");
+		foldouts["PrestigeStats"] = EditorGUILayout.Foldout(foldouts["PrestigeStats"], "Prestige");
+
+		if (!foldouts["PrestigeStats"])
+			return;
+
+		EditorGUI.indentLevel++;
+
+		PrestigeGold();
+		PrestigeRolls();
+
+		EditorGUI.indentLevel--;
+	}
+
 	void GoldStats()
 	{
 		AddFoldout("GoldStats");
@@ -135,6 +161,7 @@ public class StatsManagerEditor : Editor
 
 		TotalGold();
 		SingleTurnGold();
+		PrestigeGold();
 
 		EditorGUI.indentLevel--;
 	}
@@ -166,6 +193,7 @@ public class StatsManagerEditor : Editor
 
 		TotalRolls();
 		SingleTurnRolls();
+		PrestigeRolls();
 
 		EditorGUI.indentLevel--;
 	}
@@ -235,29 +263,39 @@ public class StatsManagerEditor : Editor
 //Gold
 	void TotalGold()
 	{
-		EditorGUILayout.LabelField("Total Gold:", stats.GetStats().GetTotalGold().ToString());
+		EditorGUILayout.LabelField("Total Gold:", stats.GetStats().m_totalGold.ToString());
 	}
 
 	void SingleTurnGold()
 	{
-		EditorGUILayout.LabelField("Single Turn Gold:", stats.GetStats().GetHighestTurnGold().ToString());
+		EditorGUILayout.LabelField("Single Turn Gold:", stats.GetStats().m_highestTurnGold.ToString());
+	}
+
+	void PrestigeGold()
+	{
+		EditorGUILayout.LabelField("Prestige Gold:", stats.GetStats().m_highestPrestigeGold.ToString());
 	}
 
 //XP
 	void TotalXP()
 	{
-		EditorGUILayout.LabelField("Total XP:", stats.GetStats().GetTotalXP().ToString());
+		EditorGUILayout.LabelField("Total XP:", stats.GetStats().m_totalXp.ToString());
 	}
 
 //Rolls
 	void TotalRolls()
 	{
-		EditorGUILayout.LabelField("Total Rolls:", stats.GetStats().GetTotalDiceRolled().ToString());
+		EditorGUILayout.LabelField("Total Rolls:", stats.GetStats().m_totalRolls.ToString());
 	}
 
 	void SingleTurnRolls()
 	{
-		EditorGUILayout.LabelField("Single Turn Rolls:", stats.GetStats().GetHighestTurnRolls().ToString());
+		EditorGUILayout.LabelField("Single Turn Rolls:", stats.GetStats().m_highestTurnRolls.ToString());
+	}
+
+	void PrestigeRolls()
+	{
+		EditorGUILayout.LabelField("Prestige Rolls:", stats.GetStats().m_highestPrestigeRolls.ToString());
 	}
 
 //Eyes

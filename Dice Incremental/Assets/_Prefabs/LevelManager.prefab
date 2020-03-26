@@ -147,6 +147,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114430375967096962}
+        m_MethodName: ResetStats
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &114174764942973058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,12 +273,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stats:
-    m_totalGold: 0
-    m_totalXp: 0
-    m_totalRolls: 0
     m_totalEyes: 0
+    m_highestTurnEyes: 0
     m_totalTurns: 0
     m_totalCombos: 0
+    m_highestTurnCombos: 0
     m_totalBoughtDice: 0
 --- !u!114 &9052614161712673264
 MonoBehaviour:

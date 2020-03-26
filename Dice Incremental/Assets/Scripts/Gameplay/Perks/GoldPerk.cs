@@ -13,7 +13,7 @@ public class GoldPerk : Perk
 		switch (m_statType)
 		{
 			case EPerkStatType.PST_Total:
-				if (StatsManager.GetInstance().GetStats().GetTotalGold() >= m_statNumber)
+				if (StatsManager.GetInstance().GetStats().m_totalGold >= m_statNumber)
 					return true;
 				break;
 			case EPerkStatType.PST_SingleRoll:

@@ -13,7 +13,7 @@ public class DiceRolledPerk : Perk
 		switch (m_statType)
 		{
 			case EPerkStatType.PST_Total:
-				if (StatsManager.GetInstance().GetStats().GetTotalDiceRolled() >= m_statNumber)
+				if (StatsManager.GetInstance().GetStats().m_totalRolls >= m_statNumber)
 					return true;
 				break;
 			case EPerkStatType.PST_SingleRoll:

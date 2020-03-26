@@ -7,39 +7,50 @@ using UnityEngine;
 public class StatsData
 {
 	[SerializeField]
-	private int m_totalGold;
+	public int m_totalGold {get; private set; }
 	[SerializeField]
-	private int m_highestTurnGold;
-	private int c_currentTurnGold;
+	public int m_highestPrestigeGold {get; private set; }
+	public int c_currentPrestigeGold {get; private set; }
+	[SerializeField]
+	public int m_highestTurnGold {get; private set; }
+	public int c_currentTurnGold {get; private set; }
 	public void AddGold( int value ) 
 	{
 		m_totalGold += value;
+
+		c_currentPrestigeGold += value;
+		if (m_highestPrestigeGold < c_currentPrestigeGold)
+			m_highestPrestigeGold = c_currentPrestigeGold;
+
 		c_currentTurnGold += value;
 		if (m_highestTurnGold < c_currentTurnGold)
 			m_highestTurnGold = c_currentTurnGold;
 	}
-	public int GetTotalGold() {return m_totalGold;}
-	public int GetHighestTurnGold() {return m_highestTurnGold;}
 
 	[SerializeField]
-	private int m_totalXp;
+	public int m_totalXp {get; private set; }
 	public void AddXp( int value ) { m_totalXp += value; }
-	public int GetTotalXP() {return m_totalXp;}
 
 	[SerializeField]
-	private int m_totalRolls;
+	public int m_totalRolls {get; private set; }
 	[SerializeField]
-	private int m_highestTurnRolls;
-	private int c_currentTurnRolls;
+	public int m_highestPrestigeRolls {get; private set; }
+	public int c_currentPrestigeRolls {get; private set; }
+	[SerializeField]
+	public int m_highestTurnRolls {get; private set; }
+	public int c_currentTurnRolls {get; private set; }
 	public void AddRolls( int value ) 
 	{ 
 		m_totalRolls += value; 
+
+		c_currentPrestigeRolls += value;
+		if (m_highestPrestigeRolls < c_currentPrestigeRolls)
+			m_highestPrestigeRolls = c_currentPrestigeRolls;
+
 		c_currentTurnRolls += value;
 		if (m_highestTurnRolls < c_currentTurnRolls)
 			m_highestTurnRolls = c_currentTurnRolls;
 	}
-	public int GetTotalDiceRolled() {return m_totalRolls;}
-	public int GetHighestTurnRolls() {return m_highestTurnRolls;}
 
 	[SerializeField]
 	private int m_totalEyes;
@@ -78,8 +89,32 @@ public class StatsData
 
 	[SerializeField]
 	private int m_totalBoughtDice;
+
 	public void AddBoughtDice(int value) {m_totalBoughtDice += value;}
 	public int GetTotalBoughtDice() {return m_totalBoughtDice;}
+
+	private void ResetAll()
+	{
+		m_totalGold = 0;
+		m_highestTurnGold = 0;
+		m_totalXp = 0;
+		m_totalRolls = 0;
+		m_highestTurnRolls = 0;
+		m_totalEyes = 0;
+		m_highestTurnEyes = 0;
+		m_totalTurns = 0;
+		m_totalCombos = 0;
+		m_highestTurnCombos = 0;
+		m_totalBoughtDice = 0;
+		m_highestPrestigeGold = 0;
+		m_highestPrestigeRolls = 0;
+	}
+
+	private void ResetCurrentPrestige()
+	{
+		c_currentPrestigeGold = 0;
+		c_currentPrestigeRolls = 0;
+	}
 
 	public void ResetCurrentRoll()
 	{
@@ -87,6 +122,14 @@ public class StatsData
 		c_currentTurnRolls = 0;
 		c_currentTurnEyes = 0;
 		c_currentTurnCombos = 0;
+	}
+
+	public void ResetStats(bool keepTotals)
+	{
+		ResetCurrentRoll();
+		ResetCurrentPrestige();
+		if (!keepTotals)
+			ResetAll();
 	}
 }
 
