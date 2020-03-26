@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85dc96a4ede96a948a7d5bead6f90e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_money: 0
+  m_startingMoney: 0
   m_xp: 0
-  m_rolls: 20
+  startingRolls: 20
   m_rollBonusPoints: 0
   m_baseRollBonusPointCost: 20
   m_rollBonusPointCostMultiplier: 1.2
@@ -102,6 +102,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: UpdateValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_resetCalled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114174764942973058}
+        m_MethodName: ResetDice
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

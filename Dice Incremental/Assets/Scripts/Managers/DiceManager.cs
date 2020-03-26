@@ -13,7 +13,13 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	[SerializeField]
 	private int m_startingDice = 1;
+	private int m_perkDice = 0;
 	private int m_startingPower = 1;
+	private int m_perkPower = 0;
+	private int TotalStartingDice()
+	{
+		return m_startingDice + m_perkDice;
+	}
 
 	[SerializeField]
 	private float m_diceCost = 10;
@@ -37,7 +43,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	private int GetNewDiceCost()
 	{
-		int newDiceCost = Mathf.FloorToInt(m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - m_startingDice));
+		int newDiceCost = Mathf.FloorToInt(m_diceCost * (float)Math.Pow(m_diceCostMultiplier, GetDiceCount() - TotalStartingDice()));
 
 		m_uiFolder.SetDiceCost(newDiceCost);
 
@@ -46,7 +52,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public float GetPowerCostMultiplier() { return m_costMultiplierPerPower; }
 	public float GetPowerBaseCost() { return m_basePowerCost; }
-	public float GetPowerBaseAmount() { return m_startingPower; }
+	public float GetPowerBaseAmount() { return m_startingPower + m_perkPower; }
 
 	public void AddDice(Dice dice)
 	{
@@ -68,13 +74,13 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 	public void AddPerkDice()
 	{
-		m_startingDice++;
+		m_perkDice++;
 		CreateDice();
 	}
 
 	public void AddPerkPower()
 	{
-		m_startingPower++;
+		m_perkPower++;
 		AddPowerToAll();
 	}
 
@@ -103,10 +109,6 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	protected override void Awake()
 	{
 		base.Awake();
-		for ( int i = m_uiFolder.GetDiceCount(); i < m_startingDice; i++ )
-		{
-			CreateDice();
-		}
 	}
 
 	private void Start()
@@ -132,5 +134,21 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 		}
 		m_allDice.Clear();
 		m_uiFolder.Reset();
+	}
+
+	public void ResetDice(bool keepUnlocks)
+	{
+		if (!keepUnlocks)
+		{
+			m_perkDice = 0;
+			m_perkPower = 0;
+		}
+
+		RemoveAllDice();
+
+		for ( int i = m_uiFolder.GetDiceCount(); i < TotalStartingDice(); i++ )
+		{
+			CreateDice();
+		}
 	}
 }

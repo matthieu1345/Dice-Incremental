@@ -49,7 +49,7 @@ public class Perk : ScriptableObject
 		switch ( m_rewardType )
 		{
 		case EPerkRewardType.PRT_Money:
-			LevelManager.GetInstance().AddMoney(m_rewardAmount);
+			LevelManager.GetInstance().AddPerkMoney(m_rewardAmount);
 			break;
 
 		case EPerkRewardType.PRT_Dice:
