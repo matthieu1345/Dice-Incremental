@@ -13,7 +13,7 @@ public class EyesPerk : Perk
 		switch (m_statType)
 		{
 			case EPerkStatType.PST_Total:
-				if (StatsManager.GetInstance().GetStats().GetTotalEyes() >= m_statNumber)
+				if (StatsManager.GetInstance().GetStats().TotalEyes >= m_statNumber)
 					return true;
 				break;
 			case EPerkStatType.PST_SingleRoll:

@@ -126,6 +126,7 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		SingleTurnGold();
+		SingleTurnXP();
 		SingleTurnRolls();
 		SingleTurnEyes();
 		SingleTurnCombos();
@@ -144,7 +145,9 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		PrestigeGold();
+		PrestigeXP();
 		PrestigeRolls();
+		PrestigeEyes();
 
 		EditorGUI.indentLevel--;
 	}
@@ -177,6 +180,8 @@ public class StatsManagerEditor : Editor
 		EditorGUI.indentLevel++;
 
 		TotalXP();
+		SingleTurnXP();
+		PrestigeXP();
 
 		EditorGUI.indentLevel--;
 	}
@@ -282,6 +287,16 @@ public class StatsManagerEditor : Editor
 		EditorGUILayout.LabelField("Total XP:", stats.GetStats().TotalXp.ToString());
 	}
 
+	void SingleTurnXP()
+	{
+		EditorGUILayout.LabelField("Single Turn XP:", stats.GetStats().HighestTurnXP.ToString());
+	}
+
+	void PrestigeXP()
+	{
+		EditorGUILayout.LabelField("Prestige XP:", stats.GetStats().HighestPrestigeXP.ToString());
+	}
+
 //Rolls
 	void TotalRolls()
 	{
@@ -301,12 +316,17 @@ public class StatsManagerEditor : Editor
 //Eyes
 	void TotalEyes()
 	{
-		EditorGUILayout.LabelField("Total Eyes:", stats.GetStats().GetTotalEyes().ToString());
+		EditorGUILayout.LabelField("Total Eyes:", stats.GetStats().TotalEyes.ToString());
 	}
 
 	void SingleTurnEyes()
 	{
-		EditorGUILayout.LabelField("Single Turn Eyes:", stats.GetStats().GetHighestTurnEyes().ToString());
+		EditorGUILayout.LabelField("Single Turn Eyes:", stats.GetStats().HighestTurnEyes.ToString());
+	}
+
+	void PrestigeEyes()
+	{
+		EditorGUILayout.LabelField("Prestige Eyes:", stats.GetStats().HighestPrestigeEyes.ToString());
 	}
 
 //Turns

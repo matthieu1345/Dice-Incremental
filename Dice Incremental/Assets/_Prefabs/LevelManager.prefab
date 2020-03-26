@@ -273,7 +273,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_stats:
+    m_totalGold: 0
+    m_highestPrestigeGold: 0
+    m_highestTurnGold: 0
+    m_totalXp: 0
+    m_highestPresigeXP: 0
+    m_highestTurnXP: 0
+    m_totalRolls: 0
+    m_highestPrestigeRolls: 0
+    m_highestTurnRolls: 0
     m_totalEyes: 0
+    m_highestPrestigeEyes: 0
     m_highestTurnEyes: 0
     m_totalTurns: 0
     m_totalCombos: 0
