@@ -173,7 +173,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		RollBonusPoints = data.m_rollBonusPoints;
 	}
 
-	private void ResetMana(bool keepUnlocks)
+	public void ResetMana(bool keepUnlocks)
 	{
 		Money = m_startingMoney;
 		if (keepUnlocks)
@@ -195,7 +195,6 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	private void Restart(bool keepUnlocks)
 	{
-		ResetMana(keepUnlocks);
 		m_resetCalled.Invoke(keepUnlocks);
 	}
 
