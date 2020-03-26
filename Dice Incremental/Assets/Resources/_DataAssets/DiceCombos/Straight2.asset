@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16b47731b8fa5e46a27d7a5c04f4ae3, type: 3}
   m_Name: Straight2
   m_EditorClassIdentifier: 
-  m_guid: 401d9b3a-1540-40ba-8ade-a73aa1cdf519
+  m_guid: 06a9f48f-a3e3-42c8-bf52-ab18cb57708a
+  m_readableName: Straight Two
+  m_description: 'Roll a Straight of Two
+
+    a.k.a. 2 in a row (1 & 2)'
   m_comboRewardType: 1
   m_moneyReward: 10
   m_xpReward: 10

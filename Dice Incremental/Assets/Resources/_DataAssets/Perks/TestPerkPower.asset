@@ -13,3 +13,12 @@ MonoBehaviour:
   m_Name: TestPerkPower
   m_EditorClassIdentifier: 
   m_guid: 5e27070e-5d7a-4be1-8274-8927624ed2d7
+  m_readableName: Test Power Perk
+  m_description: 'Test Power Perk
+
+    Tests giving Power with a perk'
+  m_rewardType: 4
+  m_statType: 0
+  m_rewardAmount: 2
+  m_statNumber: 0
+  m_comboReward: {fileID: 0}

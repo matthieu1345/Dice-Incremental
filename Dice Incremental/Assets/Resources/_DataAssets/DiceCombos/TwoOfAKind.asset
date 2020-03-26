@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: TwoOfAKind
   m_EditorClassIdentifier: 
   m_guid: 0821f643-843b-4918-b0f9-34a907231dbe
+  m_readableName: Two of a Kind
+  m_description: 'Roll Two of a Kind
+
+    a.k.a. 2 time the same number (2 & 2)'
   m_comboRewardType: 1
   m_moneyReward: 5
   m_xpReward: 5
