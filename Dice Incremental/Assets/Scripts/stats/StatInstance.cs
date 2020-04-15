@@ -19,10 +19,15 @@ public class StatInstance : Basestat
 		Type = original.Type;
 	}
 
-	public override void reset(StatTypeEnum resetLevel)
+	public override void Reset(StatTypeEnum resetLevel)
 	{
 		if (m_type.NeedsReset(resetLevel))
 			m_currentValue = 0;
+	}
+
+	public override void ResetHighscore()
+	{
+		m_maxValue = 0;
 	}
 
 	public static StatInstance operator +(StatInstance instance, int value)

@@ -58,8 +58,15 @@ public class Basestat : ScriptableObject
 		Instance += points;
 	}
 
-	virtual public void reset(StatTypeEnum resetLevel)
+	virtual public void Reset(StatTypeEnum resetLevel)
 	{
-		Instance.reset(resetLevel);
+		if (Instance.GetType() != typeof(Basestat))
+			Instance.Reset(resetLevel);
+	}
+
+	virtual public void ResetHighscore()
+	{
+		if (Instance.GetType() != typeof(Basestat))
+			Instance.ResetHighscore();
 	}
 }

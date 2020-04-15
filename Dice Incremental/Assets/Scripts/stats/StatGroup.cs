@@ -20,7 +20,7 @@ public class StatGroup : ScriptableObject
 	{
 		foreach (Basestat stat in stats)
 		{
-			stat.reset(resetLevel);
+			stat.Reset(resetLevel);
 		}
 	}
 
