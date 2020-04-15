@@ -365,8 +365,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allStatObjects:
+  - {fileID: 11400000, guid: d45ea8422605704409e46aac3b9c9f67, type: 2}
+  - {fileID: 11400000, guid: 60e65e27f0817af4587192a416c590c2, type: 2}
+  - {fileID: 11400000, guid: d3a9f0eaf5065e845ba728d021edb770, type: 2}
+  - {fileID: 11400000, guid: fcb68a6a8b6770942ba0b7ad0202beb7, type: 2}
+  - {fileID: 11400000, guid: 170c8e2dec3e8a54c85a38ab051c377e, type: 2}
+  - {fileID: 11400000, guid: 9577bfe8e02d2ce4abd61fc743af35c8, type: 2}
+  - {fileID: 11400000, guid: e8bf0543a938b0b40a61cdbe550b3980, type: 2}
+  - {fileID: 11400000, guid: b40edfb8bbc1dc14c85d066831a91226, type: 2}
+  - {fileID: 11400000, guid: 8ecee1986a49d4540a2786c05463994f, type: 2}
   - {fileID: 11400000, guid: 887db31cd433eb1438c890de62d400e3, type: 2}
   - {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc, type: 2}
   - {fileID: 11400000, guid: 43b117f564c027b4f9c31ff9d5b48056, type: 2}
+  - {fileID: 11400000, guid: 57cefac500b9a064f91912c71233b7b3, type: 2}
+  - {fileID: 11400000, guid: 37fb8ca19f42b09408ac25f1b685cbc2, type: 2}
+  - {fileID: 11400000, guid: 4c164050c1db99342a3af99dd4060369, type: 2}
+  - {fileID: 11400000, guid: 87475452b1f75154790b428648189431, type: 2}
+  - {fileID: 11400000, guid: d6fe1033ec6218841b46063d77772234, type: 2}
+  - {fileID: 11400000, guid: 2881c17ab5a36a94088ace186c2a1181, type: 2}
+  - {fileID: 11400000, guid: 1ad651a216c2c84499781396dd4faf36, type: 2}
+  - {fileID: 11400000, guid: 613f37cc858c2fa428775be1ef3c45d6, type: 2}
   m_allStatGroups:
+  - {fileID: 11400000, guid: ffc41440f41676c44a7fcc84d9108257, type: 2}
+  - {fileID: 11400000, guid: 4c6144f54808857419d9a22d6c5fa73f, type: 2}
+  - {fileID: 11400000, guid: 900b8c1591dd6a049b11aa439b713edc, type: 2}
   - {fileID: 11400000, guid: c45e0518a0441704a9e1d8e5f83916d5, type: 2}
+  - {fileID: 11400000, guid: 3e8886c083ed16f4bafbdc7f1a98aaa2, type: 2}
+  - {fileID: 11400000, guid: aea182973dd84a145bc2dcebd22e5421, type: 2}
+  - {fileID: 11400000, guid: 0d407dcbe38a10645b3536807e286de4, type: 2}

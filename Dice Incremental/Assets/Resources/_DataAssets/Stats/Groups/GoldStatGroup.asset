@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 928e949e229b412469b7973f6ca5cd71, type: 3}
-  m_Name: GoldGroup
+  m_Name: GoldStatGroup
   m_EditorClassIdentifier: 
   stats:
   - {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc, type: 2}
