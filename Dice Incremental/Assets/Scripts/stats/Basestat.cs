@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Stat Object", menuName = "Stats/Base Stat", order = 3)]
+[CreateAssetMenu(fileName = "New Stat Object", menuName = "Stats/Base Stat", order = 1)]
 public class Basestat : ScriptableObject
 {
 	[SerializeField]
@@ -25,7 +25,7 @@ public class Basestat : ScriptableObject
 	private StatType m_type;
 	public StatType Type { get => m_type; protected set => m_type = value; }
 
-	private StatInstance m_instance = null;
+	protected StatInstance m_instance = null;
 	public StatInstance Instance
 	{
 		get

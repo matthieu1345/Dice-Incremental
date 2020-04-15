@@ -203,7 +203,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1415518995}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.3611111
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3964,7 +3964,18 @@ PrefabInstance:
         type: 3}
       propertyPath: goldStat
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061375465846334, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: GoldStat
+      value: 
       objectReference: {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc,
+        type: 2}
+    - target: {fileID: 114061375465846334, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: GoldStats
+      value: 
+      objectReference: {fileID: 11400000, guid: c45e0518a0441704a9e1d8e5f83916d5,
         type: 2}
     - target: {fileID: 114174764942973058, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}

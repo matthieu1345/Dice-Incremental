@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class StatInstance : Basestat
 {
+	StatInstance()
+	{
+		m_instance = this;
+	}
+
 	int m_currentValue = 0;
 	int m_maxValue = 0;
 

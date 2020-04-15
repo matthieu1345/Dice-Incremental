@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9f25952630807f4fb8fcb7ffa5d6367, type: 3}
-  m_Name: Gold
+  m_Name: TurnGold
   m_EditorClassIdentifier: 
-  m_name: Gold stat
-  m_description: the total gold the player has gotten
-  m_type: 0
+  m_name: Turn gold
+  m_description: The gold you have gotten this turn
+  m_type: 2

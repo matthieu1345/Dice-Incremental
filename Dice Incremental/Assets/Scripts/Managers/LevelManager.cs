@@ -91,12 +91,12 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	[SerializeField]
 	public ResetEvent m_resetCalled = new ResetEvent();
 	[SerializeField]
-	Basestat GoldStat;
+	StatGroup GoldStats;
 
 	public void AddMoney( int rewardValue )
 	{
 		StatsManager.GetInstance().RecievedMoney(rewardValue);
-		GoldStat.AddPoints(rewardValue);
+		GoldStats.AddPoints(rewardValue);
 		Money += rewardValue;
 	}
 
