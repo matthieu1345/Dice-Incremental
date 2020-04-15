@@ -3,6 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StatTypeEnum
+{
+	ST_Total,
+	ST_Prestige,
+	ST_Turn
+}
+
+[Serializable]
+public class StatType
+{
+	[SerializeField]
+	private StatTypeEnum m_type;
+	public StatTypeEnum Type { get => m_type; set => m_type = value; }
+
+	public bool NeedsReset(StatTypeEnum resetLevel)
+	{
+		return resetLevel <= Type;
+	}
+}
+
 [CreateAssetMenu(fileName = "New Stat Object", menuName = "Stats/Base Stat", order = 1)]
 public class Basestat : ScriptableObject
 {
@@ -13,17 +33,10 @@ public class Basestat : ScriptableObject
 	[SerializeField]
 	private string m_description;
 	public string Description { get => m_description; protected set => m_description = value; }
-	
-	public enum StatType
-	{
-		ST_Total,
-		ST_Prestige,
-		ST_Turn
-	}
 
 	[SerializeField]
-	private StatType m_type;
-	public StatType Type { get => m_type; protected set => m_type = value; }
+	protected StatType m_type;
+	public StatTypeEnum Type { get => m_type.Type; protected set => m_type.Type = value; }
 
 	protected StatInstance m_instance = null;
 	public StatInstance Instance
@@ -43,5 +56,10 @@ public class Basestat : ScriptableObject
 	public void AddPoints(int points)
 	{
 		Instance += points;
+	}
+
+	virtual public void reset(StatTypeEnum resetLevel)
+	{
+		Instance.reset(resetLevel);
 	}
 }

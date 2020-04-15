@@ -16,4 +16,12 @@ public class StatGroup : ScriptableObject
 		}
 	}
 
+	public void Reset(StatTypeEnum resetLevel)
+	{
+		foreach (Basestat stat in stats)
+		{
+			stat.reset(resetLevel);
+		}
+	}
+
 }

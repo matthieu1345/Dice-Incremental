@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class StatInstance : Basestat
 {
+	int m_currentValue = 0;
+	int m_maxValue = 0;
+
 	StatInstance()
 	{
 		m_instance = this;
 	}
-
-	int m_currentValue = 0;
-	int m_maxValue = 0;
 
 	public void Init(Basestat original)
 	{
 		Name = original.Name;
 		Description = original.Description;
 		Type = original.Type;
+	}
+
+	public override void reset(StatTypeEnum resetLevel)
+	{
+		if (m_type.NeedsReset(resetLevel))
+			m_currentValue = 0;
 	}
 
 	public static StatInstance operator +(StatInstance instance, int value)
