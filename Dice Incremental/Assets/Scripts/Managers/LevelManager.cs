@@ -90,10 +90,13 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	public ValueChangedEvent m_rollBonusPointsChanged = new ValueChangedEvent();
 	[SerializeField]
 	public ResetEvent m_resetCalled = new ResetEvent();
+	[SerializeField]
+	Basestat GoldStat;
 
 	public void AddMoney( int rewardValue )
 	{
 		StatsManager.GetInstance().RecievedMoney(rewardValue);
+		GoldStat.AddPoints(rewardValue);
 		Money += rewardValue;
 	}
 
