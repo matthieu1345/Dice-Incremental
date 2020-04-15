@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 114430375967096962}
   - component: {fileID: 9052614161712673264}
   - component: {fileID: 7849964866604715989}
+  - component: {fileID: 563230558}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Managers
@@ -169,6 +170,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  GoldStats: {fileID: 11400000, guid: c45e0518a0441704a9e1d8e5f83916d5, type: 2}
 --- !u!114 &114174764942973058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +352,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee9d51d64c701c94d9a4bc8d1850c8d4, type: 2}
   m_unlockedPerkStrings: []
   m_defaultUnlockedPerks: []
+--- !u!114 &563230558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6036c35ebfd3df242a46960f68289780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allStatObjects:
+  - {fileID: 11400000, guid: 887db31cd433eb1438c890de62d400e3, type: 2}
+  - {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc, type: 2}
+  - {fileID: 11400000, guid: 43b117f564c027b4f9c31ff9d5b48056, type: 2}
+  m_allStatGroups:
+  - {fileID: 11400000, guid: c45e0518a0441704a9e1d8e5f83916d5, type: 2}
