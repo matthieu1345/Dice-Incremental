@@ -72,19 +72,7 @@ public class StatsData
 	[SerializeField]
 	private int m_highestTurnCombos;
 	public int HighestTurnCombos { get => m_highestTurnCombos; set => m_highestTurnCombos = value; }
-	private int c_currentTurnCombos;
-	public void AddCombo(int value) 
-	{
-		TotalCombos += value;
-
-		c_currentPrestigeCombos += value;
-		if (HighestPrestigeCombos < c_currentPrestigeCombos)
-			HighestPrestigeCombos = c_currentPrestigeCombos;
-
-		c_currentTurnCombos += value;
-		if (HighestTurnCombos < c_currentTurnCombos)
-			HighestTurnCombos = c_currentTurnCombos;
-	}
+	public int c_currentTurnCombos {get; private set; }
 
 	[SerializeField]
 	private int m_totalBoughtDice;

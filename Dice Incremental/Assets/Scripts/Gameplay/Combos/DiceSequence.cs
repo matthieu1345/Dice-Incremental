@@ -83,10 +83,6 @@ public class DiceSequence : ComboBase
 
 				if (i == requiredValues.Count - 1)
 				{
-					if (giveReward)
-					{
-						StatsManager.GetInstance().CompletedCombo();
-					}
 					PostCombo(requiredValues, giveReward);
 
 					combosFound++;

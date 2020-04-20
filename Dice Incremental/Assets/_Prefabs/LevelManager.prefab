@@ -192,6 +192,7 @@ MonoBehaviour:
   m_diceCostMultiplier: 2
   m_costMultiplierPerPower: 0.2
   m_basePowerCost: 10
+  DiceBoughtStat: {fileID: 11400000, guid: 4c6144f54808857419d9a22d6c5fa73f, type: 2}
   m_rollEvent:
     m_PersistentCalls:
       m_Calls:
@@ -333,6 +334,7 @@ MonoBehaviour:
   - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
   m_defaultUnlockedCombos:
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  ComboGroup: {fileID: 11400000, guid: ffc41440f41676c44a7fcc84d9108257, type: 2}
 --- !u!114 &7849964866604715989
 MonoBehaviour:
   m_ObjectHideFlags: 0
