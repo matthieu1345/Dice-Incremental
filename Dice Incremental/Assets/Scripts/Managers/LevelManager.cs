@@ -95,14 +95,13 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public void AddMoney( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedMoney(rewardValue);
 		GoldStats.AddPoints(rewardValue);
 		Money += rewardValue;
 	}
 
 	public void AddPerkMoney(int rewardValue)
 	{
-		AddMoney(rewardValue);
+		Money += rewardValue;
 		m_perkMoney += rewardValue;
 	}
 
