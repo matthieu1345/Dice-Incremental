@@ -18,7 +18,7 @@ MonoBehaviour:
 
     Tests giving a Dice with a perk'
   m_rewardType: 2
-  m_statType: 0
+  m_stat: {fileID: 11400000, guid: e5403e7532cce7b45b5836879c90fe3b, type: 2}
   m_rewardAmount: 1
-  m_statNumber: 0
+  m_statNumber: 9999999
   m_comboReward: {fileID: 0}

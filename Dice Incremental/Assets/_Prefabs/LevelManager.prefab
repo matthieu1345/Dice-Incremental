@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 114061375465846334}
   - component: {fileID: 114174764942973058}
   - component: {fileID: 114460716814161578}
-  - component: {fileID: 114430375967096962}
   - component: {fileID: 9052614161712673264}
   - component: {fileID: 7849964866604715989}
   - component: {fileID: 563230558}
@@ -50,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startingMoney: 0
+  m_perkMoney: 0
+  m_money: 0
   m_xp: 0
   startingRolls: 20
   m_rollBonusPoints: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114430375967096962}
+      - m_Target: {fileID: 0}
         m_MethodName: ResetStats
         m_Mode: 0
         m_Arguments:
@@ -275,39 +276,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &114430375967096962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939431470150900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1453fec5b5be74b45bb3f56e3e90dc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_stats:
-    m_totalGold: 0
-    m_highestPrestigeGold: 0
-    m_highestTurnGold: 0
-    m_totalXp: 0
-    m_highestPresigeXP: 0
-    m_highestTurnXP: 0
-    m_totalRolls: 0
-    m_highestPrestigeRolls: 0
-    m_highestTurnRolls: 0
-    m_totalEyes: 0
-    m_highestPrestigeEyes: 0
-    m_highestTurnEyes: 0
-    m_totalTurns: 0
-    m_highestPrestigeTurns: 0
-    m_totalCombos: 0
-    m_highestPrestigeCombos: 0
-    m_highestTurnCombos: 0
-    m_totalBoughtDice: 0
-    m_highestPrestigeBoughtDice: 0
-    m_highestTurnBoughtDice: 0
 --- !u!114 &9052614161712673264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +351,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57cefac500b9a064f91912c71233b7b3, type: 2}
   - {fileID: 11400000, guid: 37fb8ca19f42b09408ac25f1b685cbc2, type: 2}
   - {fileID: 11400000, guid: 4c164050c1db99342a3af99dd4060369, type: 2}
+  - {fileID: 11400000, guid: e5403e7532cce7b45b5836879c90fe3b, type: 2}
   - {fileID: 11400000, guid: 87475452b1f75154790b428648189431, type: 2}
   - {fileID: 11400000, guid: d6fe1033ec6218841b46063d77772234, type: 2}
   - {fileID: 11400000, guid: 2881c17ab5a36a94088ace186c2a1181, type: 2}
