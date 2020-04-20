@@ -73,8 +73,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 		m_rollEvent.Invoke();
 		ComboManager.GetInstance().CheckCombos();
-
-		StatsManager.GetInstance().ResetCurrentRoll();
+		SOStatManager.GetInstance().ResetStats(StatTypeEnum.ST_Turn);
 	}
 
 	public void AddPerkDice()

@@ -13,6 +13,12 @@ public class SOStatManager : InstancedMonoBehaviour<SOStatManager>
 	[SerializeField]
 	private List<StatGroup> m_allStatGroups = new List<StatGroup>();
 
+	//has to be added because unity buttons don't take functions with enum parameters
+	public void NewGamePlus()
+	{
+		ResetStats(StatTypeEnum.ST_Prestige);
+	}
+
 	public void ResetStats(StatTypeEnum ResetLevel)
 	{
 		foreach (Basestat stat in m_allStatObjects)

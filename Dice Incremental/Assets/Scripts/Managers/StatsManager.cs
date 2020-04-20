@@ -17,15 +17,6 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 
 	public StatsData GetStats() { return m_stats; }
 
-	public void ResetCurrentRoll()
-	{
-		m_stats.ResetCurrentRoll();
-	}
-
-	public void ResetStats(bool keepTotals)
-	{
-		m_stats.ResetStats(keepTotals);
-	}
 }
 
 #if UNITY_EDITOR
