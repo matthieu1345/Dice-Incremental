@@ -33,6 +33,9 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	[SerializeField]
 	private float m_basePowerCost = 10;
 
+	[SerializeField]
+	StatGroup DiceBoughtStat;
+
 	private List<Dice> m_allDice = new List<Dice>();
 
 	public List<Dice> GetDiceList() { return m_allDice; }
@@ -70,8 +73,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 
 		m_rollEvent.Invoke();
 		ComboManager.GetInstance().CheckCombos();
-
-		StatsManager.GetInstance().ResetCurrentRoll();
+		SOStatManager.GetInstance().ResetStats(StatTypeEnum.ST_Turn);
 	}
 
 	public void AddPerkDice()
@@ -123,7 +125,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	{
 		if (LevelManager.GetInstance().Buy(GetNewDiceCost()))
 		{
-			StatsManager.GetInstance().BoughtDice();
+			DiceBoughtStat.AddPoints(1);
 			CreateDice();
 		}
 	}

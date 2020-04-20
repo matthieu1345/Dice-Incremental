@@ -94,7 +94,6 @@ public class MultiDice : ComboBase
 			return;
 		}
 
-		StatsManager.GetInstance().CompletedCombo();
 		if (m_comboRewardType == EComboRewardType.CRT_ValueMultiplication)
 		{
 			foreach (Dice winningDice in m_diceList)

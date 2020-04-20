@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 114061375465846334}
   - component: {fileID: 114174764942973058}
   - component: {fileID: 114460716814161578}
-  - component: {fileID: 114430375967096962}
   - component: {fileID: 9052614161712673264}
   - component: {fileID: 7849964866604715989}
+  - component: {fileID: 563230558}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Managers
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_startingMoney: 0
+  m_perkMoney: 0
+  m_money: 0
   m_xp: 0
   startingRolls: 20
   m_rollBonusPoints: 0
@@ -125,7 +127,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114430375967096962}
+      - m_Target: {fileID: 0}
         m_MethodName: ResetStats
         m_Mode: 0
         m_Arguments:
@@ -169,6 +171,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  GoldStats: {fileID: 11400000, guid: c45e0518a0441704a9e1d8e5f83916d5, type: 2}
+  XPStats: {fileID: 11400000, guid: 0d407dcbe38a10645b3536807e286de4, type: 2}
 --- !u!114 &114174764942973058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +193,7 @@ MonoBehaviour:
   m_diceCostMultiplier: 2
   m_costMultiplierPerPower: 0.2
   m_basePowerCost: 10
+  DiceBoughtStat: {fileID: 11400000, guid: 4c6144f54808857419d9a22d6c5fa73f, type: 2}
   m_rollEvent:
     m_PersistentCalls:
       m_Calls:
@@ -203,13 +208,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114430375967096962}
-        m_MethodName: TakenRoll
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: aea182973dd84a145bc2dcebd22e5421, type: 2}
+        m_MethodName: AddPoints
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -271,39 +276,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &114430375967096962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939431470150900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1453fec5b5be74b45bb3f56e3e90dc3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_stats:
-    m_totalGold: 0
-    m_highestPrestigeGold: 0
-    m_highestTurnGold: 0
-    m_totalXp: 0
-    m_highestPresigeXP: 0
-    m_highestTurnXP: 0
-    m_totalRolls: 0
-    m_highestPrestigeRolls: 0
-    m_highestTurnRolls: 0
-    m_totalEyes: 0
-    m_highestPrestigeEyes: 0
-    m_highestTurnEyes: 0
-    m_totalTurns: 0
-    m_highestPrestigeTurns: 0
-    m_totalCombos: 0
-    m_highestPrestigeCombos: 0
-    m_highestTurnCombos: 0
-    m_totalBoughtDice: 0
-    m_highestPrestigeBoughtDice: 0
-    m_highestTurnBoughtDice: 0
 --- !u!114 &9052614161712673264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +302,7 @@ MonoBehaviour:
   - 36a9d8a3-4b0d-4d62-9cc7-a6cce98fd337
   m_defaultUnlockedCombos:
   - {fileID: 11400000, guid: 78a60bbcf291eec428b398e8966bca1d, type: 2}
+  ComboGroup: {fileID: 11400000, guid: ffc41440f41676c44a7fcc84d9108257, type: 2}
 --- !u!114 &7849964866604715989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,10 +316,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_allPerkObjects:
-  - {fileID: 11400000, guid: 21ebe01f7a7b09c4e970ceadfd6dc623, type: 2}
+  - {fileID: 11400000, guid: c56cf0d455c75e34e9067167854b999c, type: 2}
   - {fileID: 11400000, guid: 67dce703432877e45bdfc472688edd6d, type: 2}
   - {fileID: 11400000, guid: b25b99e78aea0e74a9ac52c9a7645b4c, type: 2}
   - {fileID: 11400000, guid: 57e4575487d84f947ba24781a19bdfb4, type: 2}
   - {fileID: 11400000, guid: ee9d51d64c701c94d9a4bc8d1850c8d4, type: 2}
   m_unlockedPerkStrings: []
   m_defaultUnlockedPerks: []
+--- !u!114 &563230558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939431470150900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6036c35ebfd3df242a46960f68289780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_allStatObjects:
+  - {fileID: 11400000, guid: d45ea8422605704409e46aac3b9c9f67, type: 2}
+  - {fileID: 11400000, guid: 60e65e27f0817af4587192a416c590c2, type: 2}
+  - {fileID: 11400000, guid: d3a9f0eaf5065e845ba728d021edb770, type: 2}
+  - {fileID: 11400000, guid: fcb68a6a8b6770942ba0b7ad0202beb7, type: 2}
+  - {fileID: 11400000, guid: 170c8e2dec3e8a54c85a38ab051c377e, type: 2}
+  - {fileID: 11400000, guid: 9577bfe8e02d2ce4abd61fc743af35c8, type: 2}
+  - {fileID: 11400000, guid: e8bf0543a938b0b40a61cdbe550b3980, type: 2}
+  - {fileID: 11400000, guid: b40edfb8bbc1dc14c85d066831a91226, type: 2}
+  - {fileID: 11400000, guid: 8ecee1986a49d4540a2786c05463994f, type: 2}
+  - {fileID: 11400000, guid: 887db31cd433eb1438c890de62d400e3, type: 2}
+  - {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc, type: 2}
+  - {fileID: 11400000, guid: 43b117f564c027b4f9c31ff9d5b48056, type: 2}
+  - {fileID: 11400000, guid: 57cefac500b9a064f91912c71233b7b3, type: 2}
+  - {fileID: 11400000, guid: 37fb8ca19f42b09408ac25f1b685cbc2, type: 2}
+  - {fileID: 11400000, guid: 4c164050c1db99342a3af99dd4060369, type: 2}
+  - {fileID: 11400000, guid: e5403e7532cce7b45b5836879c90fe3b, type: 2}
+  - {fileID: 11400000, guid: 87475452b1f75154790b428648189431, type: 2}
+  - {fileID: 11400000, guid: d6fe1033ec6218841b46063d77772234, type: 2}
+  - {fileID: 11400000, guid: 2881c17ab5a36a94088ace186c2a1181, type: 2}
+  - {fileID: 11400000, guid: 1ad651a216c2c84499781396dd4faf36, type: 2}
+  - {fileID: 11400000, guid: 613f37cc858c2fa428775be1ef3c45d6, type: 2}
+  m_allStatGroups:
+  - {fileID: 11400000, guid: ffc41440f41676c44a7fcc84d9108257, type: 2}
+  - {fileID: 11400000, guid: 4c6144f54808857419d9a22d6c5fa73f, type: 2}
+  - {fileID: 11400000, guid: 900b8c1591dd6a049b11aa439b713edc, type: 2}
+  - {fileID: 11400000, guid: c45e0518a0441704a9e1d8e5f83916d5, type: 2}
+  - {fileID: 11400000, guid: 3e8886c083ed16f4bafbdc7f1a98aaa2, type: 2}
+  - {fileID: 11400000, guid: aea182973dd84a145bc2dcebd22e5421, type: 2}
+  - {fileID: 11400000, guid: 0d407dcbe38a10645b3536807e286de4, type: 2}

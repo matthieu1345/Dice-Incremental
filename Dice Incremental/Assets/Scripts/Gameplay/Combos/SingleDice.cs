@@ -29,7 +29,6 @@ public class SingleDice : ComboBase
 			{
 				if (giveReward)
 				{
-					StatsManager.GetInstance().CompletedCombo();
 					GiveReward(name, dice);
 				}
 				combosFound++;

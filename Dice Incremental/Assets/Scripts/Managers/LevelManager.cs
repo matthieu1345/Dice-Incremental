@@ -11,7 +11,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
 	[SerializeField]
 	private int m_startingMoney;
+	[SerializeField]
 	private int m_perkMoney;
+	[SerializeField]
 	private int m_money;
 	public int Money
 	{
@@ -90,22 +92,26 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	public ValueChangedEvent m_rollBonusPointsChanged = new ValueChangedEvent();
 	[SerializeField]
 	public ResetEvent m_resetCalled = new ResetEvent();
+	[SerializeField]
+	StatGroup GoldStats;
+	[SerializeField]
+	StatGroup XPStats;
 
 	public void AddMoney( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedMoney(rewardValue);
+		GoldStats.AddPoints(rewardValue);
 		Money += rewardValue;
 	}
 
 	public void AddPerkMoney(int rewardValue)
 	{
-		AddMoney(rewardValue);
+		Money += rewardValue;
 		m_perkMoney += rewardValue;
 	}
 
 	public void AddXp( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedXp(rewardValue);
+		XPStats.AddPoints(rewardValue);
 		Xp += rewardValue;
 	}
 

@@ -13,7 +13,6 @@ public class DiceValue : ComboBase
 		{
 			if (giveReward)
 			{
-				StatsManager.GetInstance().CompletedCombo();
 				GiveReward(name, dice);
 			}
 			combosFound++;

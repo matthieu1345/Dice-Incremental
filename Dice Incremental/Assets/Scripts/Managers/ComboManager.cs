@@ -22,6 +22,9 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 	[SerializeField]
 	private List<ComboBase> m_defaultUnlockedCombos = new List<ComboBase>();
 
+	[SerializeField]
+	private StatGroup ComboGroup;
+
 	public List<string> GetUnlockedCombos() { return m_unlockedComboStrings; }
 
 	public void LoadUnlockedCombos(List<string> combos) { m_unlockedComboStrings = combos; }
@@ -38,11 +41,13 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 
 	public void CheckCombos()
 	{
+		int comboCount = 0;
 		foreach (string combo in m_unlockedComboStrings)
 		{
-			m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
+			comboCount = m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
 		}
 
+		ComboGroup.AddPoints(comboCount);
 		PerkManager.GetInstance().CheckPerks();
 	}
 
