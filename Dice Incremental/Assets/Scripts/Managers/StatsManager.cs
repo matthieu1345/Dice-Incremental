@@ -17,11 +17,6 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 
 	public StatsData GetStats() { return m_stats; }
 
-	public void TakenRoll()
-	{
-		m_stats.AddTurn(1);
-	}
-
 	public void CompletedCombo()
 	{
 		m_stats.AddCombo(1);

@@ -61,14 +61,6 @@ public class StatsData
 	private int m_highestPrestigeTurns;
 	public int HighestPrestigeTurns { get => m_highestPrestigeTurns; private set => m_highestPrestigeTurns = value; }
 	public int c_currentPrestigeTurns {get; private set;}
-	public void AddTurn(int value) 
-	{
-		TotalTurns += value;
-
-		c_currentPrestigeTurns += value;
-		if (HighestPrestigeTurns < c_currentPrestigeTurns)
-			HighestPrestigeTurns = c_currentPrestigeTurns;
-	}
 
 	[SerializeField]
 	private int m_totalCombos;
