@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public enum StatTypeEnum
 {
 	ST_Total,
@@ -35,7 +39,7 @@ public class Basestat : ScriptableObject
 	public string Description { get => m_description; protected set => m_description = value; }
 
 	[SerializeField]
-	protected StatType m_type;
+	protected StatType m_type = new StatType();
 	public StatTypeEnum Type { get => m_type.Type; protected set => m_type.Type = value; }
 
 	protected StatInstance m_instance = null;
@@ -63,6 +67,16 @@ public class Basestat : ScriptableObject
 		return Instance.MaxValue;
 	}
 
+	virtual public StatValue GetValues()
+	{
+		return Instance.GetValues();
+	}
+
+	virtual public void LoadValues(StatValue stats)
+	{
+		Instance.LoadValues(stats);
+	}
+
 	virtual public void Reset(StatTypeEnum resetLevel)
 	{
 		if (Instance.GetType() != typeof(Basestat))
@@ -74,4 +88,37 @@ public class Basestat : ScriptableObject
 		if (Instance.GetType() != typeof(Basestat))
 			Instance.ResetHighscore();
 	}
+
+
+#if UNITY_EDITOR
+	public string GUIReadableName { get => m_name; set => m_name = value; }
+	public string GUIReadableDescription {get => m_description; set => m_description = value;}
+	public StatTypeEnum GUIReadableType { get => m_type.Type; set => m_type.Type = value; }
+	public StatInstance GUIReadableInstance { get => m_instance;}
+#endif
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(Basestat))]
+public class BasestatEditor : Editor
+{
+	public override void OnInspectorGUI()
+	{
+		Basestat stat = target as Basestat;
+
+		stat.GUIReadableName = EditorGUILayout.TextField("Name: ", stat.GUIReadableName);
+		stat.GUIReadableDescription = EditorGUILayout.TextField("Description: ", stat.GUIReadableDescription);
+		stat.GUIReadableType = (StatTypeEnum)EditorGUILayout.EnumPopup("Type:", stat.GUIReadableType);
+
+		if (stat.GUIReadableInstance)
+		{
+			EditorGUILayout.LabelField("Max Value: ", stat.GUIReadableInstance.MaxValue.ToString());
+			EditorGUILayout.LabelField("Current Value: ", stat.GUIReadableInstance.CurrentValue.ToString());
+		}
+		else
+		{
+			EditorGUILayout.LabelField("There are currently no values for this stat!");
+		}
+	}
+}
+#endif

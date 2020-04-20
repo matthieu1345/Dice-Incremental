@@ -9,7 +9,7 @@ public class SaveLoad {
 	{
 		public List<DiceStats> _savedDice = new List<DiceStats>();
 		public List<string> _unlockedCombos = new List<string>();
-		public StatsData _savedStats = new StatsData();
+		public List<StatValue> _savedStats = new List<StatValue>();
 		public ManaData _savedMana = new ManaData();
 	}
 
@@ -42,7 +42,7 @@ public class SaveLoad {
 
 	private static void GatherStats()
 	{
-		_save._savedStats = StatsManager.GetInstance().GetStats();
+		_save._savedStats = SOStatManager.GetInstance().GetSaveValues();
 	}
 
 	private static void GatherMana()
@@ -90,7 +90,7 @@ public class SaveLoad {
 
 	private static void LoadStats()
 	{
-		StatsManager.GetInstance().LoadStats(_save._savedStats);
+		SOStatManager.GetInstance().LoadSaveValues(_save._savedStats);
 	}
 
 	private static void LoadMana()

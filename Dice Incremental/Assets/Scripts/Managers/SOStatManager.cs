@@ -13,6 +13,26 @@ public class SOStatManager : InstancedMonoBehaviour<SOStatManager>
 	[SerializeField]
 	private List<StatGroup> m_allStatGroups = new List<StatGroup>();
 
+	public List<StatValue> GetSaveValues()
+	{
+		List<StatValue> Output = new List<StatValue>();
+
+		foreach (Basestat stat in m_allStatObjects)
+		{
+			Output.Add(stat.GetValues());
+		}
+
+		return Output;
+	}
+
+	public void LoadSaveValues(List<StatValue> input)
+	{
+		foreach (StatValue stat in input)
+		{
+			stat.owner.LoadValues(stat);
+		}
+	}
+
 	//has to be added because unity buttons don't take functions with enum parameters
 	public void NewGamePlus()
 	{

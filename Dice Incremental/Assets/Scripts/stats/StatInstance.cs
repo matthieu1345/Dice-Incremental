@@ -1,16 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public class StatValue
+{
+	[SerializeField]
+	public Basestat owner;
+	[SerializeField]
+	public int m_currentValue = 0;
+	[SerializeField]
+	public int m_maxValue = 0;
+}
+
 public class StatInstance : Basestat
 {
-	int m_currentValue = 0;
-	int m_maxValue = 0;
-	public int MaxValue { get => m_maxValue; private set => m_maxValue = value; }
+	StatValue values;
+	public int MaxValue { get => values.m_maxValue; private set => values.m_maxValue = value; }
+	public int CurrentValue { get => values.m_currentValue; private set => values.m_currentValue = value;}
 
 	public StatInstance()
 	{
 		m_instance = this;
+	}
+
+	public override StatValue GetValues()
+	{
+		return values;
+	}
+
+	public override void LoadValues(StatValue stats)
+	{
+		values = stats;
 	}
 
 	public void Init(Basestat original)
@@ -18,12 +40,14 @@ public class StatInstance : Basestat
 		Name = original.Name;
 		Description = original.Description;
 		Type = original.Type;
+		values = new StatValue();
+		values.owner = original;
 	}
 
 	public override void Reset(StatTypeEnum resetLevel)
 	{
 		if (m_type.NeedsReset(resetLevel))
-			m_currentValue = 0;
+			CurrentValue = 0;
 	}
 
 	public override void ResetHighscore()
@@ -33,9 +57,9 @@ public class StatInstance : Basestat
 
 	public static StatInstance operator +(StatInstance instance, int value)
 	{
-		instance.m_currentValue += value;
-		if (instance.MaxValue < instance.m_currentValue)
-			instance.MaxValue = instance.m_currentValue;
+		instance.CurrentValue += value;
+		if (instance.MaxValue < instance.CurrentValue)
+			instance.MaxValue = instance.CurrentValue;
 
 		return instance;
 	}

@@ -11,7 +11,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
 	[SerializeField]
 	private int m_startingMoney;
+	[SerializeField]
 	private int m_perkMoney;
+	[SerializeField]
 	private int m_money;
 	public int Money
 	{
