@@ -17,12 +17,6 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 
 	public StatsData GetStats() { return m_stats; }
 
-	public void RolledDice(int eyeValue)
-	{
-		m_stats.AddRolls(1);
-		m_stats.AddEyes(eyeValue);
-	}
-
 	public void TakenRoll()
 	{
 		m_stats.AddTurn(1);

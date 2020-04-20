@@ -41,20 +41,6 @@ public class StatsData
 	private int m_highestTurnRolls;
 	public int HighestTurnRolls { get => m_highestTurnRolls; private set => m_highestTurnRolls = value; }
 	public int c_currentTurnRolls {get; private set; }
-	public void AddRolls( int value ) 
-	{ 
-		TotalRolls += value; 
-
-		c_currentPrestigeRolls += value;
-		if (HighestPrestigeRolls < c_currentPrestigeRolls)
-			HighestPrestigeRolls = c_currentPrestigeRolls;
-
-		c_currentTurnRolls += value;
-		if (HighestTurnRolls < c_currentTurnRolls)
-			HighestTurnRolls = c_currentTurnRolls;
-	}
-
-
 
 	[SerializeField]
 	private int m_totalEyes;
@@ -67,20 +53,6 @@ public class StatsData
 	private int m_highestTurnEyes;
 	public int HighestTurnEyes { get => m_highestTurnEyes; private set => m_highestTurnEyes = value; }
 	public int c_currentTurnEyes {get; private set; }
-	public void AddEyes( int value )
-	{
-		TotalEyes += value;
-
-		c_currentPrestigeEyes += value;
-		if (HighestPrestigeEyes < c_currentPrestigeEyes)
-			HighestPrestigeEyes = c_currentPrestigeEyes;
-
-		c_currentTurnEyes += value;
-		if (HighestTurnEyes < c_currentTurnEyes)
-			HighestTurnEyes = c_currentTurnEyes;
-	}
-
-
 
 	[SerializeField]
 	private int m_totalTurns;
