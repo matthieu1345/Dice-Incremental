@@ -6,8 +6,9 @@ public class StatInstance : Basestat
 {
 	int m_currentValue = 0;
 	int m_maxValue = 0;
+	public int MaxValue { get => m_maxValue; private set => m_maxValue = value; }
 
-	StatInstance()
+	public StatInstance()
 	{
 		m_instance = this;
 	}
@@ -27,14 +28,14 @@ public class StatInstance : Basestat
 
 	public override void ResetHighscore()
 	{
-		m_maxValue = 0;
+		MaxValue = 0;
 	}
 
 	public static StatInstance operator +(StatInstance instance, int value)
 	{
 		instance.m_currentValue += value;
-		if (instance.m_maxValue < instance.m_currentValue)
-			instance.m_maxValue = instance.m_currentValue;
+		if (instance.MaxValue < instance.m_currentValue)
+			instance.MaxValue = instance.m_currentValue;
 
 		return instance;
 	}

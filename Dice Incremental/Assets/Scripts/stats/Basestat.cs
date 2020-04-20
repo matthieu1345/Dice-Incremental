@@ -58,6 +58,11 @@ public class Basestat : ScriptableObject
 		Instance += points;
 	}
 
+	virtual public int GetPoinst()
+	{ 
+		return Instance.MaxValue;
+	}
+
 	virtual public void Reset(StatTypeEnum resetLevel)
 	{
 		if (Instance.GetType() != typeof(Basestat))

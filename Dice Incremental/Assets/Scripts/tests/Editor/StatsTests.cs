@@ -22,4 +22,46 @@ public class StatsTests
 
 		Assert.AreEqual(true, testStat.NeedsReset(ResetLevel));
 	}
+
+	[Test]
+	public void TestPerkValueHigher()
+	{
+		int testStatValue = 100;
+		int testGoalValue = 50;
+
+		StatInstance testStat = ScriptableObject.CreateInstance<StatInstance>();
+		testStat.AddPoints(testStatValue);
+		Perk testPerk = ScriptableObject.CreateInstance<Perk>();
+		testPerk.SetTestValues(testStat, testGoalValue);
+
+		Assert.AreEqual(true, testPerk.CheckPerk());
+	}
+
+	[Test]
+	public void TestPerkValueSame()
+	{
+		int testStatValue = 50;
+		int testGoalValue = 50;
+
+		StatInstance testStat = ScriptableObject.CreateInstance<StatInstance>();
+		testStat.AddPoints(testStatValue);
+		Perk testPerk = ScriptableObject.CreateInstance<Perk>();
+		testPerk.SetTestValues(testStat, testGoalValue);
+
+		Assert.AreEqual(true, testPerk.CheckPerk());
+	}
+
+	[Test]
+	public void TestPerkValueLower()
+	{
+		int testStatValue = 50;
+		int testGoalValue = 100;
+
+		StatInstance testStat = ScriptableObject.CreateInstance<StatInstance>();
+		testStat.AddPoints(testStatValue);
+		Perk testPerk = ScriptableObject.CreateInstance<Perk>();
+		testPerk.SetTestValues(testStat, testGoalValue);
+
+		Assert.AreEqual(false, testPerk.CheckPerk());
+	}
 }
