@@ -92,6 +92,8 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	public ResetEvent m_resetCalled = new ResetEvent();
 	[SerializeField]
 	StatGroup GoldStats;
+	[SerializeField]
+	StatGroup XPStats;
 
 	public void AddMoney( int rewardValue )
 	{
@@ -107,7 +109,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 
 	public void AddXp( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedXp(rewardValue);
+		XPStats.AddPoints(rewardValue);
 		Xp += rewardValue;
 	}
 

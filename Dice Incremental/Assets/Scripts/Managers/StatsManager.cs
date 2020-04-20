@@ -17,16 +17,6 @@ public class StatsManager : InstancedMonoBehaviour<StatsManager>
 
 	public StatsData GetStats() { return m_stats; }
 
-	public void RecievedMoney(int moneyValue)
-	{
-		m_stats.AddGold(moneyValue);
-	}
-
-	public void RecievedXp( int xpValue )
-	{
-		m_stats.AddXp(xpValue);
-	}
-
 	public void RolledDice(int eyeValue)
 	{
 		m_stats.AddRolls(1);

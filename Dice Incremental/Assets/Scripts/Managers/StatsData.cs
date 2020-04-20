@@ -17,20 +17,6 @@ public class StatsData
 	private int m_highestTurnGold;
 	public int HighestTurnGold { get => m_highestTurnGold; private set => m_highestTurnGold = value; }
 	public int c_currentTurnGold {get; private set; }
-	public void AddGold( int value ) 
-	{
-		TotalGold += value;
-
-		c_currentPrestigeGold += value;
-		if (HighestPrestigeGold < c_currentPrestigeGold)
-			HighestPrestigeGold = c_currentPrestigeGold;
-
-		c_currentTurnGold += value;
-		if (HighestTurnGold < c_currentTurnGold)
-			HighestTurnGold = c_currentTurnGold;
-	}
-
-
 
 	[SerializeField]
 	private int m_totalXp;
@@ -43,19 +29,6 @@ public class StatsData
 	private int m_highestTurnXP;
 	public int HighestTurnXP {get => m_highestTurnXP; private set => m_highestTurnXP = value;}
 	public int c_currentTurnXP {get; private set;}
-	public void AddXp( int value ) 
-	{ 
-		TotalXp += value;
-		c_currentPrestigeXP += value;
-		if (HighestPrestigeXP < c_currentPrestigeXP)
-			HighestPrestigeXP = c_currentPrestigeXP;
-
-		c_currentTurnXP += value;
-		if (HighestTurnXP < c_currentTurnXP)
-			HighestTurnXP = c_currentTurnXP;
-	}
-
-
 
 	[SerializeField]
 	private int m_totalRolls;
