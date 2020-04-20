@@ -36,8 +36,6 @@ public class GoldPerk : Perk
 [CustomEditor(typeof(GoldPerk), true)]
 public class GoldPerkEditor : PerkEditor
 {
-
-	private bool m_showList = false;
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();

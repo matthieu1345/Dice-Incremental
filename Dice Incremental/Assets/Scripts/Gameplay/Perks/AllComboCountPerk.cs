@@ -36,8 +36,6 @@ public class AllComboCountPerk : Perk
 [CustomEditor(typeof(AllComboCountPerk), true)]
 public class ComboCountPerkEditor : PerkEditor
 {
-
-	private bool m_showList = false;
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();

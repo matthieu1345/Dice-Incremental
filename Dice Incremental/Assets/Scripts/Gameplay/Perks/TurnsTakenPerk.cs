@@ -34,8 +34,6 @@ public class TurnsTakenPerk : Perk
 [CustomEditor(typeof(TurnsTakenPerk), true)]
 public class TurnsTakenEditor : PerkEditor
 {
-
-	private bool m_showList = false;
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();

@@ -36,8 +36,6 @@ public class EyesPerk : Perk
 [CustomEditor(typeof(EyesPerk), true)]
 public class EyesEditor : PerkEditor
 {
-
-	private bool m_showList = false;
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();

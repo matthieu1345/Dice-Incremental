@@ -36,8 +36,6 @@ public class DiceRolledPerk : Perk
 [CustomEditor(typeof(DiceRolledPerk), true)]
 public class DiceRolledEditor : PerkEditor
 {
-
-	private bool m_showList = false;
 	public override void OnInspectorGUI()
 	{
 		base.OnInspectorGUI();
