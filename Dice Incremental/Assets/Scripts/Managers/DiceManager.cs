@@ -33,6 +33,9 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	[SerializeField]
 	private float m_basePowerCost = 10;
 
+	[SerializeField]
+	StatGroup DiceBoughtStat;
+
 	private List<Dice> m_allDice = new List<Dice>();
 
 	public List<Dice> GetDiceList() { return m_allDice; }
@@ -123,7 +126,7 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	{
 		if (LevelManager.GetInstance().Buy(GetNewDiceCost()))
 		{
-			StatsManager.GetInstance().BoughtDice();
+			DiceBoughtStat.AddPoints(1);
 			CreateDice();
 		}
 	}

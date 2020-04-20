@@ -97,19 +97,6 @@ public class StatsData
 	private int m_highestTurnBoughtDice;
 	public int HighestTurnBoughtDice { get => m_highestTurnBoughtDice; private set => m_highestTurnBoughtDice = value;}
 	public int c_currentTurnBoughtDice {get; private set;}
-	public void AddBoughtDice(int value)
-	{
-		TotalBoughtDice += value;
-	
-		c_currentPrestigeBoughtDice += value;
-		if (HighestPrestigeBoughtDice < c_currentPrestigeBoughtDice)
-			HighestPrestigeBoughtDice = c_currentPrestigeBoughtDice;
-
-		c_currentTurnBoughtDice += value;
-		if (HighestTurnBoughtDice < c_currentTurnBoughtDice)
-			HighestTurnBoughtDice = c_currentTurnBoughtDice;
-	}
-
 
 	private void ResetAll()
 	{
