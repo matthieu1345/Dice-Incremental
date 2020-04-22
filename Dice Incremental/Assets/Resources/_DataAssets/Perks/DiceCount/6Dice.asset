@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3aa06f4834206e34692ddff47b6fd8c1, type: 3}
-  m_Name: FirstGold
+  m_Name: 6Dice
   m_EditorClassIdentifier: 
-  m_guid: c1d902ae-3a27-43c3-b3fa-c03c0618101d
-  m_readableName: First gold
-  m_description: You have earned your first gold!
-  m_rewardType: 1
-  m_stat: {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc, type: 2}
-  m_rewardAmount: 50
-  m_statNumber: 50
-  m_comboReward: {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}
+  m_guid: 5caa1c56-dab7-43f6-a737-82742b858688
+  m_readableName: Sextuple
+  m_description: You rolled 6 dice at the same time!
+  m_rewardType: 3
+  m_stat: {fileID: 11400000, guid: 4c164050c1db99342a3af99dd4060369, type: 2}
+  m_rewardAmount: 1
+  m_statNumber: 6
+  m_comboReward: {fileID: 11400000, guid: 853b218a93610aa48b3321d3fdd70a84, type: 2}

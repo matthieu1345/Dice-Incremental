@@ -8,7 +8,7 @@ using UnityEditor;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/DefaultPerk", order = 99)]
+[CreateAssetMenu(fileName = "NewPerk", menuName = "Perk")]
 public class Perk : ScriptableObject
 {
 
@@ -189,9 +189,9 @@ public class Perk : ScriptableObject
 [CustomEditor(typeof(Perk))]
 public class PerkEditor : Editor
 {
-	bool GUIFoldout = false;
-	bool rewardFoldout = false;
-	bool typeFoldout = false;
+	static bool GUIFoldout = false;
+	static bool rewardFoldout = false;
+	static bool typeFoldout = false;
 
 
 	public override void OnInspectorGUI()
@@ -211,7 +211,7 @@ public class PerkEditor : Editor
 		EditorGUILayout.LabelField("Guid", perk.GetGuid());
 		if (GUILayout.Button("Generate New Guid"))
 		{
-			((ComboBase)target).GenerateNewGuid();
+			perk.GenerateNewGuid();
 		}
 
 		EditorGUILayout.Space();

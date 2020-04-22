@@ -150,7 +150,7 @@ public class DiceSequence : ComboBase
 public class SequenceEditor : ComboEditor
 {
 
-	private bool m_showList = false;
+	private static bool m_showList = false;
 	public override void OnInspectorGUI()
 	{
 		DiceSequence combo = target as DiceSequence;
@@ -161,6 +161,15 @@ public class SequenceEditor : ComboEditor
 		m_showList = EditorGUILayout.Foldout(m_showList, "Dice Values needed:");
 
 		if ( !m_showList || combo == null ) return;
+
+		if (GUILayout.Button("+"))
+		{
+			combo.GUIRequiredValues.Add(combo.GUIRequiredValues[combo.GUIRequiredValues.Count - 1]);
+		}
+		if (GUILayout.Button("-"))
+		{
+			combo.GUIRequiredValues.RemoveAt(combo.GUIRequiredValues.Count - 1);
+		}
 
 		for ( int i = 0; i < combo.GUIRequiredValues.Count; i++ )
 		{

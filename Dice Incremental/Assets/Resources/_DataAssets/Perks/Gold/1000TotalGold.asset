@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa06f4834206e34692ddff47b6fd8c1, type: 3}
+  m_Name: 1000TotalGold
+  m_EditorClassIdentifier: 
+  m_guid: d4915128-4737-490f-b0cd-e23895d02967
+  m_readableName: Quadruple digits!
+  m_description: 'You got <color="yellow">1000 gold</color> total!
+
+    Keep going
+    at it!'
+  m_rewardType: 1
+  m_stat: {fileID: 11400000, guid: ae632e746fe103d42bf40faf5bb8babc, type: 2}
+  m_rewardAmount: 100
+  m_statNumber: 1000
+  m_comboReward: {fileID: 0}
