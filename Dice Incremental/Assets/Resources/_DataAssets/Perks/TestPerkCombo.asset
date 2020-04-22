@@ -18,7 +18,7 @@ MonoBehaviour:
 
     Tests giving a combo with a perk'
   m_rewardType: 3
-  m_statType: 0
+  m_stat: {fileID: 11400000, guid: e5403e7532cce7b45b5836879c90fe3b, type: 2}
   m_rewardAmount: 0
-  m_statNumber: 0
+  m_statNumber: 9999999
   m_comboReward: {fileID: 11400000, guid: 41bb18a3a0fafd940b218c9113adea6b, type: 2}

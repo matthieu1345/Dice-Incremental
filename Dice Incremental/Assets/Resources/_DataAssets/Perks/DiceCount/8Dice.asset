@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa06f4834206e34692ddff47b6fd8c1, type: 3}
+  m_Name: 8Dice
+  m_EditorClassIdentifier: 
+  m_guid: 949fd9e6-4c47-4dcb-b442-348a8126d8d8
+  m_readableName: Octuple
+  m_description: You rolled 8 dice at the same time!
+  m_rewardType: 3
+  m_stat: {fileID: 11400000, guid: 4c164050c1db99342a3af99dd4060369, type: 2}
+  m_rewardAmount: 0
+  m_statNumber: 8
+  m_comboReward: {fileID: 11400000, guid: 847420b207adbb640bbc0666c9caf92f, type: 2}

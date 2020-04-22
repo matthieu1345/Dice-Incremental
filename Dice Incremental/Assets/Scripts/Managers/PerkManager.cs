@@ -33,11 +33,6 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 		}
 	}
 
-	private void Start()
-	{
-		GiveAllRewards();
-	}
-
 	void GiveAllRewards()
 	{
 		foreach (string perk in m_unlockedPerkStrings)
@@ -58,6 +53,23 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 		}
 	}
 
+	public void Reset(bool keepUnlocks)
+	{
+		if (keepUnlocks)
+			return;
+
+		m_unlockedPerkStrings.Clear();
+		UnlockAllDefaultUnlockedPerks();
+	}
+
+	private void UnlockAllDefaultUnlockedPerks()
+	{
+		foreach (Perk perk in GetInstance().m_defaultUnlockedPerks)
+		{
+			m_unlockedPerkStrings.Add(perk.GetGuid());
+		}
+	}
+
 #if UNITY_EDITOR
 	[MenuItem( "Tools/Perk tools/Get all Perk's")]
 	private static void GetAllCombos()
@@ -73,10 +85,7 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 			GetInstance().m_allPerkObjects.Add(perk);
 		}
 
-		foreach (Perk combo in GetInstance().m_defaultUnlockedPerks)
-		{
-			GetInstance().m_unlockedPerkStrings.Add(combo.GetGuid());
-		}
+		GetInstance().UnlockAllDefaultUnlockedPerks();
 
 	}
 #endif

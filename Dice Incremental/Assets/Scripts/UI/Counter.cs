@@ -14,9 +14,6 @@ public class Counter : MonoBehaviour
 	private int m_counter;
 	private int m_counterCurrent = 0;
 	private int m_counterStart = 0;
-	[SerializeField]
-	private float updateLenght = 1;
-	private float updateSpeed = 0.1f;
 	private float lastUpdate = 0;
 
 	public void FixedUpdate()

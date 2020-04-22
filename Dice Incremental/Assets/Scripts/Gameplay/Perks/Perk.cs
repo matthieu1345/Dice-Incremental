@@ -8,9 +8,16 @@ using UnityEditor;
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPerk", menuName = "Perks/DefaultPerk", order = 99)]
+[CreateAssetMenu(fileName = "NewPerk", menuName = "Perk")]
 public class Perk : ScriptableObject
 {
+
+	public void SetTestValues(Basestat testStat, int testGoal)
+	{
+		m_stat = testStat;
+		m_statNumber = testGoal;
+	}
+
 	[ReadOnly, SerializeField]
 	private string m_guid = Guid.NewGuid().ToString();
 
@@ -33,20 +40,12 @@ public class Perk : ScriptableObject
 		PRT_Power
 	}
 
-	public enum EPerkStatType
-	{
-		PST_NotSet,
-		PST_Total,
-		PST_SingleRoll,
-		PST_SinglePrestige
-	}
-
 	[SerializeField]
 	private EPerkRewardType m_rewardType;
 	public EPerkRewardType GetRewardType() {return m_rewardType;}
 
 	[SerializeField]
-	protected EPerkStatType m_statType;
+	private Basestat m_stat;
 
 	//money reward
 	[SerializeField]
@@ -66,7 +65,7 @@ public class Perk : ScriptableObject
 		switch ( m_rewardType )
 		{
 		case EPerkRewardType.PRT_Money:
-			LevelManager.GetInstance().AddMoney(m_rewardAmount);
+			LevelManager.GetInstance().AddPerkMoney(m_rewardAmount);
 			break;
 
 		case EPerkRewardType.PRT_Dice:
@@ -93,7 +92,10 @@ public class Perk : ScriptableObject
 		}
 	}
 
-	public virtual bool CheckPerk() { return false; }
+	public virtual bool CheckPerk() 
+	{ 
+		return m_stat.GetPoinst() >= m_statNumber; 
+	}
 
 #if UNITY_EDITOR
 	// ReSharper disable ConvertToAutoPropertyWhenPossible
@@ -132,14 +134,14 @@ public class Perk : ScriptableObject
 		}
 	}
 
-	public EPerkStatType GUIStatType
+	public Basestat GUIStat
 	{
-		get { return m_statType;}
+		get { return m_stat;}
 		set 
 		{
-			if (m_statType != value)	
+			if (m_stat != value)	
 				EditorUtility.SetDirty(this);
-			m_statType = value;
+			m_stat = value;
 		}
 	}
 
@@ -178,7 +180,7 @@ public class Perk : ScriptableObject
 	// ReSharper restore ConvertToAutoProperty
 	// ReSharper restore ConvertToAutoPropertyWhenPossible
 
-	public void GenerateNewGuid() { m_guid = Guid.NewGuid().ToString(); }
+	public void GenerateNewGuid() { m_guid = Guid.NewGuid().ToString(); EditorUtility.SetDirty(this); }
 #endif
 }
 
@@ -187,9 +189,9 @@ public class Perk : ScriptableObject
 [CustomEditor(typeof(Perk))]
 public class PerkEditor : Editor
 {
-	bool GUIFoldout = false;
-	bool rewardFoldout = false;
-	bool typeFoldout = false;
+	static bool GUIFoldout = false;
+	static bool rewardFoldout = false;
+	static bool typeFoldout = false;
 
 
 	public override void OnInspectorGUI()
@@ -200,7 +202,7 @@ public class PerkEditor : Editor
 		{
 			EditorGUILayout.LabelField("WARNING: something in the inspector went wrong!");
 			EditorGUILayout.Space();
-			EditorGUILayout.LabelField("WARNING: Reward type has not been set", "WARNING: Reward type has not been set");
+			EditorGUILayout.LabelField("WARNING: something in the inspector went wrong!");
 
 			return;
 		}
@@ -209,8 +211,12 @@ public class PerkEditor : Editor
 		EditorGUILayout.LabelField("Guid", perk.GetGuid());
 		if (GUILayout.Button("Generate New Guid"))
 		{
-			((ComboBase)target).GenerateNewGuid();
+			perk.GenerateNewGuid();
 		}
+
+		EditorGUILayout.Space();
+
+		DrawStat(perk);
 
 		EditorGUILayout.Space();
 
@@ -219,17 +225,6 @@ public class PerkEditor : Editor
 		EditorGUILayout.Space();
 
 		DrawRewardFoldout(perk);
-
-		EditorGUILayout.Space();
-
-		DrawTypeFoldout(perk);
-	}
-
-	public virtual void TypeOptions(Perk perk)
-	{
-		EditorGUILayout.LabelField("WARNING: This type of perk is invalid!", "WARNING: This type of perk is invalid!");
-		EditorGUILayout.Space();
-		EditorGUILayout.LabelField("WARNING: This type of perk is invalid!", "WARNING: This type of perk is invalid!");
 	}
 
 	void DrawGUIFoldout(Perk perk)
@@ -294,19 +289,24 @@ public class PerkEditor : Editor
 		EditorGUI.indentLevel--;
 	}
 
-	void DrawTypeFoldout(Perk perk)
+	void DrawStat(Perk perk)
 	{
-		typeFoldout = EditorGUILayout.Foldout(typeFoldout, "Type Options");
+		typeFoldout = EditorGUILayout.Foldout(typeFoldout, "Stat Options");
 
 		if (!typeFoldout)
 			return;
 		
 		EditorGUI.indentLevel++;
-		perk.GUIStatType = (Perk.EPerkStatType)EditorGUILayout.EnumPopup("Perk type:", perk.GUIStatType);
+		perk.GUIStat = (Basestat)EditorGUILayout.ObjectField("Stat type:", perk.GUIStat, typeof(Basestat), false);
 
 		EditorGUILayout.Space();
 
-		TypeOptions(perk);
+		string name = "";
+		if (perk.GUIStat)
+			name = perk.GUIStat.Name;
+
+		EditorGUILayout.LabelField("The player their " + name + " stat is above:");
+		perk.GUIStatNumber = EditorGUILayout.IntField(" ", perk.GUIStatNumber);
 
 		EditorGUI.indentLevel--;
 	}

@@ -22,6 +22,9 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 	[SerializeField]
 	private List<ComboBase> m_defaultUnlockedCombos = new List<ComboBase>();
 
+	[SerializeField]
+	private StatGroup ComboGroup;
+
 	public List<string> GetUnlockedCombos() { return m_unlockedComboStrings; }
 
 	public void LoadUnlockedCombos(List<string> combos) { m_unlockedComboStrings = combos; }
@@ -38,11 +41,13 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 
 	public void CheckCombos()
 	{
+		int comboCount = 0;
 		foreach (string combo in m_unlockedComboStrings)
 		{
-			m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
+			comboCount = m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
 		}
 
+		ComboGroup.AddPoints(comboCount);
 		PerkManager.GetInstance().CheckPerks();
 	}
 
@@ -50,6 +55,23 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 	{
 		if (!GetInstance().m_unlockedComboStrings.Contains(combo.GetGuid()))
 			GetInstance().m_unlockedComboStrings.Add(combo.GetGuid());
+	}
+
+	public void Reset(bool keepUnlocks)
+	{
+		if (keepUnlocks)
+			return;
+
+		m_unlockedComboStrings.Clear();
+		UnlockAllDefaultUnlockedCombos();
+	}
+
+	private void UnlockAllDefaultUnlockedCombos()
+	{
+		foreach (ComboBase combo in GetInstance().m_defaultUnlockedCombos)
+		{
+			m_unlockedComboStrings.Add(combo.GetGuid());
+		}
 	}
 
 #if UNITY_EDITOR
@@ -67,10 +89,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 			GetInstance().m_allComboObjects.Add(combo);
 		}
 
-		foreach (ComboBase combo in GetInstance().m_defaultUnlockedCombos)
-		{
-			GetInstance().m_unlockedComboStrings.Add(combo.GetGuid());
-		}
+		GetInstance().UnlockAllDefaultUnlockedCombos();
 
 	}
 #endif

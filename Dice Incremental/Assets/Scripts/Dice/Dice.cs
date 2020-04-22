@@ -18,6 +18,11 @@ public class Dice : MonoBehaviour
 	[ReadOnly, SerializeField]
 	private int m_index;
 
+	[SerializeField]
+	StatGroup RollsStats;
+	[SerializeField]
+	StatGroup EyesStats;
+
 	public int GetIndex() { return m_index; }
 	public void SetIndex( int value ) { m_index = value; }
 	public DiceStats GetStats() { return m_stats;}
@@ -117,7 +122,9 @@ public class Dice : MonoBehaviour
 	{
 		m_rollValue = Random.Range(1, m_stats.GetSides() + 1);
 		m_text.text = m_rollValue.ToString();
-		StatsManager.GetInstance().RolledDice(m_rollValue);
+
+		RollsStats.AddPoints(1);
+		EyesStats.AddPoints(m_rollValue);
 	}
 
 	public void TestRollValueSetter(int newRollValue)

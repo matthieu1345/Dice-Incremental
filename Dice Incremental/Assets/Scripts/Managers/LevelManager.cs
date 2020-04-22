@@ -10,6 +10,10 @@ using UnityEngine.Events;
 public class LevelManager : InstancedMonoBehaviour<LevelManager>
 {
 	[SerializeField]
+	private int m_startingMoney;
+	[SerializeField]
+	private int m_perkMoney;
+	[SerializeField]
 	private int m_money;
 	public int Money
 	{
@@ -34,6 +38,7 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	}
 
 	[SerializeField]
+	private int startingRolls;
 	private int m_rolls;
 	public int Rolls
 	{
@@ -72,6 +77,11 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	{
 	}
 
+	[Serializable]
+	public class ResetEvent : UnityEvent<bool>
+	{
+	}
+
 	[SerializeField]
 	public ValueChangedEvent m_moneyChanged = new ValueChangedEvent();
 	[SerializeField]
@@ -80,16 +90,28 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	public ValueChangedEvent m_rollsChanged = new ValueChangedEvent();
 	[SerializeField]
 	public ValueChangedEvent m_rollBonusPointsChanged = new ValueChangedEvent();
+	[SerializeField]
+	public ResetEvent m_resetCalled = new ResetEvent();
+	[SerializeField]
+	StatGroup GoldStats;
+	[SerializeField]
+	StatGroup XPStats;
 
 	public void AddMoney( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedMoney(rewardValue);
+		GoldStats.AddPoints(rewardValue);
 		Money += rewardValue;
+	}
+
+	public void AddPerkMoney(int rewardValue)
+	{
+		Money += rewardValue;
+		m_perkMoney += rewardValue;
 	}
 
 	public void AddXp( int rewardValue )
 	{
-		StatsManager.GetInstance().RecievedXp(rewardValue);
+		XPStats.AddPoints(rewardValue);
 		Xp += rewardValue;
 	}
 
@@ -116,7 +138,9 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 	{
 		Rolls--;
 		if (Rolls == 0)
-			Restart(); //possibly show a restart message first.
+		{
+			//Restart(true); //possibly show a restart message first.
+		}
 	}
 
 	private void CheckRollBonusPoints()
@@ -155,10 +179,34 @@ public class LevelManager : InstancedMonoBehaviour<LevelManager>
 		RollBonusPoints = data.m_rollBonusPoints;
 	}
 
-
-
-	private void Restart()
+	public void ResetMana(bool keepUnlocks)
 	{
-		//todo: implement restart stuffs!
+		Money = m_startingMoney;
+		if (keepUnlocks)
+			Money += m_perkMoney;
+
+		if (!keepUnlocks)
+			m_xp = 0;	//don't reset xp when you do a "regular" reset
+
+		Rolls = startingRolls;
+
+		RollBonusPoints = 0;
+
+	}
+
+	public void NewGamePlus()
+	{
+		Restart(true);
+	}
+
+	private void Restart(bool keepUnlocks)
+	{
+		m_resetCalled.Invoke(keepUnlocks);
+	}
+
+	protected override void Awake()
+	{
+		base.Awake();
+		Restart(false);
 	}
 }
