@@ -70,10 +70,11 @@ public class DiceManager : InstancedMonoBehaviour<DiceManager>
 	{
 		if (LevelManager.GetInstance().Rolls <= 0)
 			return; // we can't roll anymore if there's no rolls left!
-
+		
+		SOStatManager.GetInstance().ResetStats(StatTypeEnum.ST_Turn);
 		m_rollEvent.Invoke();
 		ComboManager.GetInstance().CheckCombos();
-		SOStatManager.GetInstance().ResetStats(StatTypeEnum.ST_Turn);
+
 	}
 
 	public void AddPerkDice()
