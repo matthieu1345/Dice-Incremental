@@ -29,7 +29,7 @@ public class StatsTests
 		int testStatValue = 100;
 		int testGoalValue = 50;
 
-		StatInstance testStat = ScriptableObject.CreateInstance<StatInstance>();
+		Basestat testStat = ScriptableObject.CreateInstance<Basestat>();
 		testStat.AddPoints(testStatValue);
 		Perk testPerk = ScriptableObject.CreateInstance<Perk>();
 		testPerk.SetTestValues(testStat, testGoalValue);
@@ -43,7 +43,7 @@ public class StatsTests
 		int testStatValue = 50;
 		int testGoalValue = 50;
 
-		StatInstance testStat = ScriptableObject.CreateInstance<StatInstance>();
+		Basestat testStat = ScriptableObject.CreateInstance<Basestat>();
 		testStat.AddPoints(testStatValue);
 		Perk testPerk = ScriptableObject.CreateInstance<Perk>();
 		testPerk.SetTestValues(testStat, testGoalValue);
@@ -57,7 +57,7 @@ public class StatsTests
 		int testStatValue = 50;
 		int testGoalValue = 100;
 
-		StatInstance testStat = ScriptableObject.CreateInstance<StatInstance>();
+		Basestat testStat = ScriptableObject.CreateInstance<Basestat>();
 		testStat.AddPoints(testStatValue);
 		Perk testPerk = ScriptableObject.CreateInstance<Perk>();
 		testPerk.SetTestValues(testStat, testGoalValue);
