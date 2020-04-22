@@ -39,6 +39,10 @@ public class Basestat : ScriptableObject
 	public string Description { get => m_description; protected set => m_description = value; }
 
 	[SerializeField]
+	private Sprite m_UIIcon;
+	public Sprite UIIcon { get => m_UIIcon; protected set => m_UIIcon = value; }
+
+	[SerializeField]
 	protected StatType m_type = new StatType();
 	public StatTypeEnum Type { get => m_type.Type; protected set => m_type.Type = value; }
 
@@ -91,10 +95,43 @@ public class Basestat : ScriptableObject
 
 
 #if UNITY_EDITOR
-	public string GUIReadableName { get => m_name; set => m_name = value; }
-	public string GUIReadableDescription {get => m_description; set => m_description = value;}
-	public StatTypeEnum GUIReadableType { get => m_type.Type; set => m_type.Type = value; }
+	public string GUIReadableName 
+		{ 
+		get => m_name; 
+		set 
+			{ 
+				if (m_name != value) EditorUtility.SetDirty(this);
+				m_name = value;
+			}
+		}
+	public string GUIReadableDescription 
+	{
+		get => m_description; 
+		set 
+		{
+			if (m_description != value) EditorUtility.SetDirty(this);
+			m_description = value; 
+		}
+	}
+	public StatTypeEnum GUIReadableType 
+	{ 
+		get => m_type.Type;
+		set 
+		{ 
+			if (m_type.Type != value) EditorUtility.SetDirty(this);
+			m_type.Type = value;
+		}
+	}
 	public StatInstance GUIReadableInstance { get => m_instance;}
+	public Sprite GUIUIIcon 
+	{
+		get => m_UIIcon;
+		set 
+		{ 
+			if (m_UIIcon != value) EditorUtility.SetDirty(this);
+			m_UIIcon = value; 
+		}
+	}
 #endif
 }
 
@@ -109,6 +146,7 @@ public class BasestatEditor : Editor
 		stat.GUIReadableName = EditorGUILayout.TextField("Name: ", stat.GUIReadableName);
 		stat.GUIReadableDescription = EditorGUILayout.TextField("Description: ", stat.GUIReadableDescription);
 		stat.GUIReadableType = (StatTypeEnum)EditorGUILayout.EnumPopup("Type:", stat.GUIReadableType);
+		stat.GUIUIIcon = (Sprite)EditorGUILayout.ObjectField(stat.GUIUIIcon, typeof(Sprite), true);
 
 		if (stat.GUIReadableInstance)
 		{

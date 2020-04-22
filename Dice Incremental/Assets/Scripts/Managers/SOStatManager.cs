@@ -33,6 +33,11 @@ public class SOStatManager : InstancedMonoBehaviour<SOStatManager>
 		}
 	}
 
+	public List<Basestat> GetAllStatObjects()
+	{
+		return m_allStatObjects;
+	}
+
 	//has to be added because unity buttons don't take functions with enum parameters
 	public void NewGamePlus()
 	{

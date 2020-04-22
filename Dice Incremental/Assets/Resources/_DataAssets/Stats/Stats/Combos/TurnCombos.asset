@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TurnCombos
   m_EditorClassIdentifier: 
   m_name: Turn Combos
-  m_description: 
+  m_description: <color="red">Placeholder Description</color>
+  m_UIIcon: {fileID: 21300000, guid: 1de266f17af79044c9ae73d2e9a4652d, type: 3}
   m_type:
     m_type: 2

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9f25952630807f4fb8fcb7ffa5d6367, type: 3}
   m_Name: TestStat
   m_EditorClassIdentifier: 
-  m_name: 
-  m_description: 
+  m_name: <color="red">Test Stat</color>
+  m_description: <color="red">Placeholder Description</color>
+  m_UIIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   m_type:
     m_type: 0

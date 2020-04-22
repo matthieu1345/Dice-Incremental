@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PrestigeGold
   m_EditorClassIdentifier: 
   m_name: Prestige gold
-  m_description: The gold you have gotten this prestige
+  m_description: The gold you have gotten this prestige.
+  m_UIIcon: {fileID: 21300000, guid: 83ce3657a6a16e5409953cb0b1be96d6, type: 3}
   m_type:
     m_type: 1

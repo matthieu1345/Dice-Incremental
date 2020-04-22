@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TurnXP
   m_EditorClassIdentifier: 
   m_name: Turn XP
-  m_description: 
+  m_description: <color="red">Placeholder Description</color>
+  m_UIIcon: {fileID: 21300054, guid: 3432f3ee4654cd84abc54466684ce3ab, type: 3}
   m_type:
     m_type: 2
