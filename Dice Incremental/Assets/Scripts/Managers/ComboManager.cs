@@ -44,7 +44,7 @@ public class ComboManager : InstancedMonoBehaviour<ComboManager>
 		int comboCount = 0;
 		foreach (string combo in m_unlockedComboStrings)
 		{
-			comboCount = m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
+			comboCount += m_allCombos[combo].CheckCombo(DiceManager.GetInstance().GetDiceList());
 		}
 
 		ComboGroup.AddPoints(comboCount);
