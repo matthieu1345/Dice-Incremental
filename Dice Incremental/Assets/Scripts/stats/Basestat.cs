@@ -39,8 +39,12 @@ public class Basestat : ScriptableObject
 	public string Description { get => m_description; protected set => m_description = value; }
 
 	[SerializeField]
-	private Sprite m_UIIcon;
-	public Sprite UIIcon { get => m_UIIcon; protected set => m_UIIcon = value; }
+	private Color m_UIChipColor = Color.white;
+	public Color UIChipColor { get => m_UIChipColor; protected set => m_UIChipColor = value; }
+
+	[SerializeField]
+	private Color m_UITextColor = Color.black;
+	public Color UITextColor {get => m_UITextColor; protected set => m_UITextColor = value;}
 
 	[SerializeField]
 	protected StatType m_type = new StatType();
@@ -123,13 +127,22 @@ public class Basestat : ScriptableObject
 		}
 	}
 	public StatInstance GUIReadableInstance { get => m_instance;}
-	public Sprite GUIUIIcon 
+	public Color GUIUIChipColor 
 	{
-		get => m_UIIcon;
+		get => m_UIChipColor;
 		set 
 		{ 
-			if (m_UIIcon != value) EditorUtility.SetDirty(this);
-			m_UIIcon = value; 
+			if (m_UIChipColor != value) EditorUtility.SetDirty(this);
+			m_UIChipColor = value; 
+		}
+	}
+	public Color GUIUITextColor 
+	{
+		get => m_UITextColor;
+		set 
+		{ 
+			if (m_UITextColor != value) EditorUtility.SetDirty(this);
+			m_UITextColor = value; 
 		}
 	}
 #endif
@@ -146,7 +159,8 @@ public class BasestatEditor : Editor
 		stat.GUIReadableName = EditorGUILayout.TextField("Name: ", stat.GUIReadableName);
 		stat.GUIReadableDescription = EditorGUILayout.TextField("Description: ", stat.GUIReadableDescription);
 		stat.GUIReadableType = (StatTypeEnum)EditorGUILayout.EnumPopup("Type:", stat.GUIReadableType);
-		stat.GUIUIIcon = (Sprite)EditorGUILayout.ObjectField(stat.GUIUIIcon, typeof(Sprite), true);
+		stat.GUIUIChipColor = EditorGUILayout.ColorField("Chip Color:", stat.GUIUIChipColor);
+		stat.GUIUITextColor = EditorGUILayout.ColorField("Text Color:", stat.GUIUITextColor);
 
 		if (stat.GUIReadableInstance)
 		{

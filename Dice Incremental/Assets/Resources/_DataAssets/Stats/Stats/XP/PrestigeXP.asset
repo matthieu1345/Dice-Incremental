@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Prestige XP
   m_description: <color="red">Placeholder Description</color>
-  m_UIIcon: {fileID: 21300054, guid: 3432f3ee4654cd84abc54466684ce3ab, type: 3}
+  m_UIChipColor: {r: 0.81568635, g: 0.27450982, b: 0.25882354, a: 1}
+  m_UITextColor: {r: 0, g: 0, b: 0, a: 1}
   m_type:
     m_type: 1
