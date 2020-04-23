@@ -27,12 +27,12 @@ public class StatUIObject : MonoBehaviour
 	{
 		backgroundOutline.color = stat.UIChipColor;
 		statTitle.text = stat.Name;
-		statTitle.color = stat.UITextColor;
+		statTitle.color = Color.black;//stat.UITextColor;
 		string reverseDescription = Reverse(stat.Description);
 		statDescription.text = reverseDescription;
-		statDescription.color = stat.UITextColor;
+		statDescription.color = Color.black;//stat.UITextColor;
 		statMax.text = "High: " + stat.GetValues().m_maxValue.ToString();
-		statCurrent.text = "Current: " + stat.GetValues().m_currentValue.ToString();
+		statCurrent.text = stat.GetValues().m_currentValue.ToString();
 	}
 
 	public string Reverse(string text)
