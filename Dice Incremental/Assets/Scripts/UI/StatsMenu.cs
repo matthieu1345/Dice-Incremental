@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class StatsMenu : MonoBehaviour
@@ -22,10 +21,8 @@ public class StatsMenu : MonoBehaviour
 
 		m_statObjects = new List<GameObject>();
 
-
 		//get the stat manager
 		SOStatManager c_statManagerInstance = SOStatManager.GetInstance();
-
 
 		//generate a game object for the different combo's
 		foreach(Basestat stat in c_statManagerInstance.GetAllStatObjects())

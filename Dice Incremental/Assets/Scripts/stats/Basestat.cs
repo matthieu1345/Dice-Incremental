@@ -43,10 +43,6 @@ public class Basestat : ScriptableObject
 	public Color UIChipColor { get => m_UIChipColor; protected set => m_UIChipColor = value; }
 
 	[SerializeField]
-	private Color m_UITextColor = Color.black;
-	public Color UITextColor {get => m_UITextColor; protected set => m_UITextColor = value;}
-
-	[SerializeField]
 	protected StatType m_type = new StatType();
 	public StatTypeEnum Type { get => m_type.Type; protected set => m_type.Type = value; }
 
@@ -97,7 +93,6 @@ public class Basestat : ScriptableObject
 			Instance.ResetHighscore();
 	}
 
-
 #if UNITY_EDITOR
 	public string GUIReadableName 
 		{ 
@@ -136,15 +131,6 @@ public class Basestat : ScriptableObject
 			m_UIChipColor = value; 
 		}
 	}
-	public Color GUIUITextColor 
-	{
-		get => m_UITextColor;
-		set 
-		{ 
-			if (m_UITextColor != value) EditorUtility.SetDirty(this);
-			m_UITextColor = value; 
-		}
-	}
 #endif
 }
 
@@ -160,7 +146,6 @@ public class BasestatEditor : Editor
 		stat.GUIReadableDescription = EditorGUILayout.TextField("Description: ", stat.GUIReadableDescription);
 		stat.GUIReadableType = (StatTypeEnum)EditorGUILayout.EnumPopup("Type:", stat.GUIReadableType);
 		stat.GUIUIChipColor = EditorGUILayout.ColorField("Chip Color:", stat.GUIUIChipColor);
-		stat.GUIUITextColor = EditorGUILayout.ColorField("Text Color:", stat.GUIUITextColor);
 
 		if (stat.GUIReadableInstance)
 		{

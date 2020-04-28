@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -16,23 +14,15 @@ public class StatUIObject : MonoBehaviour
 	TextMeshProUGUI statDescription;
 
 	[SerializeField]
-	TextMeshProUGUI statMax;
-
-	[SerializeField]
-	TextMeshProUGUI statCurrent;
-
-
+	TextMeshProUGUI statNumber;
 
 	public void ConnectStat(Basestat stat)
 	{
 		backgroundOutline.color = stat.UIChipColor;
 		statTitle.text = stat.Name;
-		statTitle.color = Color.black;//stat.UITextColor;
 		string reverseDescription = Reverse(stat.Description);
 		statDescription.text = reverseDescription;
-		statDescription.color = Color.black;//stat.UITextColor;
-		statMax.text = "High: " + stat.GetValues().m_maxValue.ToString();
-		statCurrent.text = stat.GetValues().m_currentValue.ToString();
+		statNumber.text = stat.GetValues().m_currentValue.ToString();
 	}
 
 	public string Reverse(string text)
