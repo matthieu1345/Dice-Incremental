@@ -203,7 +203,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1415518995}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.3611111
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4161,6 +4161,11 @@ PrefabInstance:
       propertyPath: m_uiFolder
       value: 
       objectReference: {fileID: 1819375760}
+    - target: {fileID: 114174764942973058, guid: 1400e172dfbcb604f9da857389c751a5,
+        type: 3}
+      propertyPath: m_rollEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 912713707}
     - target: {fileID: 114460716814161578, guid: 1400e172dfbcb604f9da857389c751a5,
         type: 3}
       propertyPath: m_selectNextDiceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
