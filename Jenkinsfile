@@ -52,7 +52,7 @@ def sendDiscord(){
         changeString = "\n\n - No new changes"
     }
 	
-	discordSend description: '**Build:** ${env.BUILD_NUMBER}\\n**Status:** ${currentBuild.currentResult}\\n\\n**Changes:**${changeString}\\n\\n**Artifacts:**\\n- ${env.BUILD_URL}artifact/',
+	discordSend description: "**Build:** ${env.BUILD_NUMBER}\n**Status:** ${currentBuild.currentResult}\n\n**Changes:**${changeString}\n\n**Artifacts:**\n- ${env.BUILD_URL}artifact/",
 	footer: '',
 	image: '',
 	link: env.BUILD_URL,
