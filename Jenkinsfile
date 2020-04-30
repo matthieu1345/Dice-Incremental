@@ -15,6 +15,7 @@ pipeline {
 		}
 		stage('build'){
 			steps{
+				echo 'test'
 				//bat label: '', script: '"C:\\Program Files\\Unity\\Hub\\Editor\\2019.3.3f1\\Editor\\unity.exe" -projectPath "%WORKSPACE%\\Dice Incremental\\" -quit -nographics -batchmode -executeMethod BuildScript.PerformAndroidBuild'
 			}
 		}
