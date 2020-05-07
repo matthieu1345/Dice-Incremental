@@ -76,6 +76,8 @@ public class PerkUIObject : MonoBehaviour
 	string InsertReward(string input, string rewardString)
 	{
 		int position = input.IndexOf("[#]");
+		if (position < 0)
+			return input;
 		string output = input.Substring(0, position);
 		output += rewardString;
 		output += input.Substring(position + 3, input.Length - position - 3);

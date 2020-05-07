@@ -98,7 +98,13 @@ public class ComboBase : ScriptableObject
 
 	[SerializeField]
 	string m_readableName = "";
-	public string GetReadableName() {return m_readableName;}
+	public string GetReadableName() 
+	{
+		if (m_readableName != "")
+			return m_readableName;
+		
+		return "<color=red>" + name + "</color>";
+	}
 	[SerializeField]
 	string m_description = "";
 	public string GetDescription() {return m_description;}

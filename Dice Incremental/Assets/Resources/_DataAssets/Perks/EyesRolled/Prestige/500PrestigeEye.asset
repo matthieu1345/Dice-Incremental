@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa06f4834206e34692ddff47b6fd8c1, type: 3}
+  m_Name: 500PrestigeEye
+  m_EditorClassIdentifier: 
+  m_guid: 5829dc93-0967-4158-9cba-2fe5b4c81164
+  m_readableName: 
+  m_description: 
+  m_rewardType: 4
+  m_stat: {fileID: 11400000, guid: e8bf0543a938b0b40a61cdbe550b3980, type: 2}
+  m_rewardAmount: 1
+  m_statNumber: 500
+  m_comboReward: {fileID: 0}

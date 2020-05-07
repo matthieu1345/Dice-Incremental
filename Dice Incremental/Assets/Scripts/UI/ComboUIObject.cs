@@ -68,7 +68,8 @@ public class ComboUIObject : MonoBehaviour
 		else
 			m_RBP.SetActive(false);
 
-		c_rewardNumber = c_rewardNumber.Substring(0, c_rewardNumber.Length-2);
+		if (c_rewardNumber != "")
+			c_rewardNumber = c_rewardNumber.Substring(0, c_rewardNumber.Length-2);
 
 		m_comboRewardNumber.text = c_rewardNumber;
 

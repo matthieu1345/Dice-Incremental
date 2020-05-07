@@ -31,6 +31,8 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 			if (!GetInstance().m_allPerks.ContainsKey(perk.GetGuid()))
 				GetInstance().m_allPerks.Add(perk.GetGuid(), perk);
 		}
+
+		UnlockAllDefaultUnlockedPerks();
 	}
 
 	void GiveAllRewards()
@@ -66,7 +68,11 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 	{
 		foreach (Perk perk in GetInstance().m_defaultUnlockedPerks)
 		{
-			m_unlockedPerkStrings.Add(perk.GetGuid());
+			if (!m_unlockedPerkStrings.Contains(perk.GetGuid()))
+			{
+				perk.GiveReward();
+				m_unlockedPerkStrings.Add(perk.GetGuid());
+			}
 		}
 	}
 
@@ -85,7 +91,6 @@ public class PerkManager : InstancedMonoBehaviour<PerkManager>
 			GetInstance().m_allPerkObjects.Add(perk);
 		}
 
-		GetInstance().UnlockAllDefaultUnlockedPerks();
 
 	}
 #endif

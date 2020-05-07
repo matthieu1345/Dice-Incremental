@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aa06f4834206e34692ddff47b6fd8c1, type: 3}
+  m_Name: 10000000TurnEye
+  m_EditorClassIdentifier: 
+  m_guid: f582654a-7379-4f38-b64e-666b21354c19
+  m_readableName: 
+  m_description: 
+  m_rewardType: 2
+  m_stat: {fileID: 11400000, guid: 8ecee1986a49d4540a2786c05463994f, type: 2}
+  m_rewardAmount: 1
+  m_statNumber: 10000000
+  m_comboReward: {fileID: 0}

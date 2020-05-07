@@ -25,7 +25,13 @@ public class Perk : ScriptableObject
 
 	[SerializeField]
 	private string m_readableName = "";
-	public string GetReadableName() {return m_readableName;}
+	public string GetReadableName() 
+	{
+		if (m_readableName != "")
+			return m_readableName;
+		
+		return "<color=red>" + name + "</color>";
+	}
 
 	[SerializeField]
 	private string m_description = "";
