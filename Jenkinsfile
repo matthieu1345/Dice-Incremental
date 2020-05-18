@@ -6,6 +6,9 @@ pipeline {
 	agent {
 		label 'Unity2019212f1'
 	}
+	environment {
+		WEBHOOK = credentials('DiceIncremental-Branches')
+	}
 	
 	stages{
 		stage('scm'){
@@ -58,5 +61,5 @@ def sendDiscord(){
 	result: currentBuild.currentResult,
 	thumbnail: '',
 	title: env.BRANCH_NAME,
-	webhookURL: 'https://discordapp.com/api/webhooks/705170565580849192/hrD4Jh-XfK9nPQPrBDuOQil6PvdI7667AolwdN9vNYxQCOiWn7TWDFf7y1Ug1vv0L67q'
+	webhookURL: env.WEBHOOK
 }
